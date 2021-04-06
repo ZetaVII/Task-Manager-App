@@ -8,8 +8,10 @@
 * Kassandra Dominguez: kdominguez49
 
 # Use Case Description
-**Product Name: ** Task Manager
+**Product Name:** Task Manager
+
 **Problem Statement:**
+
 **Date:** April 7, 2021
 
 ## **Use Case 1 Name:** Register new user
