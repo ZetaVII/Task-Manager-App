@@ -460,7 +460,7 @@ User clicks “view incomplete tasks” button
 *User=has registered username and password
 *Task= item user entered on to do list
 
-## **Use Case 12 Name: Set Priority of Tasks ** 
+## Use Case 12 Name: Set Priority of Tasks 
 
 ### Summary
 Users are able to assign the priority level, such as high (needs to be done ASAP), to a certain task and put them at the top of the lists.
