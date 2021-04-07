@@ -365,3 +365,92 @@ User clicks the "Enter" button after not typing in any time duration.
 
 ### Glossary
 * user = a person with an existing account and at least one task, who wants to add a time duration to a task.
+
+
+## **Use Case 9 Name:** Mark task complete 
+## Summary
+User who is logged in can mark a task complete and will be moved to the bottom of the list
+## Actors
+1.	User
+## Preconditions
+* precond 1: User is signed in
+* precond 2: User has incomplete tasks
+## Triggers
+User clicks “mark task complete” button
+## Primary Sequence
+1.	User clicks on task they wish to complete
+2.	User clicks “mark task complete” button
+3.	Check if task is incomplete
+4.	App shows “task completed”
+## Primary Postconditions
+* Task is marked complete
+* Task moves to the bottom of the list
+## Alternate Sequences
+1.	User clicks on task they wish to complete
+2.	User clicks “mark task complete” button
+3.	Check if task is incomplete
+4.	If already completed app shows error “task already completed”
+##Alternate Postconditions
+ App shows “task already completed”
+## Non-functional Requirements
+ App must respond in 1 second
+## Glossary
+User-has registered username and password
+Task- item user entered on to do list
+
+## **Use Case 10 Name:** View completed tasks
+## Summary
+User who is logged in can view all complete tasks
+## Actors
+1.	User
+## Preconditions
+* precond 1: User is signed in
+* precond 2: User has completed tasks
+## Triggers
+User clicks “view completed tasks” button
+## Primary Sequence
+1.User clicks “view completed tasks” button
+2.Check if task is incomplete
+2.	App shows “completed tasks”
+## Primary Postconditions
+* Completed tasks are shown
+## Alternate Sequences
+1.	User clicks “view completed tasks” button
+2.	If no completed tasks, then app shows error “no completed tasks”
+## Alternate Postconditions
+ App shows “no completed tasks”
+## Non-functional Requirements
+ App must respond in 1 second
+## Glossary
+User-has registered username and password
+Task- item user entered on to do list
+
+
+## **Use Case 11 Name:** View incomplete tasks
+
+## Summary
+User who is logged in can view all incomplete tasks
+## Actors
+1.	User
+## Preconditions
+* precond 1: User is signed in
+* precond 2: User has incomplete tasks
+## Triggers
+User clicks “view incomplete tasks” button
+## Primary Sequence
+1.User clicks “view incomplete tasks” button
+2.Check if user has incomplete tasks
+3.	App shows list of incomplete tasks
+## Primary Postconditions
+* Incomplete tasks are shown
+## Alternate Sequences
+2.	User clicks “view incomplete tasks” button
+3.	If no incomplete tasks, then app shows “Congratulations all tasks completed”
+## Alternate Postconditions
+ App shows “Congratulations all tasks completed”
+## Non-functional Requirements
+ App must respond in 1 second
+## Glossary
+User-has registered username and password
+Task- item user entered on to do list
+
