@@ -58,6 +58,7 @@ User clicks the "Sign up" button while username and/or password field is incompl
 ### Non-functional Requirements
  * System prompt messages are presented with a font size between 20 and 24. 
  * All system message prompts have a response time within 1 second after its trigger.
+ * The "Sign up" button is represented by a colorful and clearly visible box.
 
 ### Glossary
 * new user = a person trying to make an account to be able to use the task manager app.
@@ -102,6 +103,7 @@ User clicks the "Log in" button after giving mismatching username and password.
 ### Non-functional Requirements
  * System prompt messages are presented with a font size between 20 and 24. 
  * All system message prompts have a response time within 1 second after its trigger.
+ * The "Log in" button is represented by a colorful and clearly visible box.
 
 ### Glossary
 * user = a person with an existing account who is trying to log in.
@@ -146,6 +148,7 @@ User clicks the "Create" button before specifying a title.
 ### Non-functional Requirements
  * System prompt messages are presented with a font size between 20 and 24. 
  * All system message prompts have a response time within 1 second after its trigger.
+ * The "Create" button is represented by a colorful and clearly visible box.
 
 ### Glossary
 * user = a person with an existing account trying to create a new task.
@@ -193,6 +196,7 @@ User clicks the "Save changes" button after deleting the contents of the title f
 ### Non-functional Requirements
  * System prompt messages are presented with a font size between 20 and 24. 
  * All system message prompts have a response time within 1 second after its trigger.
+ * The "Save changes" button is represented by a colorful and clearly visible box.
 
 ### Glossary
 * user = a person with an existing account and at least one task who wants to edit a task.
@@ -237,6 +241,7 @@ User clicks the "Save changes" button after not selecting any task to be deleted
 ### Non-functional Requirements
  *  System prompt messages are presented with a font size between 20 and 24.
  *  All system message prompts have a response time within 1 second after its trigger.
+ *  The "Save changes" button is represented by a colorful and clearly visible box.
 
 ### Glossary
 * user = a person with an existing account and at least one task, who wants to delete a task.
@@ -266,6 +271,7 @@ User selects the "Log out" button.
 ### Non-functional Requirements
  *  System prompt messages are presented with a font size between 20 and 24.
  *  All system message prompts have a response time within 1 second after its trigger.
+ *  The "Log out" button is represented by a colorful and clearly visible box.
 
 ### Glossary
 * user = a person with an existing account who is already logged into the app, that is trying to log out.
@@ -312,6 +318,7 @@ User clicks the "Save changes" button after not typing in any deadline date.
 ### Non-functional Requirements
  *  System prompt messages are presented with a font size between 20 and 24.
  *  All system message prompts have a response time within 1 second after its trigger.
+ *  The "Save changes" button is represented by a colorful and clearly visible box.
 
 ### Glossary
 * user = a person with an existing account and at least one task, who wants to add a deadline date to a task.
@@ -354,6 +361,7 @@ User clicks the "Enter" button after not typing in any time duration.
 ### Non-functional Requirements
  *  System prompt messages are presented with a font size between 20 and 24.
  *  All system message prompts have a response time within 1 second after its trigger.
+ *  The "Enter" button is represented by a colorful and clearly visible box.
 
 ### Glossary
 * user = a person with an existing account and at least one task, who wants to add a time duration to a task.
