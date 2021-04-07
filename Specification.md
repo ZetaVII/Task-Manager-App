@@ -10,7 +10,7 @@
 # Use Case Description
 **Product Name:** Task Manager
 
-**Problem Statement:**
+**Problem Statement:** To try and organize the tasks in a day that people have in a convenient and accessible way for users. 
 
 **Date:** April 7, 2021
 
