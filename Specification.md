@@ -4,7 +4,7 @@
 # Team Members
 * Stephanie Chau: schau-sjsu
 * Kevin La: ZetaVII
-* Howell Deguzman: eth4nd
+* Ethan DeGuzman: eth4nd
 * Kassandra Dominguez: kdominguez49
 
 # Use Case Description
@@ -192,3 +192,160 @@ User clicks the "Save changes" button after deleting the contents of the title f
 
 ### Glossary
 * user = a person with an existing account and at least one task who wants to edit a task.
+
+## **Use Case 5 Name:** Delete a task
+
+### Summary
+A person with an existing account can delete any tasks that they had previously created.
+
+### Actors
+1. The user
+
+### Preconditions
+* The user must be previously registered.
+* The user must have at least one existing task. 
+
+### Triggers
+User selects the "Delete task" button.
+
+### Primary Sequence
+1. System prompts the user to select one task from the list.
+2. The user selects an existing task from the displayed list.
+3. User clicks on the "Save changes" button.
+5. System redirects the user to the overview page.
+
+### Primary Postconditions
+* The user should be back at the overview page.
+* Updates to the task list are reflected on the overview page.
+
+### Alternate Sequences
+1. The user does not select a task to delete.
+	1. The user clicks on the "Save changes" button.
+	2. System prompts the user to select a task to delete.
+
+### Alternate Trigger
+User clicks the "Save changes" button after not selecting any task to be deleted.
+
+### Alternate Postconditions
+ * The user remains on the Delete task page.
+ * Updates to the task list are not saved.
+
+### Non-functional Requirements
+ *  
+
+### Glossary
+* user = a person with an existing account and at least one task, who wants to delete a task.
+
+## **Use Case 6 Name:** Sign out
+
+### Summary
+A person with an existing account can sign out of the app.
+
+### Actors
+1. The user
+
+### Preconditions
+* The user must be previously registered.
+* The user must be already logged into the app. 
+
+### Triggers
+User selects the "Log out" button.
+
+### Primary Sequence
+1. User clicks the "Log out" button.
+2. System redirects the user to the Login page. 
+
+### Primary Postconditions
+* The user should be back at the Login page.
+
+### Non-functional Requirements
+ *  
+
+### Glossary
+* user = a person with an existing account who is already logged into the app, that is trying to log out.
+
+## **Use Case 7 Name:** Add deadline for a task 
+
+### Summary
+A person with an existing account can add a deadline to complete a task.
+
+### Actors
+1. The user
+
+### Preconditions
+* The user must be previously registered.
+* The user must have at least one existing task. 
+
+### Triggers
+User selects the "Add a deadline" button.
+
+### Primary Sequence
+1. System prompts the user to select one task from the list.
+2. The user selects an existing task from the displayed list.
+3. System prompts user to type in a deadline date for the task.
+4. The user types in the date into the prompt.
+5. User clicks on the "Save changes" button.
+6. System redirects the user to the overview page.
+
+### Primary Postconditions
+* The user should be back at the overview page.
+* Task list is now reordered by most recent deadline date in overview page.
+
+### Alternate Sequences
+1. The user does not type in a deadline date into the prompt.
+	1. The user clicks on the "Save changes" button.
+	2. System prompts the user to enter a date.
+
+### Alternate Trigger
+User clicks the "Save changes" button after not typing in any deadline date.
+
+### Alternate Postconditions
+ * The user remains on the Add deadline to task page.
+ * Updates to the task list are not saved.
+
+### Non-functional Requirements
+ *  
+
+### Glossary
+* user = a person with an existing account and at least one task, who wants to add a deadline date to a task.
+
+## **Use Case 8 Name:** Add time duration for a task 
+
+### Summary
+A person with an existing account can add a time duration to complete a task.
+
+### Actors
+1. The user
+
+### Preconditions
+* The user must be previously registered.
+* The user must have at least one existing task. 
+
+### Triggers
+User selects a task from the task list, that they will currently work on.
+
+### Primary Sequence
+1. System prompts the user to add a time limit for this task.
+2. The user types in a specific time into the prompt.
+3. User clicks on the "Enter" button.
+
+### Primary Postconditions
+* Chosen task is now updated with a corresponding estimated time of completion.
+
+### Alternate Sequences
+1. The user does not type in a specific time into the prompt.
+	1. The user clicks on the "Enter" button.
+	2. System prompts the user to enter a time duration.
+
+### Alternate Trigger
+User clicks the "Enter" button after not typing in any time duration.
+
+### Alternate Postconditions
+ * The user is still prompted to add a time duration for the chosen task.
+ * Updates to the task list are not saved.
+
+### Non-functional Requirements
+ *  
+
+### Glossary
+* user = a person with an existing account and at least one task, who wants to add a time duration to a task.
