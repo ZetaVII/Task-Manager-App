@@ -460,3 +460,38 @@ User clicks “view incomplete tasks” button
 *User=has registered username and password
 *Task= item user entered on to do list
 
+## **Use Case 12 Name: Set Priority of Tasks ** 
+
+### Summary
+Users are able to assign the priority level, such as high (needs to be done ASAP), to a certain task and put them at the top of the lists.
+
+### Actors
+1. The user
+
+### Preconditions
+* The user must be previously registered.
+* A task must be in progress of creation, or created beforehand.
+
+### Triggers
+User selects the “Set Priority” option.
+
+### Primary Sequence
+1. System prompts user list of tasks.
+3. The user creates a new task, or selects an existing one.
+4. The user clicks on the “Set Priority” button.
+5. System prompts user levels of priority.
+6. The user selects a level.
+
+### Primary Postconditions
+* The specified task should be in the proper position (High at the top-most, Med being between High and Low, and Low being at the bottom-most).
+
+### Alternate Sequences
+1. The user does not set a priority level.
+	1. System assigns the task as low-priority as default.
+
+### Non-functional Requirements
+ * System prompt messages are presented with a font size between 20 and 24. 
+ * All system message prompts have a response time within 1 second after its trigger.
+
+### Glossary
+* user = a person with an existing account who is trying to log in.
