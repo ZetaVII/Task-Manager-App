@@ -614,5 +614,7 @@ User selects the “SHARE TASK” option.
 
 ### Glossary
 * user = a person with an existing account who is trying to log in.
+
+# Use Case Diagram
 ![image](https://user-images.githubusercontent.com/78886694/113962944-8cc1a680-97dd-11eb-97f2-0ba954505ce2.png)
 
