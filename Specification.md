@@ -500,9 +500,37 @@ User selects the “Set Priority” option.
 ### Primary Postconditions
 * The specified task should be in the proper position (High at the top-most, Med being between High and Low, and Low being at the bottom-most).
 
-### Alternate Sequences
-1. The user does not set a priority level.
-2. System assigns the task as low-priority as default.
+### Non-functional Requirements
+ * System prompt messages are presented with a font size between 20 and 24. 
+ * All system message prompts have a response time within 1 second after its trigger.
+
+### Glossary
+* user = a person with an existing account who is trying to log in.
+
+## Use Case 13 Name: Categorize Task 
+
+### Summary
+Users are able to assign tasks into separate categories (ie. school, work, or personal life). 
+
+### Actors
+1. The user
+
+### Preconditions
+* The user must be previously registered.
+* A task must be in progress of creation, or created beforehand.
+
+### Triggers
+User selects the “CATEGORY” option.
+
+### Primary Sequence
+1. System prompts user list of tasks.
+3. The user creates a new task, or selects an existing one.
+4. The user clicks on the “CATEGORY” button.
+5. System prompts the user to select a pre-existing category or create a new one.
+6. The user selects an option.
+
+### Primary Postconditions
+* The specified task would be shown within the proper category within a list.
 
 ### Non-functional Requirements
  * System prompt messages are presented with a font size between 20 and 24. 
@@ -510,3 +538,71 @@ User selects the “Set Priority” option.
 
 ### Glossary
 * user = a person with an existing account who is trying to log in.
+
+## Use Case 14 Name: Set Reminder 
+
+### Summary
+Users are able to have the system to send a notification to remind them to do a certain task(s).
+
+### Actors
+1. The user
+
+### Preconditions
+* The user must be previously registered.
+* A task must be in progress of creation, or created beforehand.
+
+### Triggers
+User selects the “SET REMINDER” option.
+
+### Primary Sequence
+1. System prompts user list of tasks.
+3. The user creates a new task, or selects an existing one.
+4. The user clicks on the “SET REMINDER” button.
+5. System prompts the user to enter how should the reminders be set (ie. on a specific day or 
+    daily at a given time)
+6. The user enters their preference.
+
+### Primary Postconditions
+* Based on the users’ preference, the checklist will ping the user a reminder to work on a certain   
+   task(s).
+
+### Non-functional Requirements
+ * System prompt messages are presented with a font size between 20 and 24. 
+ * All system message prompts have a response time within 1 second after its trigger.
+
+### Glossary
+* user = a person with an existing account who is trying to log in.
+* 
+## Use Case 15 Name: Download List 
+
+### Summary
+Users can download their lists so they will have access to them offline.
+
+### Actors
+1. The user
+
+### Preconditions
+* The user must be previously registered.
+* There must be a pre-existing task within a list. 
+
+### Triggers
+User selects the “DOWNLOAD LIST” option.
+
+### Primary Sequence
+1. System prompts user list of tasks.
+3. The user selects a list.
+4. The user clicks on the “DOWNLOAD LIST” option.
+5. System exports the selected list with which tasks have been completed and still needs to be 
+    done.
+
+### Primary Postconditions
+* Text file of a list has been generated and exported for the user.
+
+### Non-functional Requirements
+ * System prompt messages are presented with a font size between 20 and 24. 
+ * All system message prompts have a response time within 1 second after its trigger.
+ * System is ready to export text file within 3 seconds after the trigger 
+
+### Glossary
+* user = a person with an existing account who is trying to log in.
+
