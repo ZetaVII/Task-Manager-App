@@ -366,12 +366,12 @@ User clicks the "Enter" button after not typing in any time duration.
 ### Glossary
 * user = a person with an existing account and at least one task, who wants to add a time duration to a task.
 
-
 ## **Use Case 9 Name:** Mark task complete 
 ### Summary
 User who is logged in can mark a task complete and will be moved to the bottom of the list.
+
 ### Actors
-1.	User
+1. The user
 
 ### Preconditions
 * User is signed in.
@@ -404,44 +404,54 @@ User clicks “mark task complete” button.
  *  All system message prompts have a response time within 1 second after its trigger.
  *  The "Save changes" button is represented by a colorful and clearly visible box.
 ### Glossary
-* User=has registered username and password
-* Task=item user entered on to do list
+* user = has registered username and password
+* task = item user entered on to do list
 
 ## **Use Case 10 Name:** View completed tasks
 ### Summary
 User who is logged in can view all complete tasks.
+
 ### Actors
-1.	User
+1. The user
+
 ### Preconditions
 * User is signed in.
 * User has completed tasks.
+
 ### Triggers
 User clicks “view completed tasks” button.
+
 ### Primary Sequence
 1. User clicks “view completed tasks” button.
 2. Check if task is incomplete.
 3. App shows “completed tasks”.
+
 ### Primary Postconditions
 * Completed tasks are shown.
+
 ### Alternate Sequences
 1. User clicks “view completed tasks” button.
 2. If no completed tasks, then app shows error “no completed tasks”.
+
 ### Alternate Postconditions
 * App shows “no completed tasks”.
+
 ### Non-functional Requirements
  *  System prompt messages are presented with a font size between 20 and 24.
  *  All system message prompts have a response time within 1 second after its trigger.
  *  The "Save changes" button is represented by a colorful and clearly visible box.
+
 ### Glossary
-* User=has registered username and password
-* Task=item user entered on to do list
+* user = has registered username and password
+* task = item user entered on to do list
 
 ## **Use Case 11 Name:** View incomplete tasks
 
 ### Summary
-User who is logged in can view all incomplete tasks
+User who is logged in can view all incomplete tasks.
+
 ### Actors
-1.	User
+1. The user
 
 ### Preconditions
 * User is signed in.
@@ -463,7 +473,7 @@ User clicks “view incomplete tasks” button.
 2. If no incomplete tasks, then app shows “Congratulations all tasks completed”.
 
 ### Alternate Postconditions
- App shows “Congratulations all tasks completed”.
+App shows “Congratulations all tasks completed”.
  
 ### Non-functional Requirements
  *  System prompt messages are presented with a font size between 20 and 24.
@@ -471,8 +481,8 @@ User clicks “view incomplete tasks” button.
  *  The "Save changes" button is represented by a colorful and clearly visible box.
 
 ### Glossary
-* User=has registered username and password
-* Task= item user entered on to do list
+* user = has registered username and password
+* task = item user entered on to do list
 
 ## Use Case 12 Name: Set Priority of Tasks 
 
@@ -571,7 +581,7 @@ User selects the “SET REMINDER” option.
 
 ### Glossary
 * user = a person with an existing account who is trying to log in.
-* 
+
 ## Use Case 15 Name: Download List 
 
 ### Summary
@@ -604,7 +614,5 @@ User selects the “DOWNLOAD LIST” option.
 
 ### Glossary
 * user = a person with an existing account who is trying to log in.
-
-# Use Case Diagram
 ![image](https://user-images.githubusercontent.com/78886694/113962944-8cc1a680-97dd-11eb-97f2-0ba954505ce2.png)
 
