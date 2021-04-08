@@ -447,7 +447,7 @@ User who is logged in can view all incomplete tasks
 ### Preconditions
 * precond 1: User is signed in.
 * precond 2: User has incomplete tasks.
-
+*
 ### Triggers
 User clicks “view incomplete tasks” button.
 
@@ -458,7 +458,7 @@ User clicks “view incomplete tasks” button.
 
 ### Primary Postconditions
 * Incomplete tasks are shown.
-
+*
 ### Alternate Sequences
 1.User clicks “view incomplete tasks” button.
 2.If no incomplete tasks, then app shows “Congratulations all tasks completed”.
@@ -572,36 +572,38 @@ User selects the “SET REMINDER” option.
 
 ### Glossary
 * user = a person with an existing account who is trying to log in.
-
-## Use Case 15 Name: Share Task 
+* 
+## Use Case 15 Name: Download List 
 
 ### Summary
-Users can share tasks with other users to collaborate with one another.
+Users can download their lists so they will have access to them offline.
 
 ### Actors
-1. Two or more users
+1. The user
 
 ### Preconditions
-* At least two users must be previously registered.
+* The user must be previously registered.
 * There must be a pre-existing task within a list. 
 
 ### Triggers
-User selects the “SHARE TASK” option.
+User selects the “DOWNLOAD LIST” option.
 
 ### Primary Sequence
 1. System prompts user list of tasks.
 3. The user selects a list.
-4. The user clicks on the “SHARE TASK” option.
-5. System prompts user to enter another registered individual(s) to share the task to.
-6. System alerts aforementioned individual(s) about the shared task. 
+4. The user clicks on the “DOWNLOAD LIST” option.
+5. System exports the selected list with which tasks have been completed and still needs to be 
+    done.
 
 ### Primary Postconditions
-* The selected task would be seen within the task manager of the two or more users.
+* Text file of a list has been generated and exported for the user.
 
 ### Non-functional Requirements
  * System prompt messages are presented with a font size between 20 and 24. 
  * All system message prompts have a response time within 1 second after its trigger.
- * System alerts for shared users are sent within 5 seconds after sharing task.
+ * System is ready to export text file within 3 seconds after the trigger 
 
 ### Glossary
 * user = a person with an existing account who is trying to log in.
+![image](https://user-images.githubusercontent.com/78886694/113962944-8cc1a680-97dd-11eb-97f2-0ba954505ce2.png)
+
