@@ -582,35 +582,35 @@ User selects the “SET REMINDER” option.
 ### Glossary
 * user = a person with an existing account who is trying to log in.
 
-## Use Case 15 Name: Download List 
+## Use Case 15 Name: Share Task 
 
 ### Summary
-Users can download their lists so they will have access to them offline.
+Users can share tasks with other users to collaborate with one another.
 
 ### Actors
-1. The user
+1. Two or more users
 
 ### Preconditions
-* The user must be previously registered.
+* At least two users must be previously registered.
 * There must be a pre-existing task within a list. 
 
 ### Triggers
-User selects the “DOWNLOAD LIST” option.
+User selects the “SHARE TASK” option.
 
 ### Primary Sequence
 1. System prompts user list of tasks.
 3. The user selects a list.
-4. The user clicks on the “DOWNLOAD LIST” option.
-5. System exports the selected list with which tasks have been completed and still needs to be 
-    done.
+4. The user clicks on the “SHARE TASK” option.
+5. System prompts user to enter another registered individual(s) to share the task to.
+6. System alerts aforementioned individual(s) about the shared task. 
 
 ### Primary Postconditions
-* Text file of a list has been generated and exported for the user.
+* The selected task would be seen within the task manager of the two or more users.
 
 ### Non-functional Requirements
  * System prompt messages are presented with a font size between 20 and 24. 
  * All system message prompts have a response time within 1 second after its trigger.
- * System is ready to export text file within 3 seconds after the trigger 
+ * System alerts for shared users are sent within 5 seconds after sharing task.
 
 ### Glossary
 * user = a person with an existing account who is trying to log in.
