@@ -391,14 +391,14 @@ User clicks “mark task complete” button
 3.Check if task is incomplete
 4.If already completed app shows error “task already completed”
 ### Alternate Postconditions
- *App shows “task already completed”
+ * App shows “task already completed”
 ### Non-functional Requirements
  *  System prompt messages are presented with a font size between 20 and 24.
  *  All system message prompts have a response time within 1 second after its trigger.
  *  The "Save changes" button is represented by a colorful and clearly visible box.
 ### Glossary
-*User=has registered username and password
-*Task=item user entered on to do list
+* User=has registered username and password
+* Task=item user entered on to do list
 
 ## **Use Case 10 Name:** View completed tasks
 ### Summary
@@ -420,14 +420,14 @@ User clicks “view completed tasks” button
 1. User clicks “view completed tasks” button
 2. If no completed tasks, then app shows error “no completed tasks”
 ### Alternate Postconditions
-*App shows “no completed tasks”
+* App shows “no completed tasks”
 ### Non-functional Requirements
  *  System prompt messages are presented with a font size between 20 and 24.
  *  All system message prompts have a response time within 1 second after its trigger.
  *  The "Save changes" button is represented by a colorful and clearly visible box.
 ### Glossary
-*User=has registered username and password
-*Task=item user entered on to do list
+* User=has registered username and password
+* Task=item user entered on to do list
 
 
 ## **Use Case 11 Name:** View incomplete tasks
@@ -457,8 +457,8 @@ User clicks “view incomplete tasks” button
  *  All system message prompts have a response time within 1 second after its trigger.
  *  The "Save changes" button is represented by a colorful and clearly visible box.
 ### Glossary
-*User=has registered username and password
-*Task= item user entered on to do list
+* User=has registered username and password
+* Task= item user entered on to do list
 
 ## Use Case 12 Name: Set Priority of Tasks 
 
@@ -487,7 +487,7 @@ User selects the “Set Priority” option.
 
 ### Alternate Sequences
 1. The user does not set a priority level.
-	1. System assigns the task as low-priority as default.
+2. System assigns the task as low-priority as default.
 
 ### Non-functional Requirements
  * System prompt messages are presented with a font size between 20 and 24. 
