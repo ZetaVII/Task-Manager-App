@@ -369,29 +369,36 @@ User clicks the "Enter" button after not typing in any time duration.
 
 ## **Use Case 9 Name:** Mark task complete 
 ### Summary
-User who is logged in can mark a task complete and will be moved to the bottom of the list
+User who is logged in can mark a task complete and will be moved to the bottom of the list.
 ### Actors
 1.	User
+
 ### Preconditions
-* precond 1: User is signed in
-* precond 2: User has incomplete tasks
+* precond 1: User is signed in.
+* precond 2: User has incomplete tasks.
+
 ### Triggers
-User clicks “mark task complete” button
+User clicks “mark task complete” button.
+
 ### Primary Sequence
-1.User clicks on task they wish to complete
-2.User clicks “mark task complete” button
-3.Check if task is incomplete
-4.App shows “task completed”
+1.User clicks on task they wish to complete.
+2.User clicks “mark task complete” button.
+3.Check if task is incomplete.
+4.App shows “task completed”.
+
 ### Primary Postconditions
-* Task is marked complete
-* Task moves to the bottom of the list
+* Task is marked complete.
+* Task moves to the bottom of the list.
+
 ### Alternate Sequences
-1.User clicks on task they wish to complete
-2.User clicks “mark task complete” button
-3.Check if task is incomplete
-4.If already completed app shows error “task already completed”
+1.User clicks on task they wish to complete.
+2.User clicks “mark task complete” button.
+3.Check if task is incomplete.
+4.If already completed app shows error “task already completed”.
+
 ### Alternate Postconditions
- * App shows “task already completed”
+ * App shows “task already completed”.
+ 
 ### Non-functional Requirements
  *  System prompt messages are presented with a font size between 20 and 24.
  *  All system message prompts have a response time within 1 second after its trigger.
@@ -402,25 +409,25 @@ User clicks “mark task complete” button
 
 ## **Use Case 10 Name:** View completed tasks
 ### Summary
-User who is logged in can view all complete tasks
+User who is logged in can view all complete tasks.
 ### Actors
 1.	User
 ### Preconditions
-* precond 1: User is signed in
-* precond 2: User has completed tasks
+* precond 1: User is signed in.
+* precond 2: User has completed tasks.
 ### Triggers
-User clicks “view completed tasks” button
+User clicks “view completed tasks” button.
 ### Primary Sequence
-1.User clicks “view completed tasks” button
-2.Check if task is incomplete
-3.App shows “completed tasks”
+1.User clicks “view completed tasks” button.
+2.Check if task is incomplete.
+3.App shows “completed tasks”.
 ### Primary Postconditions
-* Completed tasks are shown
+* Completed tasks are shown.
 ### Alternate Sequences
-1. User clicks “view completed tasks” button
-2. If no completed tasks, then app shows error “no completed tasks”
+1. User clicks “view completed tasks” button.
+2. If no completed tasks, then app shows error “no completed tasks”.
 ### Alternate Postconditions
-* App shows “no completed tasks”
+* App shows “no completed tasks”.
 ### Non-functional Requirements
  *  System prompt messages are presented with a font size between 20 and 24.
  *  All system message prompts have a response time within 1 second after its trigger.
@@ -436,26 +443,34 @@ User clicks “view completed tasks” button
 User who is logged in can view all incomplete tasks
 ### Actors
 1.	User
+
 ### Preconditions
-* precond 1: User is signed in
-* precond 2: User has incomplete tasks
+* precond 1: User is signed in.
+* precond 2: User has incomplete tasks.
+*
 ### Triggers
-User clicks “view incomplete tasks” button
+User clicks “view incomplete tasks” button.
+
 ### Primary Sequence
-1.User clicks “view incomplete tasks” button
-2.Check if user has incomplete tasks
-3.App shows list of incomplete tasks
+1.User clicks “view incomplete tasks” button.
+2.Check if user has incomplete tasks.
+3.App shows list of incomplete tasks.
+
 ### Primary Postconditions
-* Incomplete tasks are shown
+* Incomplete tasks are shown.
+*
 ### Alternate Sequences
-2.User clicks “view incomplete tasks” button
-3.If no incomplete tasks, then app shows “Congratulations all tasks completed”
+1.User clicks “view incomplete tasks” button.
+2.If no incomplete tasks, then app shows “Congratulations all tasks completed”.
+
 ### Alternate Postconditions
- App shows “Congratulations all tasks completed”
+ App shows “Congratulations all tasks completed”.
+ 
 ### Non-functional Requirements
  *  System prompt messages are presented with a font size between 20 and 24.
  *  All system message prompts have a response time within 1 second after its trigger.
  *  The "Save changes" button is represented by a colorful and clearly visible box.
+
 ### Glossary
 * User=has registered username and password
 * Task= item user entered on to do list
@@ -477,10 +492,10 @@ User selects the “Set Priority” option.
 
 ### Primary Sequence
 1. System prompts user list of tasks.
-3. The user creates a new task, or selects an existing one.
-4. The user clicks on the “Set Priority” button.
-5. System prompts user levels of priority.
-6. The user selects a level.
+2. The user creates a new task, or selects an existing one.
+3. The user clicks on the “Set Priority” button.
+4. System prompts user levels of priority.
+5. The user selects a level.
 
 ### Primary Postconditions
 * The specified task should be in the proper position (High at the top-most, Med being between High and Low, and Low being at the bottom-most).
