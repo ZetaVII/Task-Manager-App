@@ -41,49 +41,49 @@ Use these features to access and personalize your tasks.
 
 ### Log in
 
-[Click here for use case description](../relative/link/to/Specification.md#use-case-2-name:-login)
+[Click here for use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-2-name-login)
 
 Steps taken to ensure functionality:
 * [list steps here]
 
 ### Log out
 
-[Click here for use case description](../relative/link/to/Specification.md#use-case-6-name:-sign-out)
+[Click here for use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-6-name-sign-out)
 
 Steps taken to ensure functionality:
 * [list steps here]
 
 ### Register new user
 
-[Click here for use case description](../relative/link/to/Specification.md#use-case-1-name:-register-new-user)
+[Click here for use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-1-name-register-new-user)
 
 Steps taken to ensure functionality:
 * [list steps here]
 
 ### Create new task
 
-[Click here for use case description](../relative/link/to/Specification.md#use-case-3-name:-create-a-new-task)
+[Click here for use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-3-name-create-a-new-task)
 
 Steps taken to ensure functionality:
 * [list steps here]
 
 ### Delete task
 
-[Click here for use case description](../relative/link/to/Specification.md#use-case-5-name:-delete-a-task)
+[Click here for use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-5-name-delete-a-task)
 
 Steps taken to ensure functionality:
 * [list steps here]
 
 ### Mark task as complete
 
-[Click here for use case description](../relative/link/to/Specification.md#use-case-9-name:-mark-task-complete)
+[Click here for use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-9-name-mark-task-complete)
 
 Steps taken to ensure functionality:
 * [list steps here]
 
 ### Set deadline for task
 
-[Click here for use case description](../relative/link/to/Specification.md#use-case-7-name:-add-a-deadline-for-a-task)
+[Click here for use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-7-name-add-deadline-for-a-task)
 
 Steps taken to ensure functionality:
 * [list steps here]
