@@ -1,9 +1,10 @@
 # Task Manager
 
-description
+Use this app to create and organize tasks. Keep tasks personal or share with other users for collaborative tasks.
 
 ## Table of Contents
 
+* [Technologies](#technologies)
 * [Installation](#installation)
 * [Features](#features)
   * [Log in](#log-in)
@@ -14,38 +15,75 @@ description
   * [Mark task as complete](#mark-task-as-complete)
   * [Set deadline for task](#set-deadline-for-task)
 
+## Technologies
+
+* Flask 1.1.2
+* WTForms 2.3.3
+* Werkzeug 1.0.1
+* Python 3.9.2
+
 ## Installation
 
-[insert information about how to install and run app]
+Minimum requirements:
+* Have a version of python at least as recent as 3.0
+* Have the above mentioned python libraries installed
+
+Run this project by downloading the files within this repository. 
+Navigate to the terminal and run the following:
+```
+$ cd ../Team3
+$ python run.py
+```
 
 ## Features
 
-[description]
+Use these features to access and personalize your tasks. 
 
 ### Log in
 
-[description]
+[Click here for use case description](../relative/link/to/Specification.md#use-case-2-name:-login)
+
+Steps taken to ensure functionality:
+* [list steps here]
 
 ### Log out
 
-[description]
+[Click here for use case description](../relative/link/to/Specification.md#use-case-6-name:-sign-out)
+
+Steps taken to ensure functionality:
+* [list steps here]
 
 ### Register new user
 
-[description]
+[Click here for use case description](../relative/link/to/Specification.md#use-case-1-name:-register-new-user)
+
+Steps taken to ensure functionality:
+* [list steps here]
 
 ### Create new task
 
-[description]
+[Click here for use case description](../relative/link/to/Specification.md#use-case-3-name:-create-a-new-task)
+
+Steps taken to ensure functionality:
+* [list steps here]
 
 ### Delete task
 
-[description]
+[Click here for use case description](../relative/link/to/Specification.md#use-case-5-name:-delete-a-task)
+
+Steps taken to ensure functionality:
+* [list steps here]
 
 ### Mark task as complete
 
-[description]
+[Click here for use case description](../relative/link/to/Specification.md#use-case-9-name:-mark-task-complete)
+
+Steps taken to ensure functionality:
+* [list steps here]
 
 ### Set deadline for task
 
-[description]
+[Click here for use case description](../relative/link/to/Specification.md#use-case-7-name:-add-a-deadline-for-a-task)
+
+Steps taken to ensure functionality:
+* [list steps here]
