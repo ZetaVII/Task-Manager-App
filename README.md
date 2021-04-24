@@ -51,7 +51,10 @@ Steps taken to ensure functionality:
 [Click here for use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-6-name-sign-out)
 
 Steps taken to ensure functionality:
-* [list steps here]
+* Create log out code in a simpler app.
+* Test simpler app to ensure this section of the code works as expected.
+  * Make sure logged out user cannot access account specific pages. 
+* Test actual app once all prerequisite features are implemented. 
 
 ### Register new user
 
@@ -79,7 +82,10 @@ Steps taken to ensure functionality:
 [Click here for use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-9-name-mark-task-complete)
 
 Steps taken to ensure functionality:
-* [list steps here]
+* Create checkbox code in a simpler app.
+* Test simpler app to ensure this section of the code works as expected.
+  * Refresh the page to make sure checked boxes do not get reset.
+* Test actual app once all prerequisite features are implemented. 
 
 ### Set deadline for task
 
