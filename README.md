@@ -19,6 +19,8 @@ Use this app to create and organize tasks. Keep tasks personal or share with oth
 
 * Flask 1.1.2
 * WTForms 2.3.3
+* Flask-SQLAlchemy 2.4.4
+* SQLAlchemy 1.3.23
 * Werkzeug 1.0.1
 * Python 3.9.2
 
