@@ -27,6 +27,7 @@ class Task(db.Model):
     """
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False, unique=True)
+    description = db.Column(db.String, nullable=False, unique=True)
     # know which account the task belongs to
     user_id = db.Column(db.Integer, db.ForeignKey(user.id))
 

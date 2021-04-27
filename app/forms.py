@@ -21,4 +21,10 @@ class OverviewForm(FlaskForm):
     """
     logout = SubmitField('Log out')
     complete = BooleanField('Mark as complete')
+    createtask = SubmitField('Create Task')
+    deletetask = SubmitField('Delete Task')
 
+class NewTaskForm(FlaskForm)
+    title = StringField('Title', validators = [DataRequired()]
+    description = StringField('Description', validators = [DataRequired()]
+    create = SubmitField('Create')

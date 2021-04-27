@@ -3,7 +3,7 @@ from flask_login import login_required, logout_user
 
 from app import db
 from app import app
-from app.forms import LoginForm, OverviewForm
+from app.forms import LoginForm, OverviewForm, NewTaskForm
 # Make sure to import all tables
 from app.models import User, Task
 
@@ -53,5 +53,14 @@ def logout():
     return redirect('/')
     
 
-
-
+@app.route('/createtask')
+@login_required
+def createtask():
+    form = NewTaskForm()
+    if form.validate_on_create():
+        if title is None:
+            flash('Please type in a title for new task')
+            return redirect('/createtask')
+        flash(f'New task created: {form.title.data}')
+    return render_template('newtask.html', title='New Task', form=form)
+    return redirect('/overview')
