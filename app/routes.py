@@ -7,14 +7,8 @@ from app.forms import LoginForm, OverviewForm, NewTaskForm
 # Make sure to import all tables
 from app.models import User, Task
 
-@app.route("/")
-def home():
-    """
-    
-    """
-    return render_template("base.html")
-
 @app.route("/login", methods=['GET', 'POST'])
+@app.route("/")
 def login():
     """
     
@@ -71,6 +65,10 @@ def createtask():
         if title is None:
             flash('Please type in a title for new task')
             return redirect('/createtask')
+        # all required fields were filled before clicking create task button
+        newtask = Task(title=form.title.data)
+        db.session.add(newtask)
+        db.commit()
+        return redirect('/overview')
         flash(f'New task created: {form.title.data}')
     return render_template('newtask.html', title='New Task', form=form)
-    return redirect('/overview')
