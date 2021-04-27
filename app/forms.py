@@ -25,6 +25,18 @@ class OverviewForm(FlaskForm):
     deletetask = SubmitField('Delete Task')
 
 class NewTaskForm(FlaskForm):
+    """
+    Represents the form for creating a new task.
+
+    Attributes
+    ----------
+    title : StringField
+        Where users can type in the title of a new task. Data is required for this.
+    description : StringField
+        Where users can type in the description of a new task. Data is not required for this.
+    create : SubmitField
+        Button for user to finish creating new task.
+    """
     title = StringField('Title', validators = [DataRequired()])
     description = StringField('Description')
     create = SubmitField('Create')

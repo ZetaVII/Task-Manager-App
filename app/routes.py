@@ -60,6 +60,18 @@ def logout():
 @app.route('/createtask', methods = ['GET', 'POST'])
 @login_required
 def createtask():
+    """
+    Creates a new task.
+    
+    User will return to the overview page once finished creating task
+    User remains on createtasl page if all fields required are not filled out.
+
+    Returns
+    -------
+    Redirect to the createtask page.
+    Redirect to the overview page.
+    Render the newtask.html template.
+    """
     form = NewTaskForm()
     if form.validate_on_submit():
         if title is None:
