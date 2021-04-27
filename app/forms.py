@@ -24,7 +24,7 @@ class OverviewForm(FlaskForm):
     createtask = SubmitField('Create Task')
     deletetask = SubmitField('Delete Task')
 
-class NewTaskForm(FlaskForm)
-    title = StringField('Title', validators = [DataRequired()]
-    description = StringField('Description', validators = [DataRequired()]
+class NewTaskForm(FlaskForm):
+    title = StringField('Title', validators = [DataRequired()])
+    description = StringField('Description', validators = [DataRequired()])
     create = SubmitField('Create')
