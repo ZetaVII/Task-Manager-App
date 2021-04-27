@@ -7,12 +7,22 @@ from app.forms import LoginForm, OverviewForm, NewTaskForm
 # Make sure to import all tables
 from app.models import User, Task
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/")
+def home():
+    """
+    
+    """
+    return render_template("base.html")
+
+@app.route("/login", methods=['GET', 'POST'])
 def login():
     """
     
     """
-    form = LoginForm()
+    form = loginForm()
+    
+    # Requires LOGIN.HTML (?)
+    return render_template("base.html")
 
 @app.route('/overview')
 @login_required
@@ -53,11 +63,11 @@ def logout():
     return redirect('/')
     
 
-@app.route('/createtask')
+@app.route('/createtask', methods = ['GET', 'POST'])
 @login_required
 def createtask():
     form = NewTaskForm()
-    if form.validate_on_create():
+    if form.validate_on_submit():
         if title is None:
             flash('Please type in a title for new task')
             return redirect('/createtask')
