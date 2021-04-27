@@ -66,7 +66,7 @@ def createtask():
             flash('Please type in a title for new task')
             return redirect('/createtask')
         newtasks = Task(title=form.title.data)
-        db.session.add(newtasks(
+        db.session.add(newtasks)
         db.session.commit()
         return redirect('/overview')
         flash(f'New task created: {form.title.data}')

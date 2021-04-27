@@ -26,5 +26,5 @@ class OverviewForm(FlaskForm):
 
 class NewTaskForm(FlaskForm):
     title = StringField('Title', validators = [DataRequired()])
-    description = StringField('Description', validators = [DataRequired()])
+    description = StringField('Description')
     create = SubmitField('Create')
