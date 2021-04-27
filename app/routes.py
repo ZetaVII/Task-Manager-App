@@ -71,6 +71,9 @@ def createtask():
         if title is None:
             flash('Please type in a title for new task')
             return redirect('/createtask')
+        newtasks = Task(title=form.title.data)
+        db.session.add(newtasks(
+        db.session.commit()
+        return redirect('/overview')
         flash(f'New task created: {form.title.data}')
     return render_template('newtask.html', title='New Task', form=form)
-    return redirect('/overview')
