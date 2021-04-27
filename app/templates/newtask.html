@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>New Task </h1>
+<form action = "" method="post" novalidate>
+    <p>
+        {{ form.title.label }} <br>
+        {{ form.title(size=32) }}
+    </p>
+    <p>
+        {{ form.description.label }} <br>
+        {{ form.description(size=256) }}
+    </p>
+    <p>{{ form.create() }}</p>
+</form>	
+
+{% endblock %}
