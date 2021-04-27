@@ -7,14 +7,8 @@ from app.forms import LoginForm, OverviewForm, NewTaskForm
 # Make sure to import all tables
 from app.models import User, Task
 
-@app.route("/")
-def home():
-    """
-    
-    """
-    return render_template("base.html")
-
 @app.route("/login", methods=['GET', 'POST'])
+@app.route("/")
 def login():
     """
     

@@ -43,14 +43,18 @@ Use these features to access and personalize your tasks.
 
 ### Log in
 
-[Click here for use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-2-name-login)
+[Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-2-name-login)
 
 Steps taken to ensure functionality:
 * [list steps here]
 
 ### Log out
 
-[Click here for use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-6-name-sign-out)
+Use case 6: Sign out
+
+A person with an existing account can sign out of the app.
+
+[Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-6-name-sign-out)
 
 Steps taken to ensure functionality:
 * Create log out code in a simpler app.
@@ -60,28 +64,32 @@ Steps taken to ensure functionality:
 
 ### Register new user
 
-[Click here for use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-1-name-register-new-user)
+[Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-1-name-register-new-user)
 
 Steps taken to ensure functionality:
 * [list steps here]
 
 ### Create new task
 
-[Click here for use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-3-name-create-a-new-task)
+[Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-3-name-create-a-new-task)
 
 Steps taken to ensure functionality:
 * [list steps here]
 
 ### Delete task
 
-[Click here for use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-5-name-delete-a-task)
+[Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-5-name-delete-a-task)
 
 Steps taken to ensure functionality:
 * [list steps here]
 
 ### Mark task as complete
 
-[Click here for use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-9-name-mark-task-complete)
+Use case 9: Mark task complete
+
+User who is logged in can mark a task as complete.
+
+[Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-9-name-mark-task-complete)
 
 Steps taken to ensure functionality:
 * Create checkbox code in a simpler app.
@@ -91,7 +99,7 @@ Steps taken to ensure functionality:
 
 ### Set deadline for task
 
-[Click here for use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-7-name-add-deadline-for-a-task)
+[Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-7-name-add-deadline-for-a-task)
 
 Steps taken to ensure functionality:
 * [list steps here]
