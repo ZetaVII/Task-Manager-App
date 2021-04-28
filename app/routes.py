@@ -147,7 +147,6 @@ def deletetask():
     """
     form = DeleteTaskForm()
     if form.validate_on_submit():
-
         if form.title.data is None:
             flash('Please type in a title of task to delete')
             return redirect('/deletetask')
@@ -156,10 +155,9 @@ def deletetask():
             if t is None:
                 flash("Task does not exist!")
                 return redirect('/deletetask')
-        else:
-            deletedtask = Task.query.filter_by(title=form.title.data).first()
-            db.session.delete(deletedtask)
-            db.session.commit()
-        return redirect('/overview')
-        flash(f'Task deleted: {form.title.data}')
+            else:
+                db.session.delete(t)
+                db.session.commit()
+                return redirect('/overview')
+                flash('Task deleted')
     return render_template('deletetask.html', title='Delete Task', form=form)
