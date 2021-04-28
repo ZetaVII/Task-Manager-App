@@ -10,8 +10,8 @@ class User(db.Model):
     Output name of user.
     """
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String, nullable=False, unique=True)
-    password = db.Column(db.String, nullable=False, unique=True)
+    username = db.Column(db.String(32), nullable=False, unique=True)
+    password = db.Column(db.String(32), nullable=False, unique=True)
 
     def __repr__(self):
         return f'<User {self.username}>'
@@ -35,7 +35,21 @@ class Task(db.Model):
     # know which account the task belongs to
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
 
-    set_deadline = db.Column(db.String, nullable = True)
+    # Setting up one column for deadline
+    deadline = db.Column(db.String, db.ForeignKey("task.id"), nullable = True)
+
+    def setDeadline(self, date):
+        if date is NULL:
+            return
+        elif (int(date[0]) is not range(0,10) or int(date[1]) is not range(0,10)
+            or int(date[3]) is not range(0,10) or int(date[4]) is not range(0,10)
+            or int(date[6]) is not range(0,10) or int(date[7]) is not range(0,10)
+            or int(date[8]) is not range(0,10) or int (date[9]) is not range(0,10)
+            ):
+            flash("Please enter valid date.")
+        else:
+            self.deadline = date
+
 
     """
     Output name of task.
