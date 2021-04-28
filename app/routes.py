@@ -37,7 +37,8 @@ def login():
         if u is None or not user.check_password(form.password.data):
             flash('Invalid username or password')
             return redirect('/login')
-        return redirect('/overview')
+        
+        return redirect(url_for('overview'))
     
     return render_template("login.html", title = "SIGN IN", form = form)
 
