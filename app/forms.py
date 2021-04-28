@@ -13,12 +13,12 @@ class LoginForm(FlaskForm):
         Text box for user to enter password.
     submit : SubmitField
         Button for user to log in.
-    register : SubmitField
-        Button for new user to make an account.
+    submit : SubmitField
+        Button for existing user to login.
     """
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
-    submit = SubmitField('Sign In')
+    submit = SubmitField('Login')
     
 class OverviewForm(FlaskForm):
     """
@@ -73,8 +73,18 @@ class DeleteTaskForm(FlaskForm):
 
 class RegisterForm(FlaskForm):
     """
-    
+    Represents the form for creating a new user account.
+    Attributes
+    ----------
+    username : StringField
+        Text box for user to enter username.    
+    password : PasswordField
+        Text box for user to enter password.
+    submit : SubmitField
+        Button for user to log in.
+    create : SubmitField
+        Button for new user to make an account.
     """
-    username = StringField("USERNAME", validators= [DataRequired()])
-    password = StringField("PASSWORD", validators= [DataRequired()])
-    create = SubmitField("FINISH")
+    username = StringField("Username", validators= [DataRequired()])
+    password = PasswordField("Password", validators= [DataRequired()])
+    create = SubmitField("Register")
