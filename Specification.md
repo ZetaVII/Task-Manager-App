@@ -121,7 +121,7 @@ A person can add a new task with a mandatory title and optional description.
 * The user must be on the overview page of their account.
 
 ### Triggers
-User selects the "Create new task" button.
+User selects the "Create Task" button.
 
 ### Primary Sequence
 1. System redirects the user to the New Task page.
@@ -217,10 +217,10 @@ A person with an existing account can delete any tasks that they had previously 
 User selects the "Delete task" button.
 
 ### Primary Sequence
-1. System prompts the user to select one task from the list.
-2. The user selects an existing task from the displayed list.
-3. User clicks on the "Save changes" button.
-5. System redirects the user to the overview page.
+1. System redirects the user to the delete task page.
+2. System prompts user to type in the title of task to delete.
+3. The user clicks on "Delete" to save changes.
+4. System redirects the user to the overview page.
 
 ### Primary Postconditions
 * The user should be back at the overview page.
@@ -228,11 +228,11 @@ User selects the "Delete task" button.
 
 ### Alternate Sequences
 1. The user does not select a task to delete.
-	1. The user clicks on the "Save changes" button.
+	1. The user clicks on the "Delete" button.
 	2. System prompts the user to select a task to delete.
 
 ### Alternate Trigger
-User clicks the "Save changes" button after not selecting any task to be deleted.
+User clicks the "Delete" button after not selecting any task to be deleted.
 
 ### Alternate Postconditions
  * The user remains on the Delete task page.
@@ -241,7 +241,7 @@ User clicks the "Save changes" button after not selecting any task to be deleted
 ### Non-functional Requirements
  *  System prompt messages are presented with a font size between 20 and 24.
  *  All system message prompts have a response time within 1 second after its trigger.
- *  The "Save changes" button is represented by a colorful and clearly visible box.
+ *  The "Delete" button is represented by a colorful and clearly visible box.
 
 ### Glossary
 * user = a person with an existing account and at least one task, who wants to delete a task.
