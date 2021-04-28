@@ -14,11 +14,18 @@ def register():
     """
     form = RegisterForm()
     if form.validate_on_submit():
-        newuser = User(username = form.username.data, password=form.password.data)
-        db.session.add(newuser)
-        db.session.commit()
+        newuser = User(username=form.username.data, password=form.password.data)
         if newuser is None:
             flash('Please Enter Username and Password')
+        elif:
+            username = User.query.filter_by(username=form.username.data).first()
+            flash('Username is already taken')
+        elif:
+            password = User.query.filter_by(password=form.password.data).first()
+            flash('Password is already taken')
+        else:
+            db.session.add(newuser)
+            db.session.commit()
         return redirect('/overview')
         flash('New user created')
     #not sure about this html page    
