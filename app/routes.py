@@ -107,13 +107,17 @@ def createtask():
         if form.title.data is None:
             flash('Please type in a title for new task')
             return redirect('/createtask')
+        if form.description.data is not None:
+            newtasks = Task(title=form.title.data, description=form.description.data)
+            db.session.add(newtasks)
+            db.session.commit()
         else:
             newtasks = Task(title=form.title.data)
-            newtasks.setDeadline(form.date.data)
+            'newtasks.setDeadline(form.date.data)'
             db.session.add(newtasks)
             db.session.commit()
         return redirect('/overview')
-        flash(f'New task created: {form.title.data}')
+        flash('New task created')
     return render_template('newtask.html', title='New Task', form=form)
 
 @app.route('/deletetask', methods = ['GET', 'POST'])
