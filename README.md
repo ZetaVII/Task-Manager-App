@@ -99,7 +99,7 @@ Steps taken to ensure functionality:
 * Verify user not allowed to create a task with no title, date
 * Verify user not allowed to create a task with no title
 * Verify user not allowed to create a task with no date
-* NEEDS DEBUG CAUSES ERROR - Verify user not allowed to create a task with no description
+* Verify user not allowed to create a task with no description
 * Verify user can to create a task with title, description, date
 
 
