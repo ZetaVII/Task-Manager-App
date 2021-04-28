@@ -120,6 +120,8 @@ def createtask():
                 newtasks.setDeadline(form.date.data.strftime("%b-%d-%Y"))
             db.session.add(newtasks)
             db.session.commit()
+            #adding to test if fixed
+            return redirect('/overview')
         else:
             newtasks = Task(title=form.title.data, user_id=current_user.id)
             if form.date.data is not None:
