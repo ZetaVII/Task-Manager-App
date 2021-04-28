@@ -88,12 +88,20 @@ Steps taken to ensure functionality:
 
 Use case 3: Create a new task
 
-A person can add a new task with a mandatory title and optional description.
+A person can add a new task with a mandatory title and finish by date and optional description.
 
 [Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-3-name-create-a-new-task)
 
 Steps taken to ensure functionality:
-* [list steps here]
+* Verify user not allowed to create a task with no title, description, date
+* Verify user not allowed to create a task with no title, description
+* Verify user not allowed to create a task with no description, date
+* Verify user not allowed to create a task with no title, date
+* Verify user not allowed to create a task with no title
+* Verify user not allowed to create a task with no date
+* NEEDS DEBUG CAUSES ERROR - Verify user not allowed to create a task with no description
+* Verify user can to create a task with title, description, date
+
 
 ### Delete task
 
