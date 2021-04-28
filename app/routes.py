@@ -95,6 +95,7 @@ def createtask():
     
     User will return to the overview page once finished creating task
     User remains on createtask page if all fields required are not filled out.
+    Title and finish by date required
 
     Returns
     -------
@@ -120,8 +121,6 @@ def createtask():
                 newtasks.setDeadline(form.date.data.strftime("%b-%d-%Y"))
             db.session.add(newtasks)
             db.session.commit()
-            #adding to test if fixed
-            return redirect('/overview')
         else:
             newtasks = Task(title=form.title.data, user_id=current_user.id)
             if form.date.data is not None:
