@@ -14,18 +14,11 @@ def register():
     """
     form = RegisterForm()
     if form.validate_on_submit():
-        newuser = User(username = form.username.data)
+        newuser = User(username = form.username.data, password=form.password.data)
         db.session.add(newuser)
         db.session.commit()
-        newpassword = User(password = form.password.data)
-        db.session.add(newpassword)
-        db.session.commit()
         if newuser is None:
-            flash('Please Enter a Username')
-            return redirect('/register')
-        elif newpassword is None:
-            flash('Please Enter a Password')
-            return redirect('/register')
+            flash('Please Enter Username and Password')
         return redirect('/overview')
         flash('New user created')
     #not sure about this html page    
