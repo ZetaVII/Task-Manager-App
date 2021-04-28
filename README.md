@@ -43,6 +43,10 @@ Use these features to access and personalize your tasks.
 
 ### Log in
 
+Use case 2: Log in
+
+A person with an existing account can log in to the app.
+
 [Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-2-name-login)
 
 Steps taken to ensure functionality:
@@ -64,6 +68,10 @@ Steps taken to ensure functionality:
 
 ### Register new user
 
+Use case 1: Register new user
+
+A person can sign up by providing valid account details.
+
 [Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-1-name-register-new-user)
 
 Steps taken to ensure functionality:
@@ -71,12 +79,20 @@ Steps taken to ensure functionality:
 
 ### Create new task
 
+Use case 3: Create a new task
+
+A person can add a new task with a mandatory title and optional description.
+
 [Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-3-name-create-a-new-task)
 
 Steps taken to ensure functionality:
 * [list steps here]
 
 ### Delete task
+
+Use case 5: Delete a task
+
+A person with an existing account can delete any tasks that they had previously created.
 
 [Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-5-name-delete-a-task)
 
@@ -98,6 +114,10 @@ Steps taken to ensure functionality:
 * Test actual app once all prerequisite features are implemented. 
 
 ### Set deadline for task
+
+Use case 7: Add deadline for a task
+
+A person with an existing account can add a deadline to complete a task.
 
 [Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-7-name-add-deadline-for-a-task)
 
