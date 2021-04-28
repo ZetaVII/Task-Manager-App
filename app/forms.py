@@ -7,16 +7,19 @@ class LoginForm(FlaskForm):
     Represents the form for logging in.
     Attributes
     ----------
-    login : SubmitField
-        Button for user to log in.
     username : StringField
         Text box for user to enter username.    
     password : PasswordField
         Text box for user to enter password.
+    submit : SubmitField
+        Button for user to log in.
+    register : SubmitField
+        Button for new user to make an account.
     """
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Sign In')
+    register = SubmitField('Create an account')
     
 class OverviewForm(FlaskForm):
     """
@@ -28,6 +31,10 @@ class OverviewForm(FlaskForm):
         Button for user to log out.
     complete : BooleanField
         Checkbox for user to mark task as complete.
+    createtask : SubmitField
+        Button to make a new task.
+    deletetask : SubmitField
+        Button to delete a task.
     """
     logout = SubmitField('Log out')
     complete = BooleanField('Mark as complete')
