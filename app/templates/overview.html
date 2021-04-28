@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
+        <form action = "" method = "post" novalidate>
+        {{ form.hidden_tag() }}
         <p align="right">
-                <a href=logout> {{ form.logout() }} </a>
+                <a href="{{ url_for('logout') }}"> Log out </a>
         </p>
         <h1> Task List </h1>
         <p>
@@ -13,4 +15,5 @@
                         </ul>
                 {% endfor %}
         </p>
+        </form>
 {% endblock %}
