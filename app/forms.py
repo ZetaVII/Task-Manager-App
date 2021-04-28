@@ -7,7 +7,6 @@ class LoginForm(FlaskForm):
     
     """
     
-
 class OverviewForm(FlaskForm):
     """
     Represent the form for the account home page.
@@ -40,3 +39,4 @@ class NewTaskForm(FlaskForm):
     title = StringField('Title', validators = [DataRequired()])
     description = StringField('Description')
     create = SubmitField('Create')
+    date = StringField("Set Deadline (Optional) MM-DD-YYYY")
