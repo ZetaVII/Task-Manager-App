@@ -1,9 +1,9 @@
 from flask import render_template, redirect, session
-from flask_login import login_required, logout_user
+from flask_login import login_required, logout_user, login_user
 
 from app import db
 from app import app
-from app.forms import LoginForm, OverviewForm, NewTaskForm
+from app.forms import LoginForm, OverviewForm, NewTaskForm, DeleteTaskForm
 # Make sure to import all tables
 from app.models import User, Task
 
