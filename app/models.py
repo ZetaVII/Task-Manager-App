@@ -1,7 +1,10 @@
 from app import db
+from datetime import datetime
 from app import login
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
 
-class User(db.Model):
+class User(UserMixin, db.Model):
     """
     Set up table with user information.
     
@@ -24,7 +27,7 @@ class User(db.Model):
     def __repr__(self):
         return f'<User {self.username}>'
 
-class Task(db.Model):
+class Task(UserMixin, db.Model):
     """
     Set up table with task information.
 
