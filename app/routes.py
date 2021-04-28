@@ -7,18 +7,44 @@ from app.forms import LoginForm, OverviewForm, NewTaskForm, DeleteTaskForm
 # Make sure to import all tables
 from app.models import User, Task
 
+@app.route("/register", methods=['GET', 'POST'])
+def register():
+    """
+    Registers new user by creating username and password
+    """
+    form = registerForm()
+    if form.validate_on_submit():
+        newuser = User(username = form.username.data)
+        db.session.add(newuser)
+        db.session.commit()
+        newpassword = User(password = form.password.data)
+        db.session.add(newpassword)
+        db.session.commit()
+        if newuser is None:
+            flash('Please enter username')
+            return redirect('/register')
+        elif newpassword is None:
+            flash('Please enter password')
+            return redirect('/register')
+        return redirect('/overview')
+        flash('New user created')
+    #not sure about this html page    
+    return render_template("login.html", title = 'Register', form=form)
+
 @app.route("/login", methods=['GET', 'POST'])
 @app.route("/")
 def login():
     """
-    
+    Logs in user with existing username and password
     """
     form = LoginForm()
     if form.validate_on_submit():
         u = User.query.filter_by(username = form.username.data).first()
-        if u is None:
-            flash("No account found by this username")
-            return redirect(url_for('/overview'))
+        flash('Log in successful')
+        if u is None or not user.check_password(form.password.data):
+            flash('Invalid username or password')
+            return redirect('/login')
+        return redirect('/overview')
     
     return render_template("login.html", title = "SIGN IN", form = form)
 
