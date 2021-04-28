@@ -20,7 +20,7 @@ class User(UserMixin, db.Model):
     """
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(32), nullable=False, unique=True)
-    password = db.Column(db.String(32), nullable=False, unique=True)
+    password = db.Column(db.String(32), nullable=False, unique=False)
 
     """
     Output name of user.
@@ -43,7 +43,7 @@ class Task(UserMixin, db.Model):
     """
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False, unique=True)
-    description = db.Column(db.String, nullable=False, unique=True)
+    description = db.Column(db.String, nullable=True, unique=False)
     # know which account the task belongs to
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
 
