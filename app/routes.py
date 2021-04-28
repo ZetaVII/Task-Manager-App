@@ -9,6 +9,7 @@ from app.forms import LoginForm, OverviewForm, NewTaskForm, DeleteTaskForm, Regi
 # Make sure to import all tables
 from app.models import User, Task
 
+
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     """
@@ -18,17 +19,19 @@ def register():
     if form.validate_on_submit():
         u = User.query.filter_by(username=form.username.data).first()
         if u is None:
-            newuser = User(username=form.username.data, password=form.password.data)
+            newuser = User(username=form.username.data,
+                           password=form.password.data)
             db.session.add(newuser)
             db.session.commit()
             flash('Success!')
             return redirect('/login')
         flash('User already exists')
         return redirect('/login')
-    return render_template("register.html", title = 'Register', form=form)
+    return render_template("register.html", title='Register', form=form)
+
 
 @app.route("/login", methods=['GET', 'POST'])
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def login():
     """
     Logs in user with existing username and password
@@ -44,8 +47,9 @@ def login():
             return redirect('/login')
         login_user(user)
         return redirect('/overview')
-    
+
     return render_template("login.html", title="SIGN IN", form=form)
+
 
 @app.route('/overview')
 @login_required
@@ -70,6 +74,7 @@ def overview():
         list.append(task.title)
     return render_template('overview.html', title='Account Overview', form=form, list=list)
 
+
 @app.route('/logout')
 @login_required
 def logout():
@@ -77,21 +82,21 @@ def logout():
     Log user out of account.
 
     User will be returned to the login page.
-    
+
     Returns
     -------
     Redirect to the login page.
     """
     logout_user()
     return redirect('/')
-    
 
-@app.route('/createtask', methods = ['GET', 'POST'])
+
+@app.route('/createtask', methods=['GET', 'POST'])
 @login_required
 def createtask():
     """
     Creates a new task.
-    
+
     User will return to the overview page once finished creating task
     User remains on createtask page if all fields required are not filled out.
 
@@ -103,12 +108,13 @@ def createtask():
     """
     form = NewTaskForm()
     if form.validate_on_submit():
-        
+
         if form.title.data is None:
             flash('Please type in a title for new task')
             return redirect('/createtask')
         if form.description.data is not None:
-            newtasks = Task(title=form.title.data, description=form.description.data, user_id=current_user.id)
+            newtasks = Task(
+                title=form.title.data, description=form.description.data, user_id=current_user.id)
             db.session.add(newtasks)
             db.session.commit()
         else:
@@ -120,7 +126,8 @@ def createtask():
         flash('New task created')
     return render_template('newtask.html', title='New Task', form=form)
 
-@app.route('/deletetask', methods = ['GET', 'POST'])
+
+@app.route('/deletetask', methods=['GET', 'POST'])
 @login_required
 def deletetask():
     """
