@@ -4,8 +4,19 @@ from wtforms.validators import DataRequired
 
 class LoginForm(FlaskForm):
     """
-    
+    Represents the form for logging in.
+    Attributes
+    ----------
+    login : SubmitField
+        Button for user to log in.
+    username : StringField
+        Text box for user to enter username.    
+    password : PasswordField
+        Text box for user to enter password.
     """
+    username = StringField('Username', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    submit = SubmitField('Sign In')
     
 class OverviewForm(FlaskForm):
     """
