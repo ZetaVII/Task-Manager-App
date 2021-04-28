@@ -127,4 +127,4 @@ Steps taken to ensure functionality:
 
 ## Gantt chart
 
-![image](https://user-images.githubusercontent.com/78131171/116381402-b7de5b00-a7c9-11eb-8b2e-e3df013ea980.png)
+![image](https://user-images.githubusercontent.com/78131171/116381805-16a3d480-a7ca-11eb-8ec2-49bd19d6bea7.png)
