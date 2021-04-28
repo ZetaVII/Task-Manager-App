@@ -112,6 +112,9 @@ def createtask():
         if form.title.data is None:
             flash('Please type in a title for new task')
             return redirect('/createtask')
+        if t is not None:
+            flash('Task already exists.')
+            return redirect('/createtask')
         if form.description.data is not None:
             newtasks = Task(
                 title=form.title.data, description=form.description.data, user_id=current_user.id)
