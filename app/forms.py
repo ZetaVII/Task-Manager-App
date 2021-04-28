@@ -40,3 +40,7 @@ class NewTaskForm(FlaskForm):
     description = StringField('Description')
     create = SubmitField('Create')
     date = StringField("Set Deadline (Optional) MM-DD-YYYY")
+
+class DeleteTaskForm(FlaskForm):
+    title = StringField('Title of task to delete', validators = [DataRequired()]
+    delete = SubmitField('Delete')

@@ -90,3 +90,18 @@ def createtask():
         return redirect('/overview')
         flash(f'New task created: {form.title.data}')
     return render_template('newtask.html', title='New Task', form=form)
+
+@app.route('/deletetask', methods = ['GET', 'POST'])
+@login_required
+def deletetask():
+    form = DeleteTaskForm()
+    if form.validate_on_submit():
+        if form.title.data is None:
+            flash('Please type in a title of task to delete')
+            return redirect('/deletetask')
+        else:
+            deletedtask = Task.query.filter_by(title=form.title.data).first()
+            db.session.delete(deletedtask)
+        return redirect('/overview')
+        flash(f'Task deleted: {form.title.data}')
+    return render_template('deletetask.html', title='Delete Task', form=form)
