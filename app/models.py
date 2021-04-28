@@ -1,7 +1,7 @@
 from app import db
 from datetime import datetime
+from datetime import date
 from app import login
-# will be used in the future for secure log in
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
@@ -48,20 +48,10 @@ class Task(UserMixin, db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
 
     # Setting up one column for deadline
-    deadline = db.Column(db.String, db.ForeignKey("task.id"), nullable = True)
+    deadline = db.Column(db.String, nullable=True, unique=False)
 
     def setDeadline(self, date):
-        if date is NULL:
-            return
-        elif (int(date[0]) is not range(0,10) or int(date[1]) is not range(0,10)
-            or int(date[3]) is not range(0,10) or int(date[4]) is not range(0,10)
-            or int(date[6]) is not range(0,10) or int(date[7]) is not range(0,10)
-            or int(date[8]) is not range(0,10) or int (date[9]) is not range(0,10)
-            ):
-            flash("Please enter valid date.")
-        else:
-            self.deadline = date
-
+        self.deadline = date
 
     """
     Output name of task.
@@ -75,4 +65,3 @@ def load_user(id):
     
 # Need to have tables created in order to access this form
 db.create_all()
-

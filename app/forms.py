@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField, DateField
 from wtforms.validators import DataRequired
 
 class LoginForm(FlaskForm):
@@ -13,6 +13,8 @@ class LoginForm(FlaskForm):
         Text box for user to enter password.
     submit : SubmitField
         Button for user to log in.
+    register : SubmitField
+        Button for new user to make an account.
     """
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
@@ -24,8 +26,6 @@ class OverviewForm(FlaskForm):
 
     Attributes
     ----------
-    logout : SubmitField
-        Button for user to log out.
     complete : BooleanField
         Checkbox for user to mark task as complete.
     createtask : SubmitField
@@ -33,7 +33,6 @@ class OverviewForm(FlaskForm):
     deletetask : SubmitField
         Button to delete a task.
     """
-    logout = SubmitField('Log out')
     complete = BooleanField('Mark as complete')
     createtask = SubmitField('Create Task')
     deletetask = SubmitField('Delete Task')
@@ -56,7 +55,7 @@ class NewTaskForm(FlaskForm):
     title = StringField('Title', validators = [DataRequired()])
     description = StringField('Description')
     create = SubmitField('Create')
-    date = StringField("Set Deadline (Optional) MM-DD-YYYY")
+    date = DateField('Finish by', format=('%m/%d/%Y'))
 
 class DeleteTaskForm(FlaskForm):
     """
