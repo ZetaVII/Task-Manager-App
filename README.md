@@ -14,6 +14,7 @@ Use this app to create and organize tasks. Keep tasks personal or share with oth
   * [Delete task](#delete-task)
   * [Mark task as complete](#mark-task-as-complete)
   * [Set deadline for task](#set-deadline-for-task)
+* [Gantt chart](#gantt-chart) 
 
 ## Technologies
 
@@ -123,3 +124,7 @@ A person with an existing account can add a deadline to complete a task.
 
 Steps taken to ensure functionality:
 * [list steps here]
+
+## Gantt chart
+
+![image](https://user-images.githubusercontent.com/78131171/116381402-b7de5b00-a7c9-11eb-8b2e-e3df013ea980.png)
