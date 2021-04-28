@@ -1,5 +1,7 @@
-from flask import render_template, redirect, session
-from flask_login import login_required, logout_user, login_user
+from flask import render_template, redirect, session, flash
+from flask_login import current_user, login_user
+from flask_login import logout_user
+from flask_login import login_required
 
 from app import db
 from app import app
@@ -14,17 +16,15 @@ def register():
     """
     form = RegisterForm()
     if form.validate_on_submit():
-        newuser = User(username=form.username.data, password=form.password.data)
-        if newuser is None:
-            flash('Please Enter Username and Password')
-        elif (form.username.data == User.query.filter_by(username=form.username.data).first()):
-            flash('Username is already taken')
-        else:
+        u = User.query.filter_by(username=form.username.data).first()
+        if u is None:
+            newuser = User(username=form.username.data, password=form.password.data)
             db.session.add(newuser)
             db.session.commit()
-
-        return redirect('/overview')
-    
+            flash('Success!')
+            return redirect('/login')
+        flash('User already exists')
+        return redirect('/login')
     return render_template("register.html", title = 'Register', form=form)
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -35,16 +35,17 @@ def login():
     """
     form = LoginForm()
     if form.validate_on_submit():
-        u = User.query.filter_by(username = form.username.data).first()
-        flash('Log in successful')
-        if u is None or not user.check_password(form.password.data):
-            flash('Invalid username or password')
+        user = User.query.filter_by(username=form.username.data).first()
+        if user is None:
+            flash('No account found')
             return redirect('/login')
-
-        curret_user.is_auth        
-        return redirect(url_for('overview'))
+        if not user.password == form.password.data:
+            flash('Incorrect password')
+            return redirect('/login')
+        login_user(user)
+        return redirect('/overview')
     
-    return render_template("login.html", title = "SIGN IN", form = form)
+    return render_template("login.html", title="SIGN IN", form=form)
 
 @app.route('/overview')
 @login_required
