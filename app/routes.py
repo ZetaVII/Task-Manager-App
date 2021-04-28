@@ -13,10 +13,14 @@ def login():
     """
     
     """
-    form = loginForm()
+    form = LoginForm()
+    if form.validate_on_submit():
+        u = User.query.filter_by(username = form.username.data).first()
+        if u is None:
+            flash("No account found by this username")
+            return redirect(url_for('/overview'))
     
-    # Requires LOGIN.HTML (?)
-    return render_template("base.html")
+    return render_template("login.html", title = "SIGN IN", form = form)
 
 @app.route('/overview')
 @login_required
@@ -74,12 +78,15 @@ def createtask():
     """
     form = NewTaskForm()
     if form.validate_on_submit():
-        if title is None:
+        
+        if form.title.data is None:
             flash('Please type in a title for new task')
             return redirect('/createtask')
-        newtasks = Task(title=form.title.data)
-        db.session.add(newtasks)
-        db.session.commit()
+        else:
+            newtasks = Task(title=form.title.data)
+            newtasks.setDeadline(form.date.data)
+            db.session.add(newtasks)
+            db.session.commit()
         return redirect('/overview')
         flash(f'New task created: {form.title.data}')
     return render_template('newtask.html', title='New Task', form=form)
