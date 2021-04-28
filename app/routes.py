@@ -68,7 +68,7 @@ def createtask():
     Creates a new task.
     
     User will return to the overview page once finished creating task
-    User remains on createtasl page if all fields required are not filled out.
+    User remains on createtask page if all fields required are not filled out.
 
     Returns
     -------
@@ -94,6 +94,18 @@ def createtask():
 @app.route('/deletetask', methods = ['GET', 'POST'])
 @login_required
 def deletetask():
+    """
+    Deletes a task.
+
+    User will return to the overview page once finsihed deleting a task.
+    User remains on the deletetask if all the fields required are not filled out.
+
+    Returns
+    -------
+    Redirect to the deletetask page.
+    Redirect to the overview page.
+    Render the deletetask.html template.
+    """
     form = DeleteTaskForm()
     if form.validate_on_submit():
         if form.title.data is None:
@@ -102,6 +114,7 @@ def deletetask():
         else:
             deletedtask = Task.query.filter_by(title=form.title.data).first()
             db.session.delete(deletedtask)
+            db.session.commit()
         return redirect('/overview')
         flash(f'Task deleted: {form.title.data}')
     return render_template('deletetask.html', title='Delete Task', form=form)

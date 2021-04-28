@@ -35,6 +35,8 @@ class NewTaskForm(FlaskForm):
         Where users can type in the description of a new task. Data is not required for this.
     create : SubmitField
         Button for user to finish creating new task.
+    date : StringField
+        Where users can type in a date for a deadline of a task. Data is not required for this.
     """
     title = StringField('Title', validators = [DataRequired()])
     description = StringField('Description')
@@ -42,5 +44,15 @@ class NewTaskForm(FlaskForm):
     date = StringField("Set Deadline (Optional) MM-DD-YYYY")
 
 class DeleteTaskForm(FlaskForm):
+    """
+    Represents the form for deleting a task.
+    
+    Attributes
+    ----------
+    title : StringField
+        Where users can type in the title of a task that they will delete. Data is required for this.
+    delete : SubmitField
+        Button for user to finish deleting a task.
+    """
     title = StringField('Title of task to delete', validators = [DataRequired()]
     delete = SubmitField('Delete')
