@@ -76,7 +76,10 @@ A person can sign up by providing valid account details.
 [Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-1-name-register-new-user)
 
 Steps taken to ensure functionality:
-* [list steps here]
+* Create new user account 
+* Ensure that user is able to log in 
+* Ensure user is able to access pages
+* Ensure user is able to log out
 
 ### Create new task
 
