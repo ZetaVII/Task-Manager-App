@@ -3,7 +3,7 @@ from flask_login import login_required, logout_user, login_user
 
 from app import db
 from app import app
-from app.forms import LoginForm, OverviewForm, NewTaskForm, DeleteTaskForm
+from app.forms import LoginForm, OverviewForm, NewTaskForm, DeleteTaskForm, RegisterForm
 # Make sure to import all tables
 from app.models import User, Task
 
@@ -12,7 +12,7 @@ def register():
     """
     Registers new user by creating username and password
     """
-    form = registerForm()
+    form = RegisterForm()
     if form.validate_on_submit():
         newuser = User(username = form.username.data)
         db.session.add(newuser)
@@ -21,15 +21,15 @@ def register():
         db.session.add(newpassword)
         db.session.commit()
         if newuser is None:
-            flash('Please enter username')
+            flash('Please Enter a Username')
             return redirect('/register')
         elif newpassword is None:
-            flash('Please enter password')
+            flash('Please Enter a Password')
             return redirect('/register')
         return redirect('/overview')
         flash('New user created')
     #not sure about this html page    
-    return render_template("login.html", title = 'Register', form=form)
+    return render_template("register.html", title = 'Register', form=form)
 
 @app.route("/login", methods=['GET', 'POST'])
 @app.route("/")

@@ -72,5 +72,13 @@ class DeleteTaskForm(FlaskForm):
     delete : SubmitField
         Button for user to finish deleting a task.
     """
-    title = StringField('Title of task to delete', validators = [DataRequired()]
+    title = StringField('Title of task to delete', validators = [DataRequired()])
     delete = SubmitField('Delete')
+
+class RegisterForm(FlaskForm):
+    """
+    
+    """
+    username = StringField("USERNAME", validators= [DataRequired()])
+    password = StringField("PASSWORD", validators= [DataRequired()])
+    create = SubmitField("FINISH")
