@@ -64,6 +64,10 @@ class Task(db.Model):
     def __repr__(self):
         return f'<Task {self.title}>'
 
+@login.user_loader
+def load_user(id):
+    return User.query.get(int(id))    
+    
 # Need to have tables created in order to access this form
 db.create_all()
 
