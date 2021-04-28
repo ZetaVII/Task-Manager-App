@@ -1,4 +1,5 @@
 from app import db
+from app import login
 
 class User(db.Model):
     """
