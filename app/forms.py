@@ -13,13 +13,10 @@ class LoginForm(FlaskForm):
         Text box for user to enter password.
     submit : SubmitField
         Button for user to log in.
-    register : SubmitField
-        Button for new user to make an account.
     """
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Sign In')
-    register = SubmitField('Create an account')
     
 class OverviewForm(FlaskForm):
     """
