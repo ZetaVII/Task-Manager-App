@@ -123,7 +123,9 @@ A person with an existing account can add a deadline to complete a task.
 [Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-7-name-add-deadline-for-a-task)
 
 Steps taken to ensure functionality:
-* [list steps here]
+* Create input box within task creation in a simpler app
+* Test simpler app to ensure this section of the code works as expected.
+* Test actual app once all prerequisite features are implemented. 
 
 ## Gantt chart
 
