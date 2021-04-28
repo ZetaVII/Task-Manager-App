@@ -13,8 +13,6 @@ class LoginForm(FlaskForm):
         Text box for user to enter password.
     submit : SubmitField
         Button for user to log in.
-    submit : SubmitField
-        Button for existing user to login.
     """
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
@@ -80,8 +78,6 @@ class RegisterForm(FlaskForm):
         Text box for user to enter username.    
     password : PasswordField
         Text box for user to enter password.
-    submit : SubmitField
-        Button for user to log in.
     create : SubmitField
         Button for new user to make an account.
     """
