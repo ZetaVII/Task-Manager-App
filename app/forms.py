@@ -55,7 +55,7 @@ class NewTaskForm(FlaskForm):
     title = StringField('Title', validators = [DataRequired()])
     description = StringField('Description')
     create = SubmitField('Create')
-    date = DateField('Finish by', format=('%m/%d/%Y'))
+    date = DateField('Finish by (mm/dd/yyyy)', format=('%m/%d/%Y'))
 
 class DeleteTaskForm(FlaskForm):
     """
