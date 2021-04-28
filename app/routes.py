@@ -17,18 +17,14 @@ def register():
         newuser = User(username=form.username.data, password=form.password.data)
         if newuser is None:
             flash('Please Enter Username and Password')
-        elif:
-            username = User.query.filter_by(username=form.username.data).first()
+        elif (form.username.data == User.query.filter_by(username=form.username.data).first()):
             flash('Username is already taken')
-        elif:
-            password = User.query.filter_by(password=form.password.data).first()
-            flash('Password is already taken')
         else:
             db.session.add(newuser)
             db.session.commit()
+
         return redirect('/overview')
-        flash('New user created')
-    #not sure about this html page    
+    
     return render_template("register.html", title = 'Register', form=form)
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -44,7 +40,8 @@ def login():
         if u is None or not user.check_password(form.password.data):
             flash('Invalid username or password')
             return redirect('/login')
-        
+
+        curret_user.is_auth        
         return redirect(url_for('overview'))
     
     return render_template("login.html", title = "SIGN IN", form = form)
