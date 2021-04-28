@@ -108,10 +108,12 @@ def createtask():
         if form.title.data is None:
             flash('Please type in a title for new task')
             return redirect('/createtask')
+
         t = Task.query.filter_by(title=form.title.data).first()
         if t is not None:
             flash('Task already exists.')
             return redirect('/createtask')
+            
         if form.description.data is not None:
             newtasks = Task(title=form.title.data, description=form.description.data, user_id=current_user.id)
             if form.date.data is not None:
@@ -120,7 +122,6 @@ def createtask():
             db.session.commit()
         else:
             newtasks = Task(title=form.title.data, user_id=current_user.id)
-            'newtasks.setDeadline(form.date.data)'
             if form.date.data is not None:
                 newtasks.setDeadline(form.date.data.strftime("%b-%d-%Y"))
             db.session.add(newtasks)
@@ -146,9 +147,15 @@ def deletetask():
     """
     form = DeleteTaskForm()
     if form.validate_on_submit():
+
         if form.title.data is None:
             flash('Please type in a title of task to delete')
             return redirect('/deletetask')
+        elif form.title.data is not None:
+            t = Task.query.filter_by(title=form.title.data).first()
+            if t is None:
+                flash("Task does not exist!")
+                return redirect('/deletetask')
         else:
             deletedtask = Task.query.filter_by(title=form.title.data).first()
             db.session.delete(deletedtask)
