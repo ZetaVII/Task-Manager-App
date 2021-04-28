@@ -112,7 +112,11 @@ A person with an existing account can delete any tasks that they had previously 
 [Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-5-name-delete-a-task)
 
 Steps taken to ensure functionality:
-* [list steps here]
+* Delete existing task
+* Ensure it is removed 
+* Delete task that does not exist
+* Ensure flash shows
+* Ensure nothing happpens when text box empty 
 
 ### Mark task as complete
 
