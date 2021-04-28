@@ -112,6 +112,7 @@ def createtask():
         if form.title.data is None:
             flash('Please type in a title for new task')
             return redirect('/createtask')
+        t = Task.query.filter_by(title=form.title.data)
         if t is not None:
             flash('Task already exists.')
             return redirect('/createtask')
