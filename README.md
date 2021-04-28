@@ -51,7 +51,10 @@ A person with an existing account can log in to the app.
 [Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-2-name-login)
 
 Steps taken to ensure functionality:
-* [list steps here]
+* Test if user created in register in is still able to log in
+* Ensure user is able to access pages
+* Ensure user log out is successful
+* Test account that has not been registered should not be able to log in
 
 ### Log out
 
@@ -79,7 +82,7 @@ Steps taken to ensure functionality:
 * Create new user account 
 * Ensure that user is able to log in 
 * Ensure user is able to access pages
-* Ensure user is able to log out
+* Ensure user log out is successful
 
 ### Create new task
 
