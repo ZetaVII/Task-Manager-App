@@ -64,7 +64,7 @@ def overview():
     Render the overview.html template.
     """
     form = OverviewForm()
-    tasks = Task.query.all()
+    tasks = Task.query.filter_by(user_id=current_user.id)
     list = []
     for task in tasks:
         list.append(task.title)
@@ -108,11 +108,11 @@ def createtask():
             flash('Please type in a title for new task')
             return redirect('/createtask')
         if form.description.data is not None:
-            newtasks = Task(title=form.title.data, description=form.description.data)
+            newtasks = Task(title=form.title.data, description=form.description.data, user_id=current_user.id)
             db.session.add(newtasks)
             db.session.commit()
         else:
-            newtasks = Task(title=form.title.data)
+            newtasks = Task(title=form.title.data, user_id=current_user.id)
             'newtasks.setDeadline(form.date.data)'
             db.session.add(newtasks)
             db.session.commit()
