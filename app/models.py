@@ -2,16 +2,27 @@ from app import db
 
 class User(db.Model):
     """
-    
+    Attributes
+    ----------
+    username : StringField
+        Users username
+    password : StringField
+        Users password
+    user_id : IntegerField
+        Id of user
     """
-    
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    username = db.Column(db.String(32), nullable=False, unique=True)
+    password = db.Column(db.String(32), nullable=False, unique=True)
 
+    
+    def set_password(self, password):
+        self.password = generate_password_hash(password)
+    def check_password(self, password):
+        return check_password_hash(self.password, password) 
     """
     Output name of user.
     """
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(32), nullable=False, unique=True)
-    password = db.Column(db.String(32), nullable=False, unique=True)
 
     def __repr__(self):
         return f'<User {self.username}>'
