@@ -14,6 +14,11 @@ from app.models import User, Task
 def register():
     """
     Registers new user by creating username and password
+    
+    Returns
+    -------
+    Redirect to the login page.
+    Render the register.html template.
     """
     form = RegisterForm()
     if form.validate_on_submit():
@@ -33,6 +38,12 @@ def register():
 def login():
     """
     Logs in user with existing username and password
+
+    Returns
+    -------
+    Redirect to the login page.
+    Redirect to the overview page. 
+    Render the login.html template. 
     """
     form = LoginForm()
     if form.validate_on_submit():
