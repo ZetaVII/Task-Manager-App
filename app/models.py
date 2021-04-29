@@ -38,8 +38,12 @@ class Task(UserMixin, db.Model):
         Id of task.
     title : String column
         Title of task.
+    description : String column
+        Description of the task.
     user_id : Integer column
         Id of user who created the task.
+    deadline : String column
+        Date that the task needs to be finished by.
     """
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False, unique=True)
@@ -51,6 +55,16 @@ class Task(UserMixin, db.Model):
     deadline = db.Column(db.String, nullable=True, unique=False)
 
     def setDeadline(self, date):
+        """
+        Assign a deadline to a task.
+        
+        This function allows for the date to be set after the task is created.
+        
+        Parameters
+        ----------
+        date : string
+            Date that the task needs to be done by.
+        """
         self.deadline = date
 
     """

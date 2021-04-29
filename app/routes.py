@@ -15,7 +15,12 @@ from app.models import User, Task
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     """
-    Registers new user by creating username and password
+    Registers new user by creating username and password.
+    
+    Returns
+    -------
+    Redirect to the login page.
+    Render the register.html template.
     """
     form = RegisterForm()
     if form.validate_on_submit():
@@ -34,7 +39,13 @@ def register():
 @app.route("/", methods=['GET', 'POST'])
 def login():
     """
-    Logs in user with existing username and password
+    Logs in user with existing username and password.
+
+    Returns
+    -------
+    Redirect to the login page.
+    Redirect to the overview page. 
+    Render the login.html template. 
     """
     form = LoginForm()
     if form.validate_on_submit():
@@ -58,9 +69,6 @@ def overview():
 
     Display all existing tasks in a list. Provide options for creating, deleting, and
     editing tasks along with other options for interacting with tasks.
-
-    Parameters
-    ----------
 
     Returns
     -------
@@ -97,6 +105,7 @@ def createtask():
     
     User will return to the overview page once finished creating task
     User remains on createtask page if all fields required are not filled out.
+    Title and finish by date are required.
 
     Returns
     -------
@@ -122,8 +131,6 @@ def createtask():
                 newtasks.setDeadline(form.date.data.strftime("%b-%d-%Y"))
             db.session.add(newtasks)
             db.session.commit()
-            #adding to test if fixed
-            return redirect('/overview')
         else:
             newtasks = Task(title=form.title.data, user_id=current_user.id)
             if form.date.data is not None:
