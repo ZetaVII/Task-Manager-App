@@ -13,7 +13,7 @@ from app.models import User, Task
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     """
-    Registers new user by creating username and password
+    Registers new user by creating username and password.
     
     Returns
     -------
@@ -37,7 +37,7 @@ def register():
 @app.route("/", methods=['GET', 'POST'])
 def login():
     """
-    Logs in user with existing username and password
+    Logs in user with existing username and password.
 
     Returns
     -------
@@ -67,9 +67,6 @@ def overview():
 
     Display all existing tasks in a list. Provide options for creating, deleting, and
     editing tasks along with other options for interacting with tasks.
-
-    Parameters
-    ----------
 
     Returns
     -------
@@ -106,7 +103,7 @@ def createtask():
     
     User will return to the overview page once finished creating task
     User remains on createtask page if all fields required are not filled out.
-    Title and finish by date required
+    Title and finish by date are required.
 
     Returns
     -------
