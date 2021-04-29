@@ -13,7 +13,16 @@ from app.models import User, Task
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     """
-    Registers new user by creating username and password
+    Registers New User
+
+    User will be redirected to register page and submit the required
+    fields to be added into the data base.
+
+    Returns
+    -------
+    Redirect to the register page.
+    Registers new user into User DB
+    Render the register.html template.
     """
     form = RegisterForm()
     if form.validate_on_submit():
@@ -32,7 +41,16 @@ def register():
 @app.route("/", methods=['GET', 'POST'])
 def login():
     """
-    Logs in user with existing username and password
+    Logs User In
+
+    User will be redirected to login page and enter their credentials
+    within the fields to be access the home page and create/delete taks
+
+    Returns
+    -------
+    Redirect to the login page.
+    Logs existing user from User DB
+    Render the login.html template.
     """
     form = LoginForm()
     if form.validate_on_submit():
@@ -56,9 +74,6 @@ def overview():
 
     Display all existing tasks in a list. Provide options for creating, deleting, and
     editing tasks along with other options for interacting with tasks.
-
-    Parameters
-    ----------
 
     Returns
     -------
