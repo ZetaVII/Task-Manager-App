@@ -115,3 +115,20 @@ class FindTaskForm(FlaskForm):
     """
     title = StringField("Title", validators=[DataRequired()])
     find = SubmitField("Find")
+
+class ShareTaskForm(FlaskForm):
+    """
+    Represents the form for sharing a task with another user.
+
+    Attributes
+    ----------
+    title : StringField
+        Title of the task being shared.
+    username : StringField
+        Username of the recipient user.
+    share : SubmitField
+        Button for the user to share the task with another user.
+    """
+    title = StringField("Task", validators=[DataRequired()])
+    username = StringField("Username", validators=[DataRequired()])
+    share = SubmitField("Share")    
