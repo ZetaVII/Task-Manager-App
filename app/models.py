@@ -5,6 +5,11 @@ from app import login
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
+shares = db.Table('shares',
+                  db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
+                  db.Column('task_id', db.Integer, db.ForeignKey('task.id'))
+                  )
+
 class User(UserMixin, db.Model):
     """
     Set up table with user information.
@@ -17,10 +22,13 @@ class User(UserMixin, db.Model):
         Username of user.
     password : String column
         Password of user.
+    tasks : Query of tasks
+        All of the tasks the user has access to.
     """
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(32), nullable=False, unique=True)
     password = db.Column(db.String(32), nullable=False, unique=False)
+    tasks = db.relationship('Task', secondary=shares, backref=db.backref('users', lazy='dynamic'))
 
     """
     Output name of user.
