@@ -84,3 +84,34 @@ class RegisterForm(FlaskForm):
     username = StringField("Username", validators= [DataRequired()])
     password = PasswordField("Password", validators= [DataRequired()])
     create = SubmitField("Register")
+    
+class EditTaskForm(FlaskForm):
+    """
+    Represents the form for editing an existing task.
+
+    Attributes
+    ----------
+    title : StringField
+        Textbox for user to enter a new title.
+    description : StringField
+        Textbox for user to enter a new title.
+    save : SubmitField
+        Button for user to save changes.
+    """
+    title = StringField("Title", validators=[DataRequired()])
+    description = StringField("Description")
+    save = SubmitField("Save changes")
+
+class FindTaskForm(FlaskForm):
+    """
+    Represents the form for finding an existing task.
+
+    Attributes
+    ----------
+    title : StringField
+        Title of the task.
+    find : SubmitField
+        Button for user to start search for task by title.
+    """
+    title = StringField("Title", validators=[DataRequired()])
+    find = SubmitField("Find")
