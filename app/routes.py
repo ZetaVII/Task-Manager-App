@@ -4,23 +4,16 @@ from flask_login import logout_user
 from flask_login import login_required
 from datetime import datetime
 
-
-
 from app import app
 from app import db
-from app.forms import LoginForm, OverviewForm, NewTaskForm, DeleteTaskForm, RegisterForm, FindTaskForm, EditTaskForm
+from app.forms import LoginForm, OverviewForm, NewTaskForm, DeleteTaskForm, RegisterForm, FindTaskForm, EditTaskForm, ShareTaskForm
 # Make sure to import all tables
 from app.models import User, Task
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     """
-    Registers new user by creating username and password.
-    
-    Returns
-    -------
-    Redirect to the login page.
-    Render the register.html template.
+    Registers new user by creating username and password
     """
     form = RegisterForm()
     if form.validate_on_submit():
@@ -39,13 +32,7 @@ def register():
 @app.route("/", methods=['GET', 'POST'])
 def login():
     """
-    Logs in user with existing username and password.
-
-    Returns
-    -------
-    Redirect to the login page.
-    Redirect to the overview page. 
-    Render the login.html template. 
+    Logs in user with existing username and password
     """
     form = LoginForm()
     if form.validate_on_submit():
@@ -70,14 +57,16 @@ def overview():
     Display all existing tasks in a list. Provide options for creating, deleting, and
     editing tasks along with other options for interacting with tasks.
 
+    Parameters
+    ----------
+
     Returns
     -------
     Render the overview.html template.
     """
     form = OverviewForm()
-    tasks = Task.query.filter_by(user_id=current_user.id)
     list = []
-    for task in tasks:
+    for task in current_user.tasks:
         list.append(task.title)
     return render_template('overview.html', title='Account Overview', form=form, list=list)
 
@@ -105,7 +94,7 @@ def createtask():
     
     User will return to the overview page once finished creating task
     User remains on createtask page if all fields required are not filled out.
-    Title and finish by date are required.
+    Title and finish by date required
 
     Returns
     -------
@@ -129,12 +118,14 @@ def createtask():
             newtasks = Task(title=form.title.data, description=form.description.data, user_id=current_user.id)
             if form.date.data is not None:
                 newtasks.setDeadline(form.date.data.strftime("%b-%d-%Y"))
+            current_user.tasks.append(newtasks)
             db.session.add(newtasks)
             db.session.commit()
         else:
             newtasks = Task(title=form.title.data, user_id=current_user.id)
             if form.date.data is not None:
                 newtasks.setDeadline(form.date.data.strftime("%b-%d-%Y"))
+            current_user.tasks.append(newtasks)
             db.session.add(newtasks)
             db.session.commit()
         return redirect('/overview')
@@ -176,17 +167,6 @@ def deletetask():
 @app.route('/edittask', methods=['GET', 'POST'])
 @login_required
 def editTask():
-    """
-    Edits a task.
-    
-    User will be able to change the title and description for the selected task.
-    
-    Returns
-    -------
-    Redirect to Edit Task page.
-    Redirect to Overview page.
-    Render the edittask.html template.
-    """
     form = EditTaskForm()
     task = session.get('task', None)
     tk = Task.query.filter_by(title=task).first()
@@ -208,17 +188,6 @@ def editTask():
 @app.route('/findtask', methods=['GET', 'POST'])
 @login_required
 def findTask():
-    """
-    Finds a task.
-    
-    User will be able to search for a task by title. This is used for choosing a task to edit.
-    
-    Returns
-    -------
-    Redirect to Edit Task page.
-    Redirect to Find Task page.
-    Render the findtask.html template.
-    """
     form = FindTaskForm()
     if form.validate_on_submit():
         if form.title.data is None:
@@ -231,3 +200,38 @@ def findTask():
         session['task'] = t.title
         return redirect(url_for('editTask'))
     return render_template("/findtask.html", title='Find Task', form=form)
+
+@app.route('/share', methods=['GET', 'POST'])
+@login_required
+def shareTask():
+    """
+    Shares a task with another user.
+    
+    Recipient user will also share editing and deleting capabilities over the task.
+    
+    Returns
+    -------
+    Redirect to the share task page.
+    Redirect to the overview page.
+    Renders the share.html template.
+    """
+    form = ShareTaskForm()
+    if form.validate_on_submit():
+        if form.title.data is None:
+            flash("Enter a task to share")
+            return redirect('/share')
+        if form.username.data is None:
+            flash("Enter a user to share with")
+        t = Task.query.filter_by(title=form.title.data).first()
+        u = User.query.filter_by(username=form.username.data).first()
+        if t is None:
+            flash("Task does not exist")
+            return redirect('/share')
+        if u is None:
+            flash("User does not exist")
+            return redirect('/share')
+        u.tasks.append(t)
+        db.session.commit()
+        flash("Successful share")
+        return redirect("/overview")
+    return render_template("/share.html", title='Share Task', form=form)
