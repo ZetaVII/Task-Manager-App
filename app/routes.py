@@ -1,4 +1,4 @@
-from flask import render_template, redirect, session, flash, url_for
+from flask import render_template, redirect, session, flash, url_for, request
 from flask_login import current_user, login_user
 from flask_login import logout_user
 from flask_login import login_required
@@ -8,7 +8,7 @@ from datetime import datetime
 
 from app import app
 from app import db
-from app.forms import LoginForm, OverviewForm, NewTaskForm, DeleteTaskForm, RegisterForm
+from app.forms import LoginForm, OverviewForm, NewTaskForm, DeleteTaskForm, RegisterForm, FindTaskForm, EditTaskForm
 # Make sure to import all tables
 from app.models import User, Task
 
@@ -172,3 +172,62 @@ def deletetask():
                 return redirect('/overview')
                 flash('Task deleted')
     return render_template('deletetask.html', title='Delete Task', form=form)
+
+@app.route('/edittask', methods=['GET', 'POST'])
+@login_required
+def editTask():
+    """
+    Edits a task.
+    
+    User will be able to change the title and description for the selected task.
+    
+    Returns
+    -------
+    Redirect to Edit Task page.
+    Redirect to Overview page.
+    Render the edittask.html template.
+    """
+    form = EditTaskForm()
+    task = session.get('task', None)
+    tk = Task.query.filter_by(title=task).first()
+    if form.validate_on_submit():
+        if form.title.data is None:
+            flash('Enter a title')
+            return redirect('/edittask')
+        t = Task.query.filter_by(title=form.title.data).first()
+        if t is not None:
+            flash('Title already taken.')
+            return redirect('/edittask')
+        tk.title = form.title.data
+        if form.description.data is not None:
+            tk.description = form.description.data
+        db.session.commit()
+        return redirect('/overview')
+    return render_template('edittask.html', title='Edit Task', form=form)
+
+@app.route('/findtask', methods=['GET', 'POST'])
+@login_required
+def findTask():
+    """
+    Finds a task.
+    
+    User will be able to search for a task by title. This is used for choosing a task to edit.
+    
+    Returns
+    -------
+    Redirect to Edit Task page.
+    Redirect to Find Task page.
+    Render the findtask.html template.
+    """
+    form = FindTaskForm()
+    if form.validate_on_submit():
+        if form.title.data is None:
+            flash('Enter a title')
+            return redirect('/findtask')
+        t = Task.query.filter_by(title=form.title.data).first()
+        if t is None:
+            flash("No task found")
+            return redirect('/findtask')
+        session['task'] = t.title
+        return redirect(url_for('editTask'))
+    return render_template("/findtask.html", title='Find Task', form=form)
