@@ -52,6 +52,8 @@ class Task(UserMixin, db.Model):
         Id of user who created the task.
     deadline : String column
         Date that the task needs to be finished by.
+    priority : Integer column
+        priority of task needed.
     """
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False, unique=True)
@@ -61,6 +63,9 @@ class Task(UserMixin, db.Model):
 
     # Setting up one column for deadline
     deadline = db.Column(db.String, nullable=True, unique=False)
+    # Create column for priority
+    priority = db.Column(db.Integer, nullable=True, unique=False)
+    
     def setDeadline(self, date):
         """
         Assign a deadline to a task.
