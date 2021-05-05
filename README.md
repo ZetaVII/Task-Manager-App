@@ -14,6 +14,14 @@ Use this app to create and organize tasks. Keep tasks personal or share with oth
   * [Delete task](#delete-task)
   * [Mark task as complete](#mark-task-as-complete)
   * [Set deadline for task](#set-deadline-for-task)
+  * [Edit a taks](#edit-a-task)
+  * [Add time duration for a task](#add-time-duration-for-a-task)
+  * [View completed tasks](#view-completed-tasks)
+  * [View incomplete tasks](#view-incomplete-tasks)
+  * [Set priority of tasks](#set-priority-of-tasks)
+  * [Categorize task](#categorize-task)
+  * [Set reminder](#set-reminder)
+  * [Share task](#share-task)
 * [Gantt chart](#gantt-chart) 
 
 ## Technologies
@@ -144,6 +152,99 @@ Steps taken to ensure functionality:
 * Create input box within task creation in a simpler app
 * Test simpler app to ensure this section of the code works as expected.
 * Test actual app once all prerequisite features are implemented. 
+
+### Edit a task
+
+Use case 4: Edit a task
+
+A person with an existing account can make edits to tasks they previously created.
+
+[Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-4-name-edit-a-task)
+
+Steps taken to ensure functionality:
+* Flash messages to page when forms are submitted
+* Flash name of task to ensure that the correct task was selected
+* Check to make sure edits are reflected on the overview page
+
+### Add time duration for a task
+
+Use case 8: Add time duration for a task
+
+A person with an existing account can add a time duration to complete a task.
+
+[Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-8-name-add-time-duration-for-a-task)
+
+Steps taken to ensure functionality:
+* 
+
+### View completed tasks
+
+Use case 10: View completed tasks
+
+User who is logged in can view all complete tasks.
+
+[Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-10-name-view-completed-tasks)
+
+Steps taken to ensure functionality:
+* 
+### View incomplete tasks
+
+Use case 11: View incomplete tasks
+
+User who is logged in can view all incomplete tasks.
+
+[Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-11-name-view-incomplete-tasks)
+
+Steps taken to ensure functionality:
+* 
+### Set Priority of Tasks
+
+Use case 12: Set priority of tasks
+
+Users are able to assign the priority level, such as high (needs to be done ASAP), to a certain task and put them at the top of the lists.
+
+[Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-12-name-set-priority-of-tasks)
+
+Steps taken to ensure functionality:
+* 
+### Categorize Task
+
+Use case 13: Categorize task
+
+Users are able to assign tasks into separate categories (ie. school, work, or personal life).
+
+[Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-13-name-categorize-task)
+
+Steps taken to ensure functionality:
+* 
+### Set Reminder
+
+Use case 14: Set task reminder
+
+Users are able to have the system to send a notification to remind them to do a certain task(s).
+
+[Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-14-name-set-reminder)
+
+Steps taken to ensure functionality:
+* 
+### Share Task
+
+Use case 15: Share task 
+
+Users can share tasks with other users to collaborate with one another.
+
+[Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-15-name-share-task)
+
+Steps taken to ensure functionality:
+* Create new user
+* Log out and create new user
+* Log in and create new task
+* Share task with first user
+* Log out and log back in to recipient user
+* Check to see if the shared task is present
+* Edit newly shared task and save changes
+* Log out and log in to other user
+* Check if new changes are present
 
 ## Gantt chart
 
