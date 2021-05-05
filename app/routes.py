@@ -1,4 +1,4 @@
-from flask import render_template, redirect, session, flash, url_for
+from flask import render_template, redirect, session, flash, url_for, request
 from flask_login import current_user, login_user
 from flask_login import logout_user
 from flask_login import login_required
@@ -6,7 +6,7 @@ from datetime import datetime
 
 from app import app
 from app import db
-from app.forms import LoginForm, OverviewForm, NewTaskForm, DeleteTaskForm, RegisterForm
+from app.forms import LoginForm, OverviewForm, NewTaskForm, DeleteTaskForm, RegisterForm, FindTaskForm, EditTaskForm, ShareTaskForm
 # Make sure to import all tables
 from app.models import User, Task
 
@@ -80,9 +80,8 @@ def overview():
     Render the overview.html template.
     """
     form = OverviewForm()
-    tasks = Task.query.filter_by(user_id=current_user.id)
     list = []
-    for task in tasks:
+    for task in current_user.tasks:
         list.append(task.title)
     return render_template('overview.html', title='Account Overview', form=form, list=list)
 
@@ -134,12 +133,14 @@ def createtask():
             newtasks = Task(title=form.title.data, description=form.description.data, user_id=current_user.id)
             if form.date.data is not None:
                 newtasks.setDeadline(form.date.data.strftime("%b-%d-%Y"))
+            current_user.tasks.append(newtasks)
             db.session.add(newtasks)
             db.session.commit()
         else:
             newtasks = Task(title=form.title.data, user_id=current_user.id)
             if form.date.data is not None:
                 newtasks.setDeadline(form.date.data.strftime("%b-%d-%Y"))
+            current_user.tasks.append(newtasks)
             db.session.add(newtasks)
             db.session.commit()
         return redirect('/overview')
@@ -177,3 +178,75 @@ def deletetask():
                 return redirect('/overview')
                 flash('Task deleted')
     return render_template('deletetask.html', title='Delete Task', form=form)
+
+@app.route('/edittask', methods=['GET', 'POST'])
+@login_required
+def editTask():
+    form = EditTaskForm()
+    task = session.get('task', None)
+    tk = Task.query.filter_by(title=task).first()
+    if form.validate_on_submit():
+        if form.title.data is None:
+            flash('Enter a title')
+            return redirect('/edittask')
+        t = Task.query.filter_by(title=form.title.data).first()
+        if t is not None:
+            flash('Title already taken.')
+            return redirect('/edittask')
+        tk.title = form.title.data
+        if form.description.data is not None:
+            tk.description = form.description.data
+        db.session.commit()
+        return redirect('/overview')
+    return render_template('edittask.html', title='Edit Task', form=form)
+
+@app.route('/findtask', methods=['GET', 'POST'])
+@login_required
+def findTask():
+    form = FindTaskForm()
+    if form.validate_on_submit():
+        if form.title.data is None:
+            flash('Enter a title')
+            return redirect('/findtask')
+        t = Task.query.filter_by(title=form.title.data).first()
+        if t is None:
+            flash("No task found")
+            return redirect('/findtask')
+        session['task'] = t.title
+        return redirect(url_for('editTask'))
+    return render_template("/findtask.html", title='Find Task', form=form)
+
+@app.route('/share', methods=['GET', 'POST'])
+@login_required
+def shareTask():
+    """
+    Shares a task with another user.
+    
+    Recipient user will also share editing and deleting capabilities over the task.
+    
+    Returns
+    -------
+    Redirect to the share task page.
+    Redirect to the overview page.
+    Renders the share.html template.
+    """
+    form = ShareTaskForm()
+    if form.validate_on_submit():
+        if form.title.data is None:
+            flash("Enter a task to share")
+            return redirect('/share')
+        if form.username.data is None:
+            flash("Enter a user to share with")
+        t = Task.query.filter_by(title=form.title.data).first()
+        u = User.query.filter_by(username=form.username.data).first()
+        if t is None:
+            flash("Task does not exist")
+            return redirect('/share')
+        if u is None:
+            flash("User does not exist")
+            return redirect('/share')
+        u.tasks.append(t)
+        db.session.commit()
+        flash("Successful share")
+        return redirect("/overview")
+    return render_template("/share.html", title='Share Task', form=form)
