@@ -61,7 +61,6 @@ class Task(UserMixin, db.Model):
 
     # Setting up one column for deadline
     deadline = db.Column(db.String, nullable=True, unique=False)
-
     def setDeadline(self, date):
         """
         Assign a deadline to a task.
@@ -74,6 +73,25 @@ class Task(UserMixin, db.Model):
             Date that the task needs to be done by.
         """
         self.deadline = date
+
+    """
+    Output name of task.
+    """
+    def __repr__(self):
+        return f'<Task {self.title}>'
+      
+   def setPriority(self, priority):
+        """
+        Assign a priority to a task.
+        
+        This function allows for the priority to be set after the task is created.
+        
+        Parameters
+        ----------
+        priority : integer
+            priority of the task.
+        """
+        self.priority = priority
 
     """
     Output name of task.
