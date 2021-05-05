@@ -132,3 +132,23 @@ class ShareTaskForm(FlaskForm):
     title = StringField("Task", validators=[DataRequired()])
     username = StringField("Username", validators=[DataRequired()])
     share = SubmitField("Share")    
+
+    
+ class SetPriorityForm(FlaskForm):
+    """
+    Represents the form for setting priority to a task.
+
+    Attributes
+    ----------
+    title : StringField
+        Title of the task being shared.
+    priority : StringField
+        priority number of the task.
+    set : SubmitField
+        Button for the user to set priority of a task.
+    """
+    title = StringField("Task", validators=[DataRequired()])
+    priority = StringField("Priority", validators=[DataRequired()])
+    set = SubmitField("Set")    
+    
+    
