@@ -185,6 +185,28 @@ def editTask():
         return redirect('/overview')
     return render_template('edittask.html', title='Edit Task', form=form)
 
+@app.route('/setpriority', methods=['GET', 'POST'])
+@login_required
+def setPriority():
+    form = setPriorityForm()
+    task = session.get('task', None)
+    tt = Task.query.filter_by(title=task).first()
+    if form.validate_on_submit():
+        if form.title.data is None:
+            flash('Enter a title')
+            return redirect('/setpriority')
+        t = Task.query.filter_by(title=form.title.data).first()
+        if t is not None:
+            flash('Title already taken.')
+            return redirect('/setpriority')
+        tt.title = form.title.data
+        if form.priority.data is not None:
+            tt.priority = form.priority.data
+        db.session.commit()
+        return redirect('/overview')
+    return render_template('setpriority.html', title='Set Priority', form=form)
+
+
 @app.route('/findtask', methods=['GET', 'POST'])
 @login_required
 def findTask():
