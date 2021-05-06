@@ -55,6 +55,8 @@ class Task(UserMixin, db.Model):
         Date that the task needs to be finished by.
     priority : Integer column
         priority of task needed.
+    Reminder: Boolean Column
+        Set a boolean to flash a reminder to finish a certain task.
     """
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False, unique=True)
@@ -65,6 +67,10 @@ class Task(UserMixin, db.Model):
     deadline = db.Column(db.String, nullable=True, unique=False)
     # Create column for priority
     priority = db.Column(db.Integer, nullable=True, unique=False)
+    # Create column for reminder
+    reminder = db.Column(db.Boolean, nullable=False, default = False, unique=False)
+    # Create column for remaining days
+    #remaining_days = db.Column(db.String, Nullable = True, unique = False)
     
     def setDeadline(self, date):
         """
@@ -77,13 +83,7 @@ class Task(UserMixin, db.Model):
         date : string
             Date that the task needs to be done by.
         """
-        self.deadline = date
-    """
-    Output name of task.
-    """
-    def __repr__(self):
-        return f'<Task {self.title}>'
-      
+        self.deadline = date      
       
     def setPriority(self, priority):
         """
@@ -97,6 +97,18 @@ class Task(UserMixin, db.Model):
             priority of the task.
         """
         self.priority = priority
+    
+    def setReminder(self, reminder):
+        """
+        Sets a reminder to a flash a message whenever the user logs in.
+
+        Parameters 
+        ----------
+        reminder : boolean
+            reminder attribute of task
+        """
+        self.reminder = reminder
+
     """
     Output name of task.
     """

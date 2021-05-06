@@ -46,7 +46,7 @@ def login():
         login_user(user)
         return redirect('/overview')
     
-    return render_template("login.html", title="SIGN IN", form=form)
+    return render_template("login.html", title="Sign In", form=form)
 
 @app.route('/overview', methods=['GET', 'POST'])
 @login_required
@@ -57,18 +57,18 @@ def overview():
     Display all existing tasks in a list. Provide options for creating, deleting, and
     editing tasks along with other options for interacting with tasks.
 
-    Parameters
-    ----------
-
     Returns
     -------
     Render the overview.html template.
     """
     form = OverviewForm()
-    list = []
+    taskList = []
     for task in current_user.tasks:
-        list.append(task.title)
-    return render_template('overview.html', title='Account Overview', form=form, list=list)
+        if task.reminder == 1:
+            taskList.append({"Title":task.title, "Reminder":True, "Deadline":task.deadline})
+        else:
+            taskList.append({"Title": task.title, "Deadline":task.deadline})
+    return render_template('overview.html', title='Account Overview', form=form, list=taskList)
 
 @app.route('/logout', methods=['GET', 'POST'])
 @login_required
@@ -115,14 +115,14 @@ def createtask():
             return redirect('/createtask')
             
         if form.description.data is not None:
-            newtasks = Task(title=form.title.data, description=form.description.data, user_id=current_user.id)
+            newtasks = Task(title=form.title.data, description=form.description.data, user_id=current_user.id, reminder = form.reminder.data)
             if form.date.data is not None:
                 newtasks.setDeadline(form.date.data.strftime("%b-%d-%Y"))
             current_user.tasks.append(newtasks)
             db.session.add(newtasks)
             db.session.commit()
         else:
-            newtasks = Task(title=form.title.data, user_id=current_user.id)
+            newtasks = Task(title=form.title.data, user_id=current_user.id, reminder = form.reminder.data)
             if form.date.data is not None:
                 newtasks.setDeadline(form.date.data.strftime("%b-%d-%Y"))
             current_user.tasks.append(newtasks)
@@ -179,6 +179,7 @@ def editTask():
             flash('Title already taken.')
             return redirect('/edittask')
         tk.title = form.title.data
+        tk.reminder = form.reminder.data
         if form.description.data is not None:
             tk.description = form.description.data
         db.session.commit()

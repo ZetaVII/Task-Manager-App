@@ -26,14 +26,8 @@ class OverviewForm(FlaskForm):
     ----------
     complete : BooleanField
         Checkbox for user to mark task as complete.
-    createtask : SubmitField
-        Button to make a new task.
-    deletetask : SubmitField
-        Button to delete a task.
     """
     complete = BooleanField('Mark as complete')
-    createtask = SubmitField('Create Task')
-    deletetask = SubmitField('Delete Task')
 
 class NewTaskForm(FlaskForm):
     """
@@ -53,7 +47,9 @@ class NewTaskForm(FlaskForm):
     title = StringField('Title', validators = [DataRequired()])
     description = StringField('Description')
     create = SubmitField('Create')
-    date = DateField('Finish by (mm/dd/yyyy)', format=('%m/%d/%Y'))
+    date = DateField('*Required: Finish by (mm/dd/yyyy)', format=('%m/%d/%Y'))
+    reminder = BooleanField("Flash Reminder")
+
 
 class DeleteTaskForm(FlaskForm):
     """
@@ -101,6 +97,7 @@ class EditTaskForm(FlaskForm):
     title = StringField("Title", validators=[DataRequired()])
     description = StringField("Description")
     save = SubmitField("Save changes")
+    reminder = BooleanField("Flash Reminder")
 
 class FindTaskForm(FlaskForm):
     """
