@@ -189,7 +189,7 @@ def editTask():
 @login_required
 def setPriority():
     form = SetPriorityForm()
-    task = session.get('task', None)
+    #task = session.get('task', None)
     tt = Task.query.filter_by(title=form.title.data).first()
     if form.validate_on_submit():
         if form.title.data is None:
@@ -199,17 +199,18 @@ def setPriority():
             flash('Enter priority')
             return redirect('/setpriority')
         elif form.title.data is not None:
-            t = Task.query.filter_by(title=form.title.data).first()
-            if t is None:
+            if tt is None:
                 flash("Task does not exist!")
                 return redirect('/setpriority')
             elif form.priority.data is not None:
-                tt.priority = form.priority.data
+                #tt.priority = form.priority.data
+                priority = Task(priority= form.priority.data)
+                db.session.add(priority)
                 db.session.commit()
                 return redirect('/overview')
                 flash('Priority set!')
     return render_template('setpriority.html', title='Set Priority', form=form)
-
+#no flash messages pop up when testing
 
 @app.route('/findtask', methods=['GET', 'POST'])
 @login_required
