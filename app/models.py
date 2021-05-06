@@ -85,7 +85,7 @@ class Task(UserMixin, db.Model):
     def __repr__(self):
         return f'<Task {self.title}>'
       
-   def setPriority(self, priority):
+    def setPriority(self, priority):
         """
         Assign a priority to a task.
         
