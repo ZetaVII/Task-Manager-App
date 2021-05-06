@@ -185,7 +185,7 @@ def editTask():
         return redirect('/overview')
     return render_template('edittask.html', title='Edit Task', form=form)
 
-@app.route('/setpriority', methods=['GET', 'POST'])
+@app.route('/overview', methods=['GET', 'POST'])
 @login_required
 def setPriority():
     form = SetPriorityForm()
