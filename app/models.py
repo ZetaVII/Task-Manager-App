@@ -63,6 +63,8 @@ class Task(UserMixin, db.Model):
     description = db.Column(db.String, nullable=True, unique=False)
     # know which account the task belongs to
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    # Set up column for complete status
+    complete = db.Column(db.Integer)
     # Setting up one column for deadline
     deadline = db.Column(db.String, nullable=True, unique=False)
     # Create column for priority
@@ -108,6 +110,17 @@ class Task(UserMixin, db.Model):
             reminder attribute of task
         """
         self.reminder = reminder
+    
+    def setCompleteStatus(self, status):
+        """
+        Sets the complete status of the task.
+
+        Parameters
+        ----------
+        status : int
+            1 for complete and 0 for incomplete.
+        """
+        self.complete = status        
 
     """
     Output name of task.
