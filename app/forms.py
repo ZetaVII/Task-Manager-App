@@ -147,8 +147,8 @@ class SetPriorityForm(FlaskForm):
     set : SubmitField
         Button for the user to set priority of a task.
     """
-    title = StringField("Task", validators=[DataRequired()])
-    priority = IntegerField("Priority", validators=[DataRequired()])
+    title = StringField("Title of Task to set priority", validators=[DataRequired()])
+    priority = IntegerField("Priority level (1-10)", validators=[DataRequired()])
     set = SubmitField("Set")    
     
     
