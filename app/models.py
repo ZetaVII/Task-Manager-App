@@ -51,6 +51,8 @@ class Task(UserMixin, db.Model):
         Description of the task.
     user_id : Integer column
         Id of user who created the task.
+    complete : Integer column
+        1 for complete and 0 for incomplete.
     deadline : String column
         Date that the task needs to be finished by.
     priority : Integer column
