@@ -62,15 +62,23 @@ def overview():
     Render the overview.html template.
     """
     form = OverviewForm()
-    taskList = []
-    format = "%b-%d-%Y"
-    for task in current_user.tasks:
-        due_by = datetime.strptime(task.deadline, format) - datetime.now()
-        if task.reminder == 1:
-            taskList.append({"Title":task.title, "Reminder":True, "Deadline":task.deadline, "Due_By":due_by.days})
-        else:
-            taskList.append({"Title": task.title, "Deadline":task.deadline})
-    return render_template('overview.html', title='Account Overview', form=form, list=taskList)
+    if request.method == 'GET':        
+        taskList = []
+        format = "%b-%d-%Y"
+        for task in current_user.tasks:
+            due_by = datetime.strptime(task.deadline, format) - datetime.now()
+            if task.reminder == 1:
+                taskList.append({"Title":task.title, "Reminder":True, "Deadline":task.deadline, "Due_By":due_by.days, "ID":task.id})
+            else:
+                taskList.append({"Title": task.title, "Deadline":task.deadline, "ID":task.id})
+        return render_template('overview.html', title='Account Overview', form=form, list=taskList)
+    elif request.method == 'POST':
+        checks = request.form.getlist('check')
+        for key in checks:
+            t = Task.query.get(key)
+            t.setCompleteStatus(1)
+            db.session.commit()
+        return redirect('/overview')
 
 @app.route('/logout', methods=['GET', 'POST'])
 @login_required
