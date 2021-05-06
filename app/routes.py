@@ -188,7 +188,7 @@ def editTask():
 @app.route('/setpriority', methods=['GET', 'POST'])
 @login_required
 def setPriority():
-    form = setPriorityForm()
+    form = SetPriorityForm()
     task = session.get('task', None)
     tt = Task.query.filter_by(title=task).first()
     if form.validate_on_submit():
