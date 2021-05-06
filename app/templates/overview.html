@@ -1,20 +1,22 @@
 {% extends "base_loggedIn.html" %}
 
 {% block content %}
-        <form action = "" method = "post" novalidate>
+        <form action="/overview" method="POST" novalidate>
         {{ form.hidden_tag() }}
         <h1> Task List </h1>
         <p>
                 {% for task in list %}
                         <ul>
-                                <p>{{ form.complete() }} 
-                                {% if "Reminder" in task %}
-                                *ALERT DUE IN {{ task["Due_By"] }} DAYS* ||
-                                {% endif %}
-                                {{ task["Title"] }} || Deadline: {{ task["Deadline"]}}
+                                <p>
+                                    {% if "Reminder" in task %}
+                                        *ALERT DUE IN {{ task["Due_By"] }} DAYS* ||
+                                    {% endif %}
+                                    {{ task["Title"] }} || Deadline: {{ task["Deadline"]}} <br>
+                                    <input type="checkbox" name=check value={{ task["ID"] }}> Mark as complete
                                 </p>
                         </ul>
                 {% endfor %}
         </p>
+        <button type="submit" class="btn btn-primary">Save</button>
         </form>
 {% endblock %}
