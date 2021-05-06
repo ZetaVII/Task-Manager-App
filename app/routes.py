@@ -195,10 +195,6 @@ def setPriority():
         if form.title.data is None:
             flash('Enter a title')
             return redirect('/setpriority')
-        t = Task.query.filter_by(title=form.title.data).first()
-        if t is not None:
-            flash('Title already taken.')
-            return redirect('/setpriority')
         tt.title = form.title.data
         if form.priority.data is not None:
             tt.priority = form.priority.data
