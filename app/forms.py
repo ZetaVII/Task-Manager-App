@@ -134,7 +134,7 @@ class ShareTaskForm(FlaskForm):
     share = SubmitField("Share")    
 
     
- class SetPriorityForm(FlaskForm):
+class SetPriorityForm(FlaskForm):
     """
     Represents the form for setting priority to a task.
 
