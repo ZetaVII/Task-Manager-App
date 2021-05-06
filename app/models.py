@@ -8,6 +8,7 @@ from flask_login import UserMixin
 shares = db.Table('shares',
                   db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
                   db.Column('task_id', db.Integer, db.ForeignKey('task.id')),
+                  db.Column('task_priority', db.Integer, db.ForeignKey('task.priority'))
                   )
 
 class User(UserMixin, db.Model):
