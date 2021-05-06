@@ -9,8 +9,9 @@
                         <ul>
                                 <p>{{ form.complete() }} 
                                 {% if "Reminder" in task %}
-                                *****ALERT*****
-                                {% endif %} {{ task["Title"] }} || Deadline: {{ task["Deadline"]}}
+                                *ALERT DUE IN {{ task["Due_By"] }} DAYS* ||
+                                {% endif %}
+                                {{ task["Title"] }} || Deadline: {{ task["Deadline"]}}
                                 </p>
                         </ul>
                 {% endfor %}

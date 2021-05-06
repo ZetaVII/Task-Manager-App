@@ -63,9 +63,11 @@ def overview():
     """
     form = OverviewForm()
     taskList = []
+    format = "%b-%d-%Y"
     for task in current_user.tasks:
+        due_by = datetime.strptime(task.deadline, format) - datetime.now()
         if task.reminder == 1:
-            taskList.append({"Title":task.title, "Reminder":True, "Deadline":task.deadline})
+            taskList.append({"Title":task.title, "Reminder":True, "Deadline":task.deadline, "Due_By":due_by.days})
         else:
             taskList.append({"Title": task.title, "Deadline":task.deadline})
     return render_template('overview.html', title='Account Overview', form=form, list=taskList)
