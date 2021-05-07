@@ -419,22 +419,24 @@ User who is logged in can view all complete tasks.
 * User has completed tasks.
 
 ### Triggers
-User clicks “view completed tasks” button.
+User checks the checkbox to mark task as complete and clicks "Save" button.
 
 ### Primary Sequence
-1. User clicks “view completed tasks” button.
-2. Check if task is incomplete.
-3. App shows “completed tasks”.
+1. User checks checkbox to mark task as complete.
+2. User clicks the "Save" button.
+3. Checks if task is complete.
+4. Adds task to completed task list. 
+5. App shows “completed tasks”.
 
 ### Primary Postconditions
 * Completed tasks are shown.
 
 ### Alternate Sequences
-1. User clicks “view completed tasks” button.
-2. If no completed tasks, then app shows error “no completed tasks”.
+1. User clicks on "Save button".
+2. If no completed tasks, then app displays nothing in "completed tasks".
 
 ### Alternate Postconditions
-* App shows “no completed tasks”.
+* App shows no completed tasks.
 
 ### Non-functional Requirements
  *  System prompt messages are presented with a font size between 20 and 24.
@@ -458,22 +460,25 @@ User who is logged in can view all incomplete tasks.
 * User has incomplete tasks.
 
 ### Triggers
-User clicks “view incomplete tasks” button.
+User creates a task.
 
 ### Primary Sequence
-1. User clicks “view incomplete tasks” button.
-2. Check if user has incomplete tasks.
-3. App shows list of incomplete tasks.
+1. User creates a task.
+2. Adds task to uncompleted task list. 
+5. App shows “uncompleted tasks”.
 
 ### Primary Postconditions
 * Incomplete tasks are shown.
 
 ### Alternate Sequences
-1. User clicks “view incomplete tasks” button.
-2. If no incomplete tasks, then app shows “Congratulations all tasks completed”.
+1. User creates a task.
+2. User marks the task as complete.
+3. User clicks the "Save" button.
+5. Removes task from uncompleted task list. 
+6. App shows “uncompleted tasks”.
 
 ### Alternate Postconditions
-App shows “Congratulations all tasks completed”.
+App shows “uncompleted tasks”.
  
 ### Non-functional Requirements
  *  System prompt messages are presented with a font size between 20 and 24.
