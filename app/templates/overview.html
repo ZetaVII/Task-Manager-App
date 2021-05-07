@@ -18,5 +18,25 @@
                 {% endfor %}
         </p>
         <button type="submit" class="btn btn-primary">Save</button>
+        <h2> Completed Tasks </h2>
+        <p>
+                {% for completedTasks in list %}
+                        <ul>
+                                <p>
+                                    {{ completedTasks["Title"] }}
+                                </p>
+                        </ul>
+                {% endfor %}
+        </p>
+        <h3> Incompleted Tasks </h3>
+        <p>
+                {% for incompletedTasks in list %}
+                        <ul>
+                                <p>
+                                    {{ incompletedTasks["Title"] }}
+                                </p>
+                        </ul>
+                {% endfor %}
+        </p>
         </form>
 {% endblock %}
