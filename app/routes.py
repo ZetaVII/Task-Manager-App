@@ -65,7 +65,7 @@ def overview():
     if request.method == 'GET':        
         taskList = []
         completedTasks = []
-        incompletedTasks = []
+        uncompletedTasks = []
         format = "%b-%d-%Y"
         for task in current_user.tasks:
             due_by = datetime.strptime(task.deadline, format) - datetime.now()
@@ -76,8 +76,8 @@ def overview():
             if task.complete == 1:
                 completedTasks.append({"Title":task.title})
             else:
-                incompletedTasks.append({"Title":task.title})
-        return render_template('overview.html', title='Account Overview', form=form, list=taskList, completedTasks=completedTasks, incompletedTasks=incompletedTasks)
+                uncompletedTasks.append({"Title":task.title})
+        return render_template('overview.html', title='Account Overview', form=form, list=taskList, completedTasks=completedTasks, uncompletedTasks=uncompletedTasks)
     elif request.method == 'POST':
         checks = request.form.getlist('check')
         for key in checks:
