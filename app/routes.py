@@ -71,12 +71,13 @@ def overview():
             due_by = datetime.strptime(task.deadline, format) - datetime.now()
             if task.reminder == 1:
                 taskList.append({"Title":task.title, "Reminder":True, "Deadline":task.deadline, "Due_By":due_by.days, "ID":task.id})
+                uncompletedTasks.append({"Title":task.title})
             else:
                 taskList.append({"Title": task.title, "Deadline":task.deadline, "ID":task.id})
+                uncompletedTasks.append({"Title":task.title})
             if task.complete == 1:
                 completedTasks.append({"Title":task.title})
-            else:
-                uncompletedTasks.append({"Title":task.title})
+                uncompletedTasks.remove({"Title":task.title})
         return render_template('overview.html', title='Account Overview', form=form, list=taskList, completedTasks=completedTasks, uncompletedTasks=uncompletedTasks)
     elif request.method == 'POST':
         checks = request.form.getlist('check')
