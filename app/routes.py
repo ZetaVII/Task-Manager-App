@@ -76,7 +76,7 @@ def overview():
             if task.complete == 1:
                 completedTasks.append({"Title":task.title})
             else:
-                incompletedTasks.append({"Title:tash.title})
+                incompletedTasks.append({"Title":task.title})
         return render_template('overview.html', title='Account Overview', form=form, list=taskList, completedTasks=completedTasks, incompletedTasks=incompletedTasks)
     elif request.method == 'POST':
         checks = request.form.getlist('check')
