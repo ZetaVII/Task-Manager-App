@@ -20,7 +20,7 @@
         <button type="submit" class="btn btn-primary">Save</button>
         <h2> Completed Tasks </h2>
         <p>
-                {% for completedTasks in list %}
+                {% for completedtasks in completedTasks %}
                         <ul>
                                 <p>
                                     {{ completedTasks["Title"] }}
@@ -30,7 +30,7 @@
         </p>
         <h3> Uncompleted Tasks </h3>
         <p>
-                {% for uncompletedTasks in list %}
+                {% for uncompletedtasks in uncompletedTasks %}
                         <ul>
                                 <p>
                                     {{ uncompletedTasks["Title"] }}
