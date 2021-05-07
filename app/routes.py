@@ -56,10 +56,13 @@ def overview():
 
     Display all existing tasks in a list. Provide options for creating, deleting, and
     editing tasks along with other options for interacting with tasks.
+   
+    Also displays the completed/incomplete tasks, and updates these lists if a task gets marked as complete.
 
     Returns
     -------
     Render the overview.html template.
+    Redirect to the overview page. 
     """
     form = OverviewForm()
     if request.method == 'GET':        
