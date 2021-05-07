@@ -186,7 +186,11 @@ User who is logged in can view all complete tasks.
 [Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-10-name-view-completed-tasks)
 
 Steps taken to ensure functionality:
-* 
+* Create a new task
+* Mark the task as completed using the checkbox
+* Click the "Save" button
+* Check to see that "Completed Tasks" list gets updated with the task you just marked and saved as completed
+
 ### View incomplete tasks
 
 Use case 11: View incomplete tasks
@@ -196,7 +200,12 @@ User who is logged in can view all incomplete tasks.
 [Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-11-name-view-incomplete-tasks)
 
 Steps taken to ensure functionality:
-* 
+* Create a new task
+* Check to see that "Uncompleted Tasks" list gets updated at the same time with the regular "Task" list
+* Mark the task as completed using the checkbox
+* Click the "Save" button
+* Check to see that task just marked and saved as completed, gets removed from the "Uncompleted Tasks" list
+
 ### Set Priority of Tasks
 
 Use case 12: Set priority of tasks
