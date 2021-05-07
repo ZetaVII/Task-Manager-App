@@ -43,12 +43,15 @@ class NewTaskForm(FlaskForm):
         Button for user to finish creating new task.
     date : StringField
         Where users can type in a date for a deadline of a task. Data is not required for this.
+    priority : IntegerField
+        Where users enter priority of a task. Data is not required for this.
     """
     title = StringField('Title', validators = [DataRequired()])
     description = StringField('Description')
     create = SubmitField('Create')
     date = DateField('*Required: Finish by (mm/dd/yyyy)', format=('%m/%d/%Y'))
     reminder = BooleanField("Flash Reminder")
+    priority = IntegerField("Set priority")
 
 
 class DeleteTaskForm(FlaskForm):
