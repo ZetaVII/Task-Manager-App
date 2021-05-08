@@ -1,10 +1,84 @@
 <html>
-        <head>
+                <head>
+                
+                
                 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+                <link href='https://fonts.googleapis.com/css?family=Gochi Hand' rel='stylesheet'>
+                <link href='https://fonts.googleapis.com/css?family=Covered By Your Grace' rel='stylesheet'>
+                <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
 
                 {% if title %}
                 <title> {{title}} </title>
                 {% endif %}
+
+                <style>
+                    body {
+                        background-color: #E8F5E9;
+                    }    
+
+                    h1 {
+                        font-family: 'Amatic SC';font-size: 48px;
+                        font-weight: 700;
+                    }
+
+                    h2 {
+                        font-family: 'Amatic SC';font-size: 48px;
+                        font-weight: 700;
+                    }
+
+                    p {
+                        font-family: 'Amatic SC';
+                        font-weight: 700;
+                        font-size: 22px;
+                    }
+
+                    .frame {
+                        position: absolute;
+                        width: 850px;
+                        height: 850px:
+                        z-index: 15;
+                        top: 20%;
+                        left: 50%;
+                        padding: 20px;
+                        margin: -100px 0 0 -400px;
+                        background: #FFF3E0;
+                        border-radius: 25px;
+                    }
+
+                    .all {
+                        opacity: 0.8;
+                        float: left;
+                        width: 395px;
+                        height: 810px;
+                        z-index: 30;
+                        padding: 20;
+                        background: url("https://i.pinimg.com/originals/6d/92/36/6d92369a900b864fe7ddb1931d2358d2.jpg");
+                        border-radius: 25px;
+                    }
+
+                    .complete {
+                        opacity: 0.8;
+                        float: right;
+                        width: 395px;
+                        height: 395px;
+                        z-index: 30px;
+                        padding: 20;
+                        border-radius: 25px;
+                        background: url("https://64.media.tumblr.com/6eaab721173aaef745502074c48a84f5/tumblr_nrgbh8UPM51tufwlro4_400.png");
+                    }
+
+                    .incomplete {
+                        opacity: 0.8;
+                        margin-top: 20px;
+                        float: right;
+                        width: 395px;
+                        height: 395px;
+                        z-index: 30px;
+                        padding: 20;
+                        border-radius: 25px;
+                        background: url("https://i.pinimg.com/originals/d2/15/06/d2150614e321f486b2c0f213508c360b.png");
+                    }
+                </style>
         </head>
         <body>
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
