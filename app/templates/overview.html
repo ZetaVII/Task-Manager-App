@@ -27,7 +27,7 @@
                         {% for task in completedTasks %}
                                 <ul>
                                         <p>
-                                            {{ task["Title"] }}
+                                            <i class='far fa-check-square' style='font-size:22px;color:red'></i> {{ task["Title"] }}
                                         </p>
                                 </ul>
                         {% endfor %}
@@ -39,7 +39,7 @@
                         {% for task in uncompletedTasks %}
                                 <ul>
                                         <p>
-                                            {{ task["Title"] }}
+                                            <i class='fas fa-angle-double-right' style='font-size:30px;color:orange'></i> {{ task["Title"] }}
                                         </p>
                                 </ul>
                         {% endfor %}
