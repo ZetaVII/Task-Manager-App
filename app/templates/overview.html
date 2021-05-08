@@ -3,40 +3,48 @@
 {% block content %}
         <form action="/overview" method="POST" novalidate>
         {{ form.hidden_tag() }}
-        <h1> Task List </h1>
-        <p>
-                {% for task in list %}
-                        <ul>
-                                <p>
-                                    {% if "Reminder" in task %}
-                                        *ALERT DUE IN {{ task["Due_By"] }} DAYS* ||
-                                    {% endif %}
-                                    {{ task["Title"] }} || Deadline: {{ task["Deadline"]}} <br>
-                                    <input type="checkbox" name=check value={{ task["ID"] }}> Mark as complete
-                                </p>
-                        </ul>
-                {% endfor %}
-        </p>
-        <button type="submit" class="btn btn-primary">Save</button>
-        <h2> Completed Tasks </h2>
-        <p>
-                {% for completedtasks in completedTasks %}
-                        <ul>
-                                <p>
-                                    {{ completedTasks["Title"] }}
-                                </p>
-                        </ul>
-                {% endfor %}
-        </p>
-        <h3> Uncompleted Tasks </h3>
-        <p>
-                {% for uncompletedtasks in uncompletedTasks %}
-                        <ul>
-                                <p>
-                                    {{ uncompletedTasks["Title"] }}
-                                </p>
-                        </ul>
-                {% endfor %}
-        </p>
+        <div class="frame">
+            <div class="all">
+                <h1> All Tasks </h1>
+                <p>
+                        {% for task in list %}
+                                <ul>
+                                        <p>
+                                            {% if "Reminder" in task %}
+                                                *ALERT DUE IN {{ task["Due_By"] }} DAYS* ||
+                                            {% endif %}
+                                            {{ task["Title"] }} || Deadline: {{ task["Deadline"]}} <br>
+                                            <input type="checkbox" name=check value={{ task["ID"] }}> Mark as complete
+                                        </p>
+                                </ul>
+                        {% endfor %}
+                </p>
+            <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+            <div class="complete">
+                <h2> Completed Tasks </h2>
+                <p>
+                        {% for task in completedTasks %}
+                                <ul>
+                                        <p>
+                                            {{ task["Title"] }}
+                                        </p>
+                                </ul>
+                        {% endfor %}
+                </p>
+            </div>
+            <div class="incomplete">
+                <h2> Incomplete Tasks </h2>
+                <p>
+                        {% for task in uncompletedTasks %}
+                                <ul>
+                                        <p>
+                                            {{ task["Title"] }}
+                                        </p>
+                                </ul>
+                        {% endfor %}
+                </p>
+            </div>
+        </div>
         </form>
 {% endblock %}
