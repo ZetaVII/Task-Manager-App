@@ -6,7 +6,7 @@ from datetime import datetime
 
 from app import app
 from app import db
-from app.forms import LoginForm, OverviewForm, NewTaskForm, DeleteTaskForm, RegisterForm, FindTaskForm, EditTaskForm, ShareTaskForm, SetPriorityForm
+from app.forms import LoginForm, OverviewForm, NewTaskForm, DeleteTaskForm, RegisterForm, FindTaskForm, EditTaskForm, ShareTaskForm, SetPriorityForm, CategorizeForm
 # Make sure to import all tables
 from app.models import User, Task
 
