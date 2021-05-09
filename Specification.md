@@ -505,14 +505,13 @@ Users are able to assign the priority level, such as high (needs to be done ASAP
 User selects the “Set Priority” option.
 
 ### Primary Sequence
-1. System prompts user list of tasks.
-2. The user creates a new task, or selects an existing one.
-3. The user clicks on the “Set Priority” button.
-4. System prompts user levels of priority.
-5. The user selects a level.
+1. The user creates a new task, or selects an existing one.
+2. The user clicks on the “Set Priority” button.
+3. System prompts user levels of priority.
+4. The user enters a priority level.
 
 ### Primary Postconditions
-* The specified task should be in the proper position (High at the top-most, Med being between High and Low, and Low being at the bottom-most).
+* The specified task should given priority listed.
 
 ### Non-functional Requirements
  * System prompt messages are presented with a font size between 20 and 24. 
@@ -537,11 +536,10 @@ Users are able to assign tasks into separate categories (ie. school, work, or pe
 User selects the “CATEGORY” option.
 
 ### Primary Sequence
-1. System prompts user list of tasks.
-3. The user creates a new task, or selects an existing one.
-4. The user clicks on the “CATEGORY” button.
-5. System prompts the user to select a pre-existing category or create a new one.
-6. The user selects an option.
+1. The user creates a new task, or enters an existing task.
+2. The user clicks on the “CATEGORY” button.
+3. System prompts the user to enter or create a new category.
+4. The user selects an option.
 
 ### Primary Postconditions
 * The specified task would be shown within the proper category within a list.
