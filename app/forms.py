@@ -51,7 +51,9 @@ class NewTaskForm(FlaskForm):
     create = SubmitField('Create')
     date = DateField('*Required: Finish by (mm/dd/yyyy)', format=('%m/%d/%Y'))
     reminder = BooleanField("Flash Reminder")
+    #test
     priority = IntegerField("Set priority")
+    category = StringField("Add Category")
 
 
 class DeleteTaskForm(FlaskForm):
@@ -152,3 +154,16 @@ class SetPriorityForm(FlaskForm):
     set = SubmitField("Set")    
     
     
+class CategorizeForm(FlaskForm):
+    """
+    Represents the form for adding category to a task.
+    
+    Attributes
+    ----------
+    title : StringField
+        Where users can type in the title of a task that they want to add category to. Data is required.
+    addcategory : SubmitField
+        Button for user to finish adding category.
+    """
+    title = StringField('Title of task to add category', validators = [DataRequired()])
+    addcategory = SubmitField('Add category')
