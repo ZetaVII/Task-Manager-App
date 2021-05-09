@@ -232,6 +232,22 @@ def setPriority():
     return render_template('setpriority.html', title='Set Priority', form=form)
 #no flash messages pop up when testing
 
+@app.route('/setcategory', methods=['GET', 'POST'])
+@login_required
+def setCategory():
+    tt = Task.query.filter_by(title=form.title.data).first()   
+    if form.validate_on_submit():
+        if tt is None:
+            flash("Task does not exist!")
+            return redirect('/setcategory')   
+        else:
+            tt.category = form.category.data
+            db.session.commit()
+            return redirect('/setcategory')
+            flash('Category set!')
+    return render_template('setcategory.html', title='Set Category', form=form)
+
+
 @app.route('/findtask', methods=['GET', 'POST'])
 @login_required
 def findTask():
