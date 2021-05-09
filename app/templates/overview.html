@@ -10,6 +10,10 @@
                         {% for task in list %}
                                 <ul>
                                         <p>
+                                            #doesnt show when I run
+                                            {%if "priority" in task%}
+                                                 Priority:{{ task["priority"] }} : 
+                                            {% endif %}
                                             {%if "category" in task%}
                                                  Category:{{ task["category"] }} : 
                                             {% endif %}
