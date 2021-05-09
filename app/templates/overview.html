@@ -10,6 +10,9 @@
                         {% for task in list %}
                                 <ul>
                                         <p>
+                                            {%if "category" in task%}
+                                                {{ task["category"] }} : 
+                                                
                                             {% if "Reminder" in task %}
                                                 *ALERT DUE IN {{ task["Due_By"] }} DAYS* ||
                                             {% endif %}
