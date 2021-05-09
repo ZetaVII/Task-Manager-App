@@ -235,6 +235,7 @@ def setPriority():
 @app.route('/setcategory', methods=['GET', 'POST'])
 @login_required
 def setCategory():
+    form = CategorizeForm()
     tt = Task.query.filter_by(title=form.title.data).first()   
     if form.validate_on_submit():
         if tt is None:
