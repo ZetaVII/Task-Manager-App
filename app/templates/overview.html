@@ -11,7 +11,7 @@
                                 <ul>
                                         <p>
                                             {%if "category" in task%}
-                                                {{ task["category"] }} : 
+                                                 Category:{{ task["category"] }} : 
                                             {% endif %}
                                             {% if "Reminder" in task %}
                                                 *ALERT DUE IN {{ task["Due_By"] }} DAYS* ||
