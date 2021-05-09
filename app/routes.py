@@ -72,6 +72,10 @@ def overview():
         format = "%b-%d-%Y"
         for task in current_user.tasks:
             due_by = datetime.strptime(task.deadline, format) - datetime.now()
+            #list category
+            if task.category == 1:
+                taskList.append({"Category":task.category, "Title":task.title, "Reminder":True, "Deadline":task.deadline, "Due_By":due_by.days, "ID":task.id})
+                
             if task.reminder == 1:
                 taskList.append({"Title":task.title, "Reminder":True, "Deadline":task.deadline, "Due_By":due_by.days, "ID":task.id})
                 uncompletedTasks.append({"Title":task.title})
