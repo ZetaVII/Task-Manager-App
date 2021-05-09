@@ -166,4 +166,5 @@ class CategorizeForm(FlaskForm):
         Button for user to finish adding category.
     """
     title = StringField('Title of task to add category', validators = [DataRequired()])
+    category= StringField('Category to add', validators = [DataRequired()])
     addcategory = SubmitField('Add category')
