@@ -69,12 +69,15 @@ class Task(UserMixin, db.Model):
     complete = db.Column(db.Integer)
     # Setting up one column for deadline
     deadline = db.Column(db.String, nullable=True, unique=False)
-    # Create column for priority
-    priority = db.Column(db.Integer, nullable=True, unique=False)
     # Create column for reminder
     reminder = db.Column(db.Boolean, nullable=False, default = False, unique=False)
     # Create column for remaining days
     #remaining_days = db.Column(db.String, Nullable = True, unique = False)
+    # Create column for priority
+    priority = db.Column(db.Integer, nullable=True, unique=False)
+    # Create column for category
+    category = db.Column(db.String, nullable=True, unique=False)
+    
     
     def setDeadline(self, date):
         """
@@ -101,6 +104,21 @@ class Task(UserMixin, db.Model):
             priority of the task.
         """
         self.priority = priority
+        
+        
+    def addCategory(self, category):
+        """
+        Assign a category to a task.
+        
+        This function allows for the category to be added to task.
+        
+        Parameters
+        ----------
+        category : string
+            category of the task.
+        """
+        self.category = category
+        
     
     def setReminder(self, reminder):
         """
