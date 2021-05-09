@@ -224,9 +224,8 @@ def setPriority():
                 flash("Task does not exist!")
                 return redirect('/setpriority')
             elif form.priority.data is not None:
-                #tt.priority = form.priority.data
-                priority = Task(priority= form.priority.data)
-                db.session.add(priority)
+                tt.priority = form.priority.data
+                #db.session.add(tt.priority)
                 db.session.commit()
                 return redirect('/overview')
                 flash('Priority set!')
