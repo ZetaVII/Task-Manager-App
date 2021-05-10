@@ -5,6 +5,68 @@
                 {% if title %}
                 <title> {{title}} </title>
                 {% endif %}
+
+                                <style>
+                                        body {
+                                                background-image: url('https://th.bing.com/th/id/R5b28373c407f24a3da6217012a93b9c0?rik=SfqZbbOcbPcL0Q&pid=ImgRaw');
+                                                background-repeat: no-repeat;
+                                                background-attachment: fixed;
+                                                background-position: right;
+                                                background-size: 100%;
+                                        }
+                                
+                                        h1 {
+                                                font-family: 'Itim', cursive;
+                                                font-size: 48px;
+                                                font-weight: 700;
+                                                text-align: center;
+                                        }
+                                
+                                        h2 {
+                                                font-family: 'Itim', cursive;
+                                                font-size: 48px;
+                                                font-weight: 700;
+                                                text-align: center;
+                                        }
+
+                                        p{
+                                                text-align: center;
+                                        }
+                                
+                                        .taskname {
+                                                font-family: 'Itim', cursive;
+                                                font-weight: 700;
+                                                font-size: 22px;
+                                        }
+                                
+                                        .reminder {
+                                                font-family: 'Itim', cursive;
+                                                color: red;
+                                                font-weight: 700;
+                                                font-size: 16px;
+                                        }
+
+                                        .frame {
+                                                position: absolute;
+                                                width: 400px;
+                                                height: 350px;
+                                                z-index: 15;
+                                                top: 25%;
+                                                Left: 40%;
+                                                padding: 20px;
+                                                margin: 0 auto;
+                                                display: block;
+                                                background: rgb(255, 235, 191);
+                                                border-radius: 25px;
+                                        }
+
+                                        .flash{
+                                                font-family: 'Itim', cursive;
+                                                font-size: 48px;
+                                                font-weight: 300;
+                                                color: rgb(255, 215, 215);
+                                        }
+                                </style>
         </head>
         <body>
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -22,10 +84,12 @@
                           </ul>
                         </div>
                 </nav>
-                {% for msg in get_flashed_messages() %}
-                        <li> {{ msg }} </li>
-                {% endfor %}
-
+                
+                <p>
+                        {% for msg in get_flashed_messages() %}
+                                <li class = "flash"> {{ msg }} </li>
+                        {% endfor %}
+                </p>
                 {% block content %}
                 {% endblock %}
 

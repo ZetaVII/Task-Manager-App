@@ -23,9 +23,7 @@
                                         {%if "Category" in task != '' %}
                                                <strong> Category: {{ task["Category"] }} </strong><br>
                                         {% endif %}
-
-                                            <input type="checkbox" name=check value={{ task["ID"] }}> Mark as complete
-                </p>
+                                            <input type="checkbox" name=check value= {{ task["ID"] }}> Mark as complete
                                 </ul>
                         {% endfor %}
                 </p>

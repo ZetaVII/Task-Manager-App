@@ -72,7 +72,7 @@ def overview():
         format = "%b-%d-%Y"
         for task in current_user.tasks:
             due_by = datetime.strptime(task.deadline, format) - datetime.now()
-     
+
             if task.reminder == 1:
                 taskList.append({"Title": task.title, "Reminder": True, "Deadline": task.deadline, "Due_By": due_by.days, "ID": task.id, "Category": task.category, "Priority": task.priority})
                 uncompletedTasks.append({"Title":task.title})
@@ -83,6 +83,7 @@ def overview():
             if task.complete == 1:
                 completedTasks.append({"Title":task.title})
                 uncompletedTasks.remove({"Title":task.title})
+                
         return render_template('overview.html', title='Account Overview', form=form, list=taskList, completedTasks=completedTasks, uncompletedTasks=uncompletedTasks)
     
     elif request.method == 'POST':

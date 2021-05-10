@@ -30,7 +30,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(32), nullable=False, unique=True)
     password = db.Column(db.String(32), nullable=False, unique=False)
     tasks = db.relationship('Task', secondary=shares, backref=db.backref('users', lazy='dynamic'))
-
+    
     """
     Output name of user.
     """
@@ -66,7 +66,7 @@ class Task(UserMixin, db.Model):
     # know which account the task belongs to
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     # Set up column for complete status
-    complete = db.Column(db.Integer)
+    complete = db.Column(db.Integer, default = 0)
     # Setting up one column for deadline
     deadline = db.Column(db.String, nullable=True, unique=False)
     # Create column for reminder
