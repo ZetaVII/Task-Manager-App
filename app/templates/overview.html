@@ -9,11 +9,20 @@
                 <p>
                         {% for task in list %}
                                 <ul>
-                                        <p class = "taskname"> {{ task["Title"] }}
+                                       {% if task["Complete"] %}
+                                            <p class = "strikethru"> {{ task["Title"] }}
                                                 {% if "Reminder" in task %}
                                                         <p class="reminder">DUE IN {{ task["Due_By"] }} DAYS</p>
                                                 {% endif %}
-                                        </p>
+                                            </p>
+                                        {% endif %}
+                                        {% if not task["Complete"] %}
+                                            <p class = "taskname"> {{ task["Title"] }}
+                                                {% if "Reminder" in task %}
+                                                        <p class="reminder">DUE IN {{ task["Due_By"] }} DAYS</p>
+                                                {% endif %}
+                                            </p>
+                                        {% endif %}
                                         <p class="deadline">Deadline: {{ task["Deadline"]}}</p>
                                         
                                         {% if "Priority" in task != '' %}
