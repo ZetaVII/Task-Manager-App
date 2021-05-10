@@ -289,7 +289,7 @@ A person with an existing account can add a deadline to complete a task.
 * The user must have at least one existing task. 
 
 ### Triggers
-User selects the "Add a deadline" button.
+User enters deadline date
 
 ### Primary Sequence
 1. System prompts the user to select one task from the list.
@@ -301,15 +301,7 @@ User selects the "Add a deadline" button.
 
 ### Primary Postconditions
 * The user should be back at the overview page.
-* Task list is now reordered by most recent deadline date in overview page.
-
-### Alternate Sequences
-1. The user does not type in a deadline date into the prompt.
-	1. The user clicks on the "Save changes" button.
-	2. System prompts the user to enter a date.
-
-### Alternate Trigger
-User clicks the "Save changes" button after not typing in any deadline date.
+* Task list now displays the deadline of each tasked created.
 
 ### Alternate Postconditions
  * The user remains on the Add deadline to task page.
@@ -318,7 +310,7 @@ User clicks the "Save changes" button after not typing in any deadline date.
 ### Non-functional Requirements
  *  System prompt messages are presented with a font size between 20 and 24.
  *  All system message prompts have a response time within 1 second after its trigger.
- *  The "Save changes" button is represented by a colorful and clearly visible box.
+ *  Deadline format should be easy to follow.
 
 ### Glossary
 * user = a person with an existing account and at least one task, who wants to add a deadline date to a task.
@@ -554,7 +546,7 @@ User selects the “CATEGORY” option.
 ## Use Case 14 Name: Set Reminder 
 
 ### Summary
-Users are able to have the system to send a notification to remind them to do a certain task(s).
+Users are able to have the server to set a flashy message to remind them to do a certain task(s).
 
 ### Actors
 1. The user
@@ -569,14 +561,12 @@ User selects the “SET REMINDER” option.
 ### Primary Sequence
 1. System prompts user list of tasks.
 3. The user creates a new task, or selects an existing one.
-4. The user clicks on the “SET REMINDER” button.
-5. System prompts the user to enter how should the reminders be set (ie. on a specific day or 
-    daily at a given time)
-6. The user enters their preference.
+4. The user checkmar the on the “FLASH REMINDER” button.
+5. System prompts the user how many days left before the deadline of the task.
 
 ### Primary Postconditions
-* Based on the users’ preference, the checklist will ping the user a reminder to work on a certain   
-   task(s).
+* There will be a flashy message in red underneath the specified task to
+* remind the user.
 
 ### Non-functional Requirements
  * System prompt messages are presented with a font size between 20 and 24. 
