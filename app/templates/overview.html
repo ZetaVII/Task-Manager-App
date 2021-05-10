@@ -22,17 +22,16 @@
                                                         <p class="reminder">DUE IN {{ task["Due_By"] }} DAYS</p>
                                                 {% endif %}
                                             </p>
-                                        {% endif %}
-                                        <p class="deadline">Deadline: {{ task["Deadline"]}}</p>
-                                        
-                                        {% if "Priority" in task != '' %}
+                                            <p class="deadline">Deadline: {{ task["Deadline"]}}</p>
+                                            {% if "Priority" in task != '' %}
                                                 <p class="priority">Priority:{{ task["Priority"] }} </p>
-                                        {% endif %}
+                                            {% endif %}
 
-                                        {%if "Category" in task != '' %}
-                                               <strong> Category: {{ task["Category"] }} </strong><br>
+                                            {%if "Category" in task != '' %}
+                                                <strong> Category: {{ task["Category"] }} </strong><br>
+                                            {% endif %}
+                                                <input type="checkbox" name=check value= {{ task["ID"] }}> Mark as complete
                                         {% endif %}
-                                            <input type="checkbox" name=check value= {{ task["ID"] }}> Mark as complete
                                 </ul>
                         {% endfor %}
                 </p>
