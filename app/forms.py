@@ -98,10 +98,18 @@ class EditTaskForm(FlaskForm):
         Textbox for user to enter a new title.
     save : SubmitField
         Button for user to save changes.
+    date : Datefield
+        Date that the task needs to be finished by.
+    category : StringField
+        Category that task belongs to.
+    reminder : BooleanField
+        Enable alerts about task due date.
     """
     title = StringField("Title", validators=[DataRequired()])
     description = StringField("Description")
     save = SubmitField("Save changes")
+    date = DateField('*Required: Finish by (mm/dd/yyyy)', format=('%m/%d/%Y'))
+    category = StringField("Edit Category (Optional)")
     reminder = BooleanField("Flash Reminder")
 
 class FindTaskForm(FlaskForm):
