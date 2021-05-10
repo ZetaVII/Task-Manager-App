@@ -96,6 +96,13 @@
                         border-radius: 25px;
                         background: url("https://i.pinimg.com/originals/d2/15/06/d2150614e321f486b2c0f213508c360b.png");
                     }
+                    
+                    .flash{
+                        font-family: 'Itim', cursive;
+                        font-size: 30px;
+                        font-weight: 300;
+                        color: rgb(248, 98, 98);
+                    }
                 </style>
         </head>
         <body>
@@ -133,7 +140,7 @@
                         </div>
                 </nav>
                 {% for msg in get_flashed_messages() %}
-                        <li> {{ msg }} </li>
+                        <li class = "flash"> {{ msg }} </li>
                 {% endfor %}
 
                 {% block content %}
