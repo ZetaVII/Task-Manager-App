@@ -14,6 +14,12 @@ from app.models import User, Task
 def register():
     """
     Registers new user by creating username and password
+    
+    Returns
+    -------
+    Render the register.html template.
+    Redirect to the register page. 
+    Redirect to the login page.
     """
     form = RegisterForm()
     if form.validate_on_submit():
@@ -32,7 +38,13 @@ def register():
 @app.route("/", methods=['GET', 'POST'])
 def login():
     """
-    Logs in user with existing username and password
+    Logs in user with existing username and password.
+    
+    Returns
+    -------
+    Render the login.html template.
+    Redirect to the overview page. 
+    Redirect to the login page.
     """
     form = LoginForm()
     if form.validate_on_submit():
@@ -86,7 +98,7 @@ def overview():
                     if dict["Title"] == task.title:
                         dict["Complete"] = task.complete
                 uncompletedTasks.remove({"Title":task.title})
-                
+            taskList.sort(key=lambda i: (i["Priority"] is None, i["Priority"]))     
         return render_template('overview.html', title='Account Overview', form=form, list=taskList, completedTasks=completedTasks, uncompletedTasks=uncompletedTasks)
     
     elif request.method == 'POST':
@@ -197,6 +209,17 @@ def deletetask():
 @app.route('/edittask', methods=['GET', 'POST'])
 @login_required
 def editTask():
+    """
+    Edits a task.
+    
+    User will be able to change the title, description, date, and category for the selected task.
+    
+    Returns
+    -------
+    Redirect to Edit Task page.
+    Redirect to Overview page.
+    Render the edittask.html template.
+    """
     form = EditTaskForm()
     task = session.get('task', None)
     tk = Task.query.filter_by(title=task).first()
@@ -262,6 +285,16 @@ def setCategory():
 @app.route('/findtask', methods=['GET', 'POST'])
 @login_required
 def findTask():
+    """
+    Finds a task.
+    
+    User will be able to search for a task by title. This is used for choosing a task to edit.
+    
+    Returns
+    -------
+    Redirect to Edit Task page.
+    Redirect to Find Task page.
+    Render the findtask.html template.
     form = FindTaskForm()
     if form.validate_on_submit():
         if form.title.data is None:
