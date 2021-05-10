@@ -82,6 +82,9 @@ def overview():
 
             if task.complete == 1:
                 completedTasks.append({"Title":task.title})
+                for dict in taskList:
+                    if dict["Title"] == task.title:
+                        dict["Complete"] = task.complete
                 uncompletedTasks.remove({"Title":task.title})
                 
         return render_template('overview.html', title='Account Overview', form=form, list=taskList, completedTasks=completedTasks, uncompletedTasks=uncompletedTasks)
