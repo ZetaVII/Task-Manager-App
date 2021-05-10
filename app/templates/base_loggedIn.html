@@ -5,8 +5,7 @@
                 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
                 <link href='https://fonts.googleapis.com/css?family=Gochi Hand' rel='stylesheet'>
                 <link href='https://fonts.googleapis.com/css?family=Covered By Your Grace' rel='stylesheet'>
-                <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
-
+                <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
                 {% if title %}
                 <title> {{title}} </title>
                 {% endif %}
@@ -17,25 +16,45 @@
                     }    
 
                     h1 {
-                        font-family: 'Amatic SC';font-size: 48px;
+                        font-family: 'Amatic SC', cursive;
+                        font-size: 48px;
                         font-weight: 700;
                     }
 
                     h2 {
-                        font-family: 'Amatic SC';font-size: 48px;
+                        font-family: 'Amatic SC', cursive;
+                        font-size: 48px;
                         font-weight: 700;
                     }
 
-                    p {
-                        font-family: 'Amatic SC';
+                    .taskname {
+                        font-family: 'Amatic SC', cursive;
                         font-weight: 700;
                         font-size: 22px;
+                    }
+
+                    .reminder{
+                        font-family: 'Amatic SC', cursive;
+                        color: red;
+                        font-weight: 700;
+                        font-size: 16px;
+                    }
+                    
+                    .priority{
+                      color: rgb(5, 71, 94);
+                      font-weight: 900;
+                    }
+
+                    .deadline{
+                        font-family: 'Amatic SC', cursive;
+                        font-weight: 700;
+                        font-size: 15px;
                     }
 
                     .frame {
                         position: absolute;
                         width: 850px;
-                        height: 850px:
+                        height: 850px;
                         z-index: 15;
                         top: 20%;
                         left: 50%;

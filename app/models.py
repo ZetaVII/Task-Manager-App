@@ -71,8 +71,6 @@ class Task(UserMixin, db.Model):
     deadline = db.Column(db.String, nullable=True, unique=False)
     # Create column for reminder
     reminder = db.Column(db.Boolean, nullable=False, default = False, unique=False)
-    # Create column for remaining days
-    #remaining_days = db.Column(db.String, Nullable = True, unique = False)
     # Create column for priority
     priority = db.Column(db.Integer, nullable=True, unique=False)
     # Create column for category

@@ -74,15 +74,17 @@ def overview():
             due_by = datetime.strptime(task.deadline, format) - datetime.now()
      
             if task.reminder == 1:
-                taskList.append({"Title":task.title, "Reminder":True, "Deadline":task.deadline, "Due_By":due_by.days, "ID":task.id})
+                taskList.append({"Title": task.title, "Reminder": True, "Deadline": task.deadline, "Due_By": due_by.days, "ID": task.id, "Category": task.category, "Priority": task.priority})
                 uncompletedTasks.append({"Title":task.title})
             else:
-                taskList.append({"Title": task.title, "Deadline":task.deadline, "ID":task.id})
+                taskList.append({"Title": task.title, "Deadline": task.deadline, "ID": task.id, "Category": task.category, "Priority": task.priority})
                 uncompletedTasks.append({"Title":task.title})
+
             if task.complete == 1:
                 completedTasks.append({"Title":task.title})
                 uncompletedTasks.remove({"Title":task.title})
         return render_template('overview.html', title='Account Overview', form=form, list=taskList, completedTasks=completedTasks, uncompletedTasks=uncompletedTasks)
+    
     elif request.method == 'POST':
         checks = request.form.getlist('check')
         for key in checks:
@@ -134,21 +136,24 @@ def createtask():
         if t is not None:
             flash('Task already exists.')
             return redirect('/createtask')
-            
-        if form.description.data is not None:
-            newtasks = Task(title=form.title.data, description=form.description.data, user_id=current_user.id, reminder = form.reminder.data)
-            if form.date.data is not None:
-                newtasks.setDeadline(form.date.data.strftime("%b-%d-%Y"))
-            current_user.tasks.append(newtasks)
-            db.session.add(newtasks)
-            db.session.commit()
+        
         else:
             newtasks = Task(title=form.title.data, user_id=current_user.id, reminder = form.reminder.data)
-            if form.date.data is not None:
-                newtasks.setDeadline(form.date.data.strftime("%b-%d-%Y"))
-            current_user.tasks.append(newtasks)
-            db.session.add(newtasks)
-            db.session.commit()
+            newtasks.setDeadline(form.date.data.strftime("%b-%d-%Y"))
+
+        if form.description.data is not None:
+            newtasks.description = form.description.data
+        
+        if form.priority.data is not None:
+            newtasks.priority = form.priority.data
+        
+        if form.category.data is not None:
+            newtasks.category = form.category.data
+
+        current_user.tasks.append(newtasks)
+        db.session.add(newtasks)
+        db.session.commit()
+
         return redirect('/overview')
         flash('New task created')
     return render_template('newtask.html', title='New Task', form=form)

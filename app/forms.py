@@ -51,9 +51,9 @@ class NewTaskForm(FlaskForm):
     create = SubmitField('Create')
     date = DateField('*Required: Finish by (mm/dd/yyyy)', format=('%m/%d/%Y'))
     reminder = BooleanField("Flash Reminder")
-    #test
-    priority = IntegerField("Set priority")
-    category = StringField("Add Category")
+
+    priority = IntegerField("Set priority (Optional)")
+    category = StringField("Add Category (Optional)")
 
 
 class DeleteTaskForm(FlaskForm):
