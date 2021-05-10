@@ -11,6 +11,15 @@
     <p>
         {{ form.description.label }} <br>
         {{ form.description(size=32) }}
+    </p>
+    <p>
+        {{ form.date.label}} <br>
+        {{ form.date(size = 10)}}
+    </p>
+    <p>
+        {{ form.category.label}} <br>
+        {{ form.category(size = 20)}}
+    </p>
     <p>
         {{ form.reminder() }} {{form.reminder.label}} <br>
         {{ form.save() }} 
