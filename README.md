@@ -168,14 +168,16 @@ Steps taken to ensure functionality:
 
 ### Add time duration for a task
 
-Use case 8: Add time duration for a task
+Use case 8: Duration for a task
 
 A person with an existing account can add a time duration to complete a task.
 
 [Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-8-name-add-time-duration-for-a-task)
 
 Steps taken to ensure functionality:
-* 
+* Uses date of deadline and subtract it with current time when user logs in
+* Form of create new task will not submit until the date in deadline box is in the correct format and filled
+* The subtracted results appear in flashy message if "Flash Reminder" is toggled
 
 ### View completed tasks
 
@@ -235,7 +237,10 @@ Users are able to have the system to send a notification to remind them to do a 
 [Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-14-name-set-reminder)
 
 Steps taken to ensure functionality:
-* 
+* Create a new task 
+* Set up a check mark box to set "flash reminder" on home page
+* Displays the flashy message underneath specified task with remaining days left
+
 ### Share Task
 
 Use case 15: Share task 
