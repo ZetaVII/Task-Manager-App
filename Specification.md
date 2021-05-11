@@ -169,8 +169,8 @@ A person with an existing account can make edits to tasks they previously create
 User selects the "Edit task" button.
 
 ### Primary Sequence
-1. System prompts the user to select one task from the list.
-2. The user selects an existing task from the displayed list.
+1. System prompts the user to type in the name of a task.
+2. The user enters a title and presses the "Find" button.
 3. System redirects the user to the Editing page.
 4. User clicks on the field that they wish to edit.
 5. User types changes to title or description.
@@ -182,7 +182,10 @@ User selects the "Edit task" button.
 * Changes to the task are reflected in the list on the overview page.
 
 ### Alternate Sequences
-1. The user deletes the contents of the title field without typing a new title.
+1. The user enters a a task that doesn't exist.
+	1. The user clicks the "Find" button.
+	2. System prompts the user to enter a different title.
+2. The user deletes the contents of the title field without typing a new title.
 	1. The user clicks on the "Save changes" button.
 	2. System prompts the user to enter a title.
 
@@ -360,7 +363,7 @@ User clicks the "Enter" button after not typing in any time duration.
 
 ## **Use Case 9 Name:** Mark task complete 
 ### Summary
-User who is logged in can mark a task complete and will be moved to the bottom of the list.
+User who is logged in can mark a task complete and will be added to the completed task list.
 
 ### Actors
 1. The user
@@ -375,21 +378,13 @@ User clicks “mark task complete” button.
 ### Primary Sequence
 1. User clicks on task they wish to complete.
 2. User clicks “mark task complete” button.
-3. Check if task is incomplete.
-4. App shows “task completed”.
+3. User clicks the "Save" button.
+4. System refreshes the page and shows task appended to the completed tasks list.
 
 ### Primary Postconditions
 * Task is marked complete.
-* Task moves to the bottom of the list.
-
-### Alternate Sequences
-1. User clicks on task they wish to complete.
-2. User clicks “mark task complete” button.
-3. Check if task is incomplete.
-4. If already completed app shows error “task already completed”.
-
-### Alternate Postconditions
- * App shows “task already completed”.
+* Task details are hidden.
+* Tast title is marked with strike through.
  
 ### Non-functional Requirements
  *  System prompt messages are presented with a font size between 20 and 24.
@@ -456,8 +451,8 @@ User creates a task.
 
 ### Primary Sequence
 1. User creates a task.
-2. Adds task to uncompleted task list. 
-5. App shows “uncompleted tasks”.
+2. User adds task to incomplete task list. 
+5. App updates “Incomplete Tasks”.
 
 ### Primary Postconditions
 * Incomplete tasks are shown.
@@ -466,11 +461,11 @@ User creates a task.
 1. User creates a task.
 2. User marks the task as complete.
 3. User clicks the "Save" button.
-5. Removes task from uncompleted task list. 
-6. App shows “uncompleted tasks”.
+5. Removes task from incomplete tasks list. 
+6. App updates “Incomplete Tasks”.
 
 ### Alternate Postconditions
-App shows “uncompleted tasks”.
+App shows “Incomplete Tasks”.
  
 ### Non-functional Requirements
  *  System prompt messages are presented with a font size between 20 and 24.
@@ -588,17 +583,26 @@ Users can share tasks with other users to collaborate with one another.
 * There must be a pre-existing task within a list. 
 
 ### Triggers
-User selects the “SHARE TASK” option.
+User selects the “Share Task” option.
 
 ### Primary Sequence
-1. System prompts user list of tasks.
-3. The user selects a list.
-4. The user clicks on the “SHARE TASK” option.
-5. System prompts user to enter another registered individual(s) to share the task to.
-6. System alerts aforementioned individual(s) about the shared task. 
+1. System prompts user to enter in task title and username of recipient user.
+3. The user enters information to both fields.
+4. The user clicks on the “Share” button.
+5. System reroutes to overview page. 
+6. System alerts user of successful share.
 
 ### Primary Postconditions
 * The selected task would be seen within the task manager of the two or more users.
+
+### Alternate Sequences
+1. User enters a title that does not exist.
+	1. System prompts user to enter a different title.
+2. User enters a username that does not exist.
+ 	1. System prompts user to enter a different username.
+
+### Alternate Postconditions
+App reloads share task page.
 
 ### Non-functional Requirements
  * System prompt messages are presented with a font size between 20 and 24. 
