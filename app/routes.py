@@ -98,7 +98,7 @@ def overview():
                     if dict["Title"] == task.title:
                         dict["Complete"] = task.complete
                 uncompletedTasks.remove({"Title":task.title})
-            taskList.sort(key=lambda i: (i["Priority"] is None, i["Priority"]))     
+            taskList.sort(key=lambda i: (i["Priority"] is None, i["Priority"]))   
         return render_template('overview.html', title='Account Overview', form=form, list=taskList, completedTasks=completedTasks, uncompletedTasks=uncompletedTasks)
     
     elif request.method == 'POST':
@@ -209,17 +209,6 @@ def deletetask():
 @app.route('/edittask', methods=['GET', 'POST'])
 @login_required
 def editTask():
-    """
-    Edits a task.
-    
-    User will be able to change the title, description, date, and category for the selected task.
-    
-    Returns
-    -------
-    Redirect to Edit Task page.
-    Redirect to Overview page.
-    Render the edittask.html template.
-    """
     form = EditTaskForm()
     task = session.get('task', None)
     tk = Task.query.filter_by(title=task).first()

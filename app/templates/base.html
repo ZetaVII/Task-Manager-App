@@ -64,8 +64,7 @@
                                                 font-family: 'Itim', cursive;
                                                 font-size: 30px;
                                                 font-weight: 300;
-                                                color: rgb(255, 124, 124);
-                                                background-color: rgb(red, green, blue)
+                                                color: rgb(248, 98, 98);
                                         }
                                 </style>
         </head>
@@ -88,12 +87,7 @@
                 
                 <p>
                         {% for msg in get_flashed_messages() %}
-                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        <strong class = "flash">{{ msg }}</strong>
-                                </div>
+                                <li class = "flash"> {{ msg }} </li>
                         {% endfor %}
                 </p>
                 {% block content %}

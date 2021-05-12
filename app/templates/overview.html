@@ -9,12 +9,8 @@
                 <p>
                         {% for task in list %}
                                 <ul>
-                                       {% if task["Complete"] %}
-                                            <p class = "strikethru"> {{ task["Title"] }}
-                                                {% if "Reminder" in task %}
-                                                        <p class="reminder">DUE IN {{ task["Due_By"] }} DAYS</p>
-                                                {% endif %}
-                                            </p>
+                                        {% if task["Complete"] %}
+                                            <p class = "strikethru"> {{ task["Title"] }}</p>
                                         {% endif %}
                                         {% if not task["Complete"] %}
                                             <p class = "taskname"> {{ task["Title"] }}
@@ -30,8 +26,8 @@
                                             {%if "Category" in task != '' %}
                                                 <strong> Category: {{ task["Category"] }} </strong><br>
                                             {% endif %}
-                                                <input type="checkbox" name=check value= {{ task["ID"] }}> Mark as complete
-                                        {% endif %}
+                                            <input type="checkbox" name=check value= {{ task["ID"] }}> Mark as complete
+                                        {% endif %}        
                                 </ul>
                         {% endfor %}
                 </p>
@@ -42,7 +38,7 @@
                 <p>
                         {% for task in completedTasks %}
                                 <ul>
-                                        <p>
+                                        <p class="taskname">
                                             <i class='far fa-check-square' style='font-size:22px;color:red'></i> {{ task["Title"] }}
                                         </p>
                                 </ul>
@@ -54,7 +50,7 @@
                 <p>
                         {% for task in uncompletedTasks %}
                                 <ul>
-                                        <p>
+                                        <p class="taskname">
                                             <i class='fas fa-angle-double-right' style='font-size:30px;color:orange'></i> {{ task["Title"] }}
                                         </p>
                                 </ul>

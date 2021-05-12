@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField, DateField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Optional 
 
 class LoginForm(FlaskForm):
     """
@@ -52,7 +52,7 @@ class NewTaskForm(FlaskForm):
     date = DateField('*Required: Finish by (mm/dd/yyyy)', format=('%m/%d/%Y'))
     reminder = BooleanField("Flash Reminder")
 
-    priority = IntegerField("Set priority (Optional)")
+    priority = IntegerField("Set priority (Optional)", validators = [Optional()])
     category = StringField("Add Category (Optional)")
 
 
