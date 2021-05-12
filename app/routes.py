@@ -295,6 +295,7 @@ def findTask():
     Redirect to Edit Task page.
     Redirect to Find Task page.
     Render the findtask.html template.
+    """
     form = FindTaskForm()
     if form.validate_on_submit():
         if form.title.data is None:
