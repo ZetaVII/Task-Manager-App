@@ -52,8 +52,8 @@ class NewTaskForm(FlaskForm):
     date = DateField('*Required: Finish by (mm/dd/yyyy)', format=('%m/%d/%Y'))
     reminder = BooleanField("Flash Reminder")
 
-    priority = IntegerField("Set priority (Optional)", validators = [Optional()])
-    category = StringField("Add Category (Optional)")
+    priority = IntegerField("Set priority", validators = [Optional()])
+    category = StringField("Add Category")
 
 
 class DeleteTaskForm(FlaskForm):
@@ -109,7 +109,7 @@ class EditTaskForm(FlaskForm):
     description = StringField("Description")
     save = SubmitField("Save changes")
     date = DateField('*Required: Finish by (mm/dd/yyyy)', format=('%m/%d/%Y'))
-    category = StringField("Edit Category (Optional)")
+    category = StringField("Edit Category")
     reminder = BooleanField("Flash Reminder")
 
 class FindTaskForm(FlaskForm):
