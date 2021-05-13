@@ -217,7 +217,10 @@ Users are able to assign the priority level, such as high (needs to be done ASAP
 [Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-12-name-set-priority-of-tasks)
 
 Steps taken to ensure functionality:
-* 
+* Check set priority button works
+* Enter task title and priority 
+* Verify the priority is added to task in overview
+
 ### Categorize Task
 
 Use case 13: Categorize task
@@ -227,7 +230,9 @@ Users are able to assign tasks into separate categories (ie. school, work, or pe
 [Click here for the detailed use case description](https://github.com/schau-sjsu/Team3/blob/main/Specification.md#use-case-13-name-categorize-task)
 
 Steps taken to ensure functionality:
-* 
+* Check set add category button works
+* Enter task title and category to add 
+* Verify the category is added to task in overview
 ### Set Reminder
 
 Use case 14: Set task reminder
