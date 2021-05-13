@@ -513,11 +513,11 @@ User selects the “Set Priority” option.
 ### Primary Sequence
 1. The user creates a new task, or selects an existing one.
 2. The user clicks on the “Set Priority” button.
-3. System prompts user levels of priority.
+3. System prompts user for title and priority.
 4. The user enters a priority level.
 
 ### Primary Postconditions
-* The specified task should given priority listed.
+* The specified task should by given priority entered.
 
 ### Non-functional Requirements
  * System prompt messages are presented with a font size between 20 and 24. 
@@ -544,8 +544,8 @@ User selects the “CATEGORY” option.
 ### Primary Sequence
 1. The user creates a new task, or enters an existing task.
 2. The user clicks on the “CATEGORY” button.
-3. System prompts the user to enter or create a new category.
-4. The user selects an option.
+3. System prompts the user to enter title and add category.
+4. The user enters a category.
 
 ### Primary Postconditions
 * The specified task would be shown within the proper category within a list.
