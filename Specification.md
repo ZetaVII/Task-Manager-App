@@ -517,7 +517,8 @@ User selects the “Set Priority” option.
 4. The user enters a priority level.
 
 ### Primary Postconditions
-* The specified task should by given priority entered.
+* The specified task should be given priority entered.
+* Priority should be viewable in overview
 
 ### Non-functional Requirements
  * System prompt messages are presented with a font size between 20 and 24. 
@@ -548,7 +549,8 @@ User selects the “CATEGORY” option.
 4. The user enters a category.
 
 ### Primary Postconditions
-* The specified task would be shown within the proper category within a list.
+* Proper category should be added to specified task.
+* Category should be viewable in overview.
 
 ### Non-functional Requirements
  * System prompt messages are presented with a font size between 20 and 24. 
