@@ -1,190 +1,200 @@
 <html>
-                <head>
 
-                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-                <link href='https://fonts.googleapis.com/css?family=Gochi Hand' rel='stylesheet'>
-                <link href='https://fonts.googleapis.com/css?family=Covered By Your Grace' rel='stylesheet'>
-                <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
-                <meta name='viewport' content='width=device-width, initial-scale=1'>
-                <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<head>
 
-                {% if title %}
-                <title> {{title}} </title>
-                {% endif %}
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Gochi Hand' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Covered By Your Grace' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
-                <style>
-                    body {
-                        background-color: #E8F5E9;
-                    }    
+  {% if title %}
+  <title> {{title}} </title>
+  {% endif %}
 
-                    h1 {
-                        font-family: 'Itim', cursive;
-                        font-size: 48px;
-                        font-weight: 800;
-                    }
+  <style>
+    body {
+      background-color: #E8F5E9;
+    }
 
-                    h2 {
-                        font-family: 'Itim', cursive;
-                        font-size: 45px;
-                        font-weight: 700;
-                    }
+    h1 {
+      font-family: 'Itim', cursive;
+      font-size: 48px;
+      font-weight: 800;
+    }
 
-                    .tab {
-                        margin-left: 40px;
-                        font-size: 16px;
-                        font-family: 'Itim', cursive;
-                    }
+    h2 {
+      font-family: 'Itim', cursive;
+      font-size: 45px;
+      font-weight: 700;
+    }
 
-                    .taskname {
-                        font-family: 'Itim', cursive;
-                        font-weight: 700;
-                        font-size: 28px;
-                    }
+    .tab {
+      margin-left: 40px;
+      font-size: 16px;
+      font-family: 'Itim', cursive;
+    }
 
-                    .strikethru {
-                        text-decoration: line-through;
-                        font-family: 'Itim', cursive;
-                        font-weight: 800;
-                        font-size: 28px;
-                    }
+    .taskname {
+      font-family: 'Itim', cursive;
+      font-weight: 700;
+      font-size: 28px;
+    }
 
-                    .reminder{
-                        font-family: 'Itim', cursive;
-                        color: red;
-                        font-weight: 700;
-                        font-size: 16px;
-                    }
-                    
-                    .priority{
-                      color: rgb(5, 71, 94);
-                      font-weight: 900;
-                    }
+    .strikethru {
+      text-decoration: line-through;
+      font-family: 'Itim', cursive;
+      font-weight: 800;
+      font-size: 28px;
+    }
 
-                    .deadline{
-                        font-family: 'Itim', cursive;
-                        font-weight: 700;
-                        font-size: 16px;
-                    }
+    .reminder {
+      font-family: 'Itim', cursive;
+      color: red;
+      font-weight: 700;
+      font-size: 16px;
+    }
 
-                    .frame {
-                        position: absolute;
-                        width: 850px;
-                        min-height: 850px;
-                        z-index: 15;
-                        top: 20%;
-                        left: 50%;
-                        padding: 20px;
-                        margin: -100px 0 0 -400px;
-                        background: #FFF3E0;
-                        border-radius: 25px;
-                    }
+    .priority {
+      color: rgb(5, 71, 94);
+      font-weight: 900;
+    }
 
-                    .frame_2 {
-                      position: absolute;
-                      min-width: 400px;
-                      min-height: 100px;
-                      z-index: 15;
-                      top: 25%;
-                      Left: 40%;
-                      padding: 20px;
-                      margin: 0 auto;
-                      display: block;
-                      background: #FFF3E0;
-                      border-radius: 25px;
-                      }
+    .deadline {
+      font-family: 'Itim', cursive;
+      font-weight: 700;
+      font-size: 16px;
+    }
 
-                    .all {
-                        opacity: 0.8;
-                        float: left;
-                        width: 395px;
-                        min-height: 810px;
-                        z-index: 30;
-                        padding: 20;
-                        background: url("https://i.pinimg.com/originals/6d/92/36/6d92369a900b864fe7ddb1931d2358d2.jpg");
-                        border-radius: 25px;
-                    }
+    .frame {
+      position: absolute;
+      width: 850px;
+      min-height: 850px;
+      z-index: 15;
+      top: 20%;
+      left: 50%;
+      padding: 20px;
+      margin: -100px 0 0 -400px;
+      background: #FFF3E0;
+      border-radius: 25px;
+    }
 
-                    .complete {
-                        opacity: 1.5;
-                        float: right;
-                        width: 395px;
-                        min-height: 395px;
-                        z-index: 30px;
-                        padding: 20;
-                        border-radius: 25px;
-                        background: url("https://64.media.tumblr.com/6eaab721173aaef745502074c48a84f5/tumblr_nrgbh8UPM51tufwlro4_400.png");
-                    }
+    .frame_2 {
+      position: absolute;
+      min-width: 400px;
+      min-height: 100px;
+      z-index: 15;
+      top: 15%;
+      padding: 20px;
+      left: 40%;
+      display: block;
+      background: #FFF3E0;
+      border-radius: 25px;
+    }
 
-                    .incomplete {
-                        opacity: 0.8;
-                        margin-top: 20px;
-                        float: right;
-                        width: 395px;
-                        min-height: 395px;
-                        z-index: 30px;
-                        padding: 20;
-                        border-radius: 25px;
-                        background: url("https://i.pinimg.com/originals/d2/15/06/d2150614e321f486b2c0f213508c360b.png");
-                    }
-                    
-                    .flash{
-                        font-family: 'Itim', cursive;
-                        font-size: 30px;
-                        font-weight: 300;
-                        color: rgb(248, 98, 98);
-                    }
-                </style>
-        </head>
-        <body>
-                <nav class="navbar navbar-expand-lg navbar-light bg-light" style="font-family: 'Itim', cursive;">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                          <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                          <ul class="navbar-nav">
-                            <li class="nav-item">
-                              <a class="nav-link" href="{{ url_for('overview') }}">Home</a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link" href="{{ url_for('createtask') }}">Create Task</a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link" href="{{ url_for('deletetask') }}">Delete Task</a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link" href="{{ url_for('findTask') }}">Edit Task</a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link" href="{{ url_for('shareTask') }}">Share Task</a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link" href="{{ url_for('setPriority') }}">Change Priority</a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link" href="{{ url_for('setCategory') }}">Change Category</a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a>
-                            </li>
-                          </ul>
-                        </div>
-                </nav>
-                 <p>
-                        {% for msg in get_flashed_messages() %}
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                          <strong class="flash">{{ msg }}</strong>
-                        </div>
-                        {% endfor %}                  
-                </p>
+    .all {
+      opacity: 0.8;
+      float: left;
+      width: 395px;
+      min-height: 810px;
+      z-index: 30;
+      padding: 20;
+      background: url("https://i.pinimg.com/originals/6d/92/36/6d92369a900b864fe7ddb1931d2358d2.jpg");
+      border-radius: 25px;
+    }
 
-                {% block content %}
-                {% endblock %}
+    .complete {
+      opacity: 1.5;
+      float: right;
+      width: 395px;
+      min-height: 395px;
+      z-index: 30px;
+      padding: 20;
+      border-radius: 25px;
+      background: url("https://64.media.tumblr.com/6eaab721173aaef745502074c48a84f5/tumblr_nrgbh8UPM51tufwlro4_400.png");
+    }
 
-                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        </body>
+    .incomplete {
+      opacity: 0.8;
+      margin-top: 20px;
+      float: right;
+      width: 395px;
+      min-height: 395px;
+      z-index: 30px;
+      padding: 20;
+      border-radius: 25px;
+      background: url("https://i.pinimg.com/originals/d2/15/06/d2150614e321f486b2c0f213508c360b.png");
+    }
+
+    .flash {
+      font-family: 'Itim', cursive;
+      font-size: 30px;
+      font-weight: 300;
+      color: rgb(248, 98, 98);
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="font-family: 'Itim', cursive;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('overview') }}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('createtask') }}">Create Task</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('deletetask') }}">Delete Task</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('findTask') }}">Edit Task</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('shareTask') }}">Share Task</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('setPriority') }}">Change Priority</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('setCategory') }}">Change Category</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <p>
+    {% for msg in get_flashed_messages() %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong class="flash">{{ msg }}</strong>
+  </div>
+  {% endfor %}
+  </p>
+
+  {% block content %}
+  {% endblock %}
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
