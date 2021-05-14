@@ -72,7 +72,7 @@ class Task(UserMixin, db.Model):
     # Create column for reminder
     reminder = db.Column(db.Boolean, nullable=False, default = False, unique=False)
     # Create column for priority
-    priority = db.Column(db.Integer, nullable=True, unique=False)
+    priority = db.Column(db.String, nullable=True, unique=False)
     # Create column for category
     category = db.Column(db.String, nullable=True, unique=False)
     

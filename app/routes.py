@@ -181,10 +181,10 @@ def createtask():
         if form.description.data is not None:
             newtasks.description = form.description.data
         
-        if form.priority.data is not None:
-            newtasks.priority = form.priority.data
-        else:
+        if form.priority.data == 'None':
             newtasks.priority = 11
+        elif form.priority.data is not None:
+            newtasks.priority = form.priority.data
         
         if form.category.data is not None:
             newtasks.category = form.category.data
