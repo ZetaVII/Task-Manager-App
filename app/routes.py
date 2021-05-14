@@ -268,6 +268,21 @@ def editTask():
 @app.route('/setpriority', methods=['GET', 'POST'])
 @login_required
 def setPriority():
+    """
+    Sets the priority of a given task.
+    
+    User remains on the setpriority if no title is entered for the task.
+    User remains on the setpriority if a priority number is not specified. 
+    User remains on the setpriority if title of task entered does not exist. 
+    User will return to the overview page once finished setting priority for a task.
+
+    Returns
+    -------
+    Redirect to the setpriority page.
+    Redirect to the overview page.
+    Render the setpriority.html template. 
+    """
+
     form = SetPriorityForm()
     #task = session.get('task', None)
     tt = Task.query.filter_by(title=form.title.data).first()
