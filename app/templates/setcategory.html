@@ -13,8 +13,13 @@
             {{ form.category.label }} <br>
             {{ form.category(size=32) }}
     </p>
-        <p>{{ form.addcategory() }}</p>
-    </form>	
-</div>
+
+      <p>
+        {{ form.category.label }} <br>
+        {{ form.category() }}
+  </p>
+    <p>{{ form.addcategory() }}</p>
+</form>	
+
 
 {% endblock %}

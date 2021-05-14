@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField, DateField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField, DateField, SelectField
 from wtforms.validators import DataRequired, Optional 
 
 class LoginForm(FlaskForm):
@@ -52,8 +52,9 @@ class NewTaskForm(FlaskForm):
     date = DateField('*Required: Finish by (mm/dd/yyyy)', format=('%m/%d/%Y'))
     reminder = BooleanField("Flash Reminder")
 
-    priority = IntegerField("Set priority", validators = [Optional()])
-    category = StringField("Add Category")
+    priority = SelectField('Priority', choices=[('None','None'),('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),
+                                                 ('6','6'),('7','7'),('8','8'),('9','9'),('10','10')])
+    category = SelectField("Add Category", choices=[('None','None'),('Work','Work'),('School','School'),('Personal','Personal')])
 
 
 class DeleteTaskForm(FlaskForm):
@@ -109,7 +110,7 @@ class EditTaskForm(FlaskForm):
     description = StringField("Description")
     save = SubmitField("Save changes")
     date = DateField('*Required: Finish by (mm/dd/yyyy)', format=('%m/%d/%Y'))
-    category = StringField("Edit Category")
+    category = SelectField("Add Category", choices=[('None','None'),('Work','Work'),('School','School'),('Personal','Personal')])
     reminder = BooleanField("Flash Reminder")
 
 class FindTaskForm(FlaskForm):
@@ -158,7 +159,9 @@ class SetPriorityForm(FlaskForm):
         Button for the user to set priority of a task.
     """
     title = StringField("Title of Task to set priority", validators=[DataRequired()])
-    priority = IntegerField("Priority level (1-10)", validators=[DataRequired()])
+    #priority = IntegerField("Priority level (1-10)", validators=[DataRequired()])
+    priority = SelectField(u'Priority', choices=[('None','None'),('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),
+                                                 ('6','6'),('7','7'),('8','8'),('9','9'),('10','10')])
     set = SubmitField("Set")    
     
     
@@ -174,5 +177,5 @@ class CategorizeForm(FlaskForm):
         Button for user to finish adding category.
     """
     title = StringField('Title of task to add category', validators = [DataRequired()])
-    category= StringField('Category to add', validators = [DataRequired()])
+    category = SelectField("Add Category", choices=[('None','None'),('Work','Work'),('School','School'),('Personal','Personal')])
     addcategory = SubmitField('Add category')
