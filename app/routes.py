@@ -235,7 +235,7 @@ def editTask():
     """
     Edits a task.
 
-    User remains on the edittask if no title is entered for the task. 
+    User remains on the edittask if no title is entered for the task that you want to make edits for. 
     User remains on the edittask if the title is already taken. 
     User will return to the overview page once finished editing a task.
     
