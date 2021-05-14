@@ -259,6 +259,7 @@ def editTask():
             return redirect('/edittask')
         tk.title = form.title.data
         tk.reminder = form.reminder.data
+        tk.setDeadline(form.date.data.strftime("%b-%d-%Y"))
         if form.description.data is not None:
             tk.description = form.description.data
         db.session.commit()
