@@ -14,6 +14,9 @@
                                         {% endif %}
                                         {% if not task["Complete"] %}
                                             <p class = "taskname"> {{ task["Title"] }}
+                                                {% if "Description" in task %}
+                                                        <p class ="description tab">Description: {{task["Description"] }}</p>
+                                                {% endif %}
                                                 {% if "Reminder" in task %}
                                                         <p class="reminder tab">DUE IN {{ task["Due_By"] }} DAYS</p>
                                                 {% endif %}
