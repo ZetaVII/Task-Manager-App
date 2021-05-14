@@ -232,6 +232,20 @@ def deletetask():
 @app.route('/edittask', methods=['GET', 'POST'])
 @login_required
 def editTask():
+    """
+    Edits a task.
+
+    User remains on the edittask if no title is entered for the task. 
+    User remains on the edittask if the title is already taken. 
+    User will return to the overview page once finished editing a task.
+    
+    Returns
+    -------
+    Redirect to the edittask page.
+    Redirect to the overview page.
+    Render the edittask.html template. 
+    """
+ 
     form = EditTaskForm()
     task = session.get('task', None)
     tk = Task.query.filter_by(title=task).first()
