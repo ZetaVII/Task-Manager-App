@@ -46,7 +46,7 @@ class NewTaskForm(FlaskForm):
     priority : IntegerField
         Where users enter priority of a task. Data is not required for this.
     """
-    title = StringField('Title', validators = [DataRequired()])
+    title = StringField('*Required Title', validators = [DataRequired()])
     description = StringField('Description')
     create = SubmitField('Create')
     date = DateField('*Required: Finish by (mm/dd/yyyy)', format=('%m/%d/%Y'))
@@ -105,7 +105,7 @@ class EditTaskForm(FlaskForm):
     reminder : BooleanField
         Enable alerts about task due date.
     """
-    title = StringField("Title", validators=[DataRequired()])
+    title = StringField("*Required Title", validators=[DataRequired()])
     description = StringField("Description")
     save = SubmitField("Save changes")
     date = DateField('*Required: Finish by (mm/dd/yyyy)', format=('%m/%d/%Y'))

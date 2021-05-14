@@ -86,14 +86,14 @@ def overview():
         if len(current_user.tasks) != 0:
             buttondisplay["show"] = True
         for task in current_user.tasks:
-            due_by = datetime.strptime(task.deadline, format) - datetime.now()
+            due_by = datetime.strptime(task.deadline, format) - datetime.now()            
 
             if task.reminder == 1:
-                taskList.append({"Title": task.title, "Reminder": True, "Deadline": task.deadline, "Due_By": due_by.days, 
+                taskList.append({"Title": task.title, "Description": task.description, "Reminder": True, "Deadline": task.deadline, "Due_By": due_by.days, 
                                  "ID": task.id, "Priority": task.priority})
                 uncompletedTasks.append({"Title":task.title})
             else:
-                taskList.append({"Title": task.title, "Deadline": task.deadline, "ID": task.id, "Priority": task.priority})
+                taskList.append({"Title": task.title, "Description": task.description, "Deadline": task.deadline, "ID": task.id, "Priority": task.priority})
                 uncompletedTasks.append({"Title":task.title})
 
             if task.priority != 11:
