@@ -309,6 +309,19 @@ def setPriority():
 @app.route('/setcategory', methods=['GET', 'POST'])
 @login_required
 def setCategory():
+    """
+    Sets a category for a given task.
+
+    User remains on the setcategory if title of task entered does not exits..
+    User will return to the overview page once finished setting category for a task.
+
+    Returns
+    -------
+    Redirect to the setcategory page.
+    Redirect to the overview page.
+    Render the setcategory.html template.
+    """
+
     form = CategorizeForm()
     tt = Task.query.filter_by(title=form.title.data).first()   
     if form.validate_on_submit():
@@ -318,7 +331,7 @@ def setCategory():
         else:
             tt.category = form.category.data
             db.session.commit()
-            return redirect('/setcategory')
+            return redirect('/overview')
             flash('Category set!')
     return render_template('setcategory.html', title='Set Category', form=form)
 
