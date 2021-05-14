@@ -1,6 +1,7 @@
 {% extends "base_loggedIn.html" %}
 
 {% block content %}
+<div class = "frame_2">
 <h1>Delete Task </h1>
 <form action = "" method="post" novalidate>
     {{ form.hidden_tag() }}
@@ -10,5 +11,5 @@
     </p>
     <p>{{ form.delete() }}</p>
 </form>	
-
+</div>
 {% endblock %}
