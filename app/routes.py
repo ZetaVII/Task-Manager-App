@@ -82,15 +82,29 @@ def overview():
         completedTasks = []
         uncompletedTasks = []
         format = "%b-%d-%Y"
+        buttondisplay = {}
+        if len(current_user.tasks) != 0:
+            buttondisplay["show"] = True
         for task in current_user.tasks:
             due_by = datetime.strptime(task.deadline, format) - datetime.now()
 
             if task.reminder == 1:
-                taskList.append({"Title": task.title, "Reminder": True, "Deadline": task.deadline, "Due_By": due_by.days, "ID": task.id, "Category": task.category, "Priority": task.priority})
+                taskList.append({"Title": task.title, "Reminder": True, "Deadline": task.deadline, "Due_By": due_by.days, 
+                                 "ID": task.id, "Priority": task.priority})
                 uncompletedTasks.append({"Title":task.title})
             else:
-                taskList.append({"Title": task.title, "Deadline": task.deadline, "ID": task.id, "Category": task.category, "Priority": task.priority})
+                taskList.append({"Title": task.title, "Deadline": task.deadline, "ID": task.id, "Priority": task.priority})
                 uncompletedTasks.append({"Title":task.title})
+
+            if task.priority != 11:
+                for dict in taskList:
+                    if dict["Title"] == task.title:
+                        dict["PriorityExists"] = dict["Priority"]
+
+            if task.category != "":
+                for dict in taskList:
+                    if dict["Title"] == task.title:
+                        dict["Category"] = task.category
 
             if task.complete == 1:
                 completedTasks.append({"Title":task.title})
@@ -98,15 +112,22 @@ def overview():
                     if dict["Title"] == task.title:
                         dict["Complete"] = task.complete
                 uncompletedTasks.remove({"Title":task.title})
-            taskList.sort(key=lambda i: (i["Priority"] is None, i["Priority"]))   
-        return render_template('overview.html', title='Account Overview', form=form, list=taskList, completedTasks=completedTasks, uncompletedTasks=uncompletedTasks)
+        taskList.sort(key=lambda i: (i["Priority"] is None, i["Priority"]))   
+        return render_template('overview.html', title='Account Overview', form=form, list=taskList, 
+                               completedTasks=completedTasks, uncompletedTasks=uncompletedTasks, buttondisplay=buttondisplay)
     
     elif request.method == 'POST':
-        checks = request.form.getlist('check')
-        for key in checks:
-            t = Task.query.get(key)
-            t.setCompleteStatus(1)
+        if request.form['submit'] == "clear":
+            for task in current_user.tasks:
+                db.session.delete(task)
             db.session.commit()
+        if request.form['submit'] == "save":
+            checks = request.form.getlist('check')
+            for key in checks:
+                t = Task.query.get(key)
+                t.setCompleteStatus(1)
+                t.priority = None
+                db.session.commit()
         return redirect('/overview')
 
 @app.route('/logout', methods=['GET', 'POST'])
@@ -162,6 +183,8 @@ def createtask():
         
         if form.priority.data is not None:
             newtasks.priority = form.priority.data
+        else:
+            newtasks.priority = 11
         
         if form.category.data is not None:
             newtasks.category = form.category.data

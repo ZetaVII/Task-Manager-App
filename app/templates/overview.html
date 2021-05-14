@@ -15,23 +15,32 @@
                                         {% if not task["Complete"] %}
                                             <p class = "taskname"> {{ task["Title"] }}
                                                 {% if "Reminder" in task %}
-                                                        <p class="reminder">DUE IN {{ task["Due_By"] }} DAYS</p>
+                                                        <p class="reminder tab">DUE IN {{ task["Due_By"] }} DAYS</p>
                                                 {% endif %}
                                             </p>
-                                            <p class="deadline">Deadline: {{ task["Deadline"]}}</p>
-                                            {% if "Priority" in task != '' %}
-                                                <p class="priority">Priority:{{ task["Priority"] }} </p>
+                                            <p class="deadline tab">Deadline: {{ task["Deadline"]}}</p>
+                                            {% if task["PriorityExists"] %}
+                                                <p class="priority tab">Priority: {{ task["PriorityExists"] }} </p>
                                             {% endif %}
 
-                                            {%if "Category" in task != '' %}
-                                                <strong> Category: {{ task["Category"] }} </strong><br>
+                                            {% if task["Category"] %}
+                                                <p>
+                                                    <strong class="tab"> Category: {{ task["Category"] }} </strong>
+                                                </p>
                                             {% endif %}
-                                            <input type="checkbox" name=check value= {{ task["ID"] }}> Mark as complete
+                                            <p class="tab">
+                                                <input type="checkbox" name=check value= {{ task["ID"] }}> Mark as complete
+                                            </p>
                                         {% endif %}        
                                 </ul>
                         {% endfor %}
                 </p>
-            <button type="submit" class="btn btn-primary">Save</button>
+            {% if buttondisplay['show'] %}
+                <p style="font-family: 'Itim', cursive;">
+                    <button type="submit" name="submit" value="save" class="btn btn-primary">Save</button>
+                    <button type="submit" name="submit" value="clear" class="btn btn-info">Clear All</button>
+                </p>
+            {% endif %}
             </div>
             <div class="complete">
                 <h2> Completed Tasks </h2>
