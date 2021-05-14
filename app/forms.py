@@ -52,10 +52,9 @@ class NewTaskForm(FlaskForm):
     date = DateField('*Required: Finish by (mm/dd/yyyy)', format=('%m/%d/%Y'))
     reminder = BooleanField("Flash Reminder")
 
-    #priority = IntegerField("Set priority", validators = [Optional()])
-    priority = SelectField(u'Priority', choices=[('None','None'),('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),
+    priority = SelectField('Priority', choices=[('None','None'),('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),
                                                  ('6','6'),('7','7'),('8','8'),('9','9'),('10','10')])
-    category = StringField("Add Category")
+    category = SelectField("Add Category", choices=[('None','None'),('Work','Work'),('School','School'),('Personal','Personal')])
 
 
 class DeleteTaskForm(FlaskForm):
@@ -111,7 +110,7 @@ class EditTaskForm(FlaskForm):
     description = StringField("Description")
     save = SubmitField("Save changes")
     date = DateField('*Required: Finish by (mm/dd/yyyy)', format=('%m/%d/%Y'))
-    category = StringField("Edit Category")
+    category = SelectField("Add Category", choices=[('None','None'),('Work','Work'),('School','School'),('Personal','Personal')])
     reminder = BooleanField("Flash Reminder")
 
 class FindTaskForm(FlaskForm):
@@ -178,5 +177,5 @@ class CategorizeForm(FlaskForm):
         Button for user to finish adding category.
     """
     title = StringField('Title of task to add category', validators = [DataRequired()])
-    category= StringField('Category to add', validators = [DataRequired()])
+    category = SelectField("Add Category", choices=[('None','None'),('Work','Work'),('School','School'),('Personal','Personal')])
     addcategory = SubmitField('Add category')

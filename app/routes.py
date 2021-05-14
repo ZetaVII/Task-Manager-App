@@ -89,12 +89,17 @@ def overview():
             due_by = datetime.strptime(task.deadline, format) - datetime.now()            
 
             if task.reminder == 1:
-                taskList.append({"Title": task.title, "Description": task.description, "Reminder": True, "Deadline": task.deadline, "Due_By": due_by.days, 
+                taskList.append({"Title": task.title, "Reminder": True, "Deadline": task.deadline, "Due_By": due_by.days, 
                                  "ID": task.id, "Priority": task.priority})
                 uncompletedTasks.append({"Title":task.title})
             else:
-                taskList.append({"Title": task.title, "Description": task.description, "Deadline": task.deadline, "ID": task.id, "Priority": task.priority})
+                taskList.append({"Title": task.title, "Deadline": task.deadline, "ID": task.id, "Priority": task.priority})
                 uncompletedTasks.append({"Title":task.title})
+
+            if task.description != "":
+                for dict in taskList:
+                    if dict["Title"] == task.title:
+                        dict["Description"] = task.description
 
             if task.priority != 11:
                 for dict in taskList:
@@ -183,10 +188,12 @@ def createtask():
         
         if form.priority.data == 'None':
             newtasks.priority = 11
-        elif form.priority.data is not None:
+        else:
             newtasks.priority = form.priority.data
         
-        if form.category.data is not None:
+        if form.category.data == 'None':
+            newtasks.category = None
+        else:
             newtasks.category = form.category.data
 
         current_user.tasks.append(newtasks)
@@ -261,6 +268,10 @@ def editTask():
         tk.reminder = form.reminder.data
         if form.description.data is not None:
             tk.description = form.description.data
+        if form.category.data == 'None':
+            tk.category = None
+        else:
+            tk.category = form.category.data
         db.session.commit()
         return redirect('/overview')
     return render_template('edittask.html', title='Edit Task', form=form)
@@ -290,16 +301,16 @@ def setPriority():
         if form.title.data is None:
             flash('Enter title to set priority')
             return redirect('/setpriority')
-        if form.priority.data is None:
-            flash('Enter priority')
-            return redirect('/setpriority')
         elif form.title.data is not None:
             if tt is None:
                 flash("Task does not exist!")
                 return redirect('/setpriority')
-            elif form.priority.data is not None:
+            elif form.priority.data == 'None':
+                tt.priority = 11
+                db.session.commit()
+                return redirect('/overview')
+            else:
                 tt.priority = form.priority.data
-                #db.session.add(tt.priority)
                 db.session.commit()
                 return redirect('/overview')
                 flash('Priority set!')
@@ -327,7 +338,11 @@ def setCategory():
     if form.validate_on_submit():
         if tt is None:
             flash("Task does not exist!")
-            return redirect('/setcategory')   
+            return redirect('/setcategory')
+        if form.category.data == 'None':
+            tt.category = None
+            db.session.commit()
+            return redirect('/overview')
         else:
             tt.category = form.category.data
             db.session.commit()
