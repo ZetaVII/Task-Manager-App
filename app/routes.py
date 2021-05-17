@@ -2,7 +2,7 @@ from flask import render_template, redirect, session, flash, url_for, request
 from flask_login import current_user, login_user
 from flask_login import logout_user
 from flask_login import login_required
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from app import app
 from app import db
@@ -86,11 +86,17 @@ def overview():
         if len(current_user.tasks) != 0:
             buttondisplay["show"] = True
         for task in current_user.tasks:
-            due_by = datetime.strptime(task.deadline, format) - datetime.now()            
+            due_by = datetime.strptime(task.deadline, format) - datetime.now() + timedelta(days=1)
 
             if task.reminder == 1:
-                taskList.append({"Title": task.title, "Reminder": True, "Deadline": task.deadline, "Due_By": due_by.days, 
-                                 "ID": task.id, "Priority": task.priority})
+                if due_by.days < 0:
+                    overdue = due_by.days * -1
+                    taskList.append({"Title": task.title, "Reminder": True, "Deadline": task.deadline,
+                                    "Due_By": f'OVERDUE BY {overdue} DAY(S)', "ID": task.id, "Priority": task.priority})
+                else:
+                    taskList.append({"Title": task.title, "Reminder": True, "Deadline": task.deadline,
+                                    "Due_By": f'DUE IN {due_by.days} DAY(S)', "ID": task.id, "Priority": task.priority})
+
                 uncompletedTasks.append({"Title":task.title})
             else:
                 taskList.append({"Title": task.title, "Deadline": task.deadline, "ID": task.id, "Priority": task.priority})

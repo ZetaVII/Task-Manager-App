@@ -18,10 +18,10 @@
                                                         <p class ="description tab">Description: {{task["Description"] }}</p>
                                                 {% endif %}
                                                 {% if "Reminder" in task %}
-                                                        <p class="reminder tab">DUE IN {{ task["Due_By"] }} DAYS</p>
+                                                        <p class="reminder tab">{{ task["Due_By"] }}</p>
                                                 {% endif %}
                                             </p>
-                                            <p class="deadline tab">Deadline: {{ task["Deadline"]}}</p>
+                                            <p class="deadline tab">Deadline: {{ task["Deadline"] }}</p>
                                             {% if task["PriorityExists"] %}
                                                 <p class="priority tab">Priority: {{ task["PriorityExists"] }} </p>
                                             {% endif %}
