@@ -2,6 +2,11 @@
 
 Use this app to create and organize tasks. Keep tasks personal or share with other users for collaborative tasks.
 
+ZetaVII: Kevin La
+SChau: Stephanie Chau
+Ethan/Eth4n: Howell Deguzman
+kdominguez49: Kassandra Dominguez 
+
 ## Table of Contents
 
 * [Technologies](#technologies)
